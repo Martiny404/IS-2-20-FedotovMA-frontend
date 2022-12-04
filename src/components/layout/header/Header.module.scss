@@ -1,0 +1,23 @@
+.search {
+	display: flex;
+	align-items: center;
+}
+.link {
+	&:hover {
+		.linkText {
+			transition: color 0.2s ease-in-out;
+		}
+
+		svg {
+			transition: fill 0.2s ease-in-out;
+		}
+
+		.linkText {
+			color: var(--color-primary);
+		}
+
+		svg {
+			fill: var(--color-primary);
+		}
+	}
+}

@@ -1,0 +1,27 @@
+.Mypaper {
+	height: 100%;
+	padding: 20px 15px;
+	position: relative;
+
+	ul {
+		margin-bottom: 20px;
+	}
+
+	.icon {
+		position: absolute;
+		top: 20px;
+		right: 15px;
+
+		svg {
+			fill: var(--color-primary);
+		}
+	}
+}
+
+.buttonsWrapper {
+	bottom: 10px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

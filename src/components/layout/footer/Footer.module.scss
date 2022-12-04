@@ -1,0 +1,27 @@
+.footer {
+	padding: 30px 0;
+}
+
+.gridItem {
+	padding-bottom: 10px;
+}
+.link {
+	display: flex;
+	align-items: center;
+	color: #fff;
+	text-decoration: none;
+	transition: color 0.2s ease-in-out;
+
+	&:hover {
+		color: var(--color-primary);
+	}
+
+	span {
+		margin-left: 8px;
+	}
+}
+
+.text {
+	text-align: center;
+	padding: 10px 0;
+}

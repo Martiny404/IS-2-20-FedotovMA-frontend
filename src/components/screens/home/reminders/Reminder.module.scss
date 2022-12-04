@@ -1,0 +1,17 @@
+.reminder {
+	padding: 20px 15px;
+
+	.block {
+		background-position: right 45px;
+		background-repeat: no-repeat;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	a {
+		font-size: 14px;
+		margin-top: auto;
+		color: var(--color-blue);
+	}
+}
