@@ -1,0 +1,43 @@
+.my-swiper {
+	&:hover {
+		.swiper-button-prev,
+		.swiper-button-next {
+			opacity: 1;
+		}
+		.swiper-button-prev {
+			transform: translateX(0px);
+		}
+		.swiper-button-next {
+			transform: translateX(0px);
+		}
+	}
+
+	.swiper-button-prev {
+		transform: translateX(-200px);
+	}
+	.swiper-button-next {
+		transform: translateX(200px);
+	}
+
+	.swiper-button-prev,
+	.swiper-button-next {
+		opacity: 0;
+		color: gray;
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		background-color: #fff;
+		box-shadow: 0 5px 20px 0 rgb(0 0 0 / 20%), inset 0 0 0 1px rgb(0 0 0 / 10%);
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			color: #fff;
+			background-color: orange;
+		}
+	}
+	.swiper-button-prev::after,
+	.swiper-button-next::after {
+		font-size: 1rem;
+		font-weight: 700;
+	}
+}

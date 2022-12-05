@@ -1,0 +1,33 @@
+$sm: 600px;
+$md: 900px;
+$lg: 1200px;
+
+.gridMain {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 24px;
+}
+
+.gridPrimary {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: 2fr 1fr;
+}
+.gridSecondary {
+	margin-top: 16px;
+	display: grid;
+	gap: 16px;
+	grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: $md) {
+	.gridMain {
+		grid-template-columns: 1fr;
+	}
+	.gridPrimary {
+		grid-template-columns: 1fr;
+	}
+	.gridSecondary {
+		grid-template-columns: 1fr;
+	}
+}

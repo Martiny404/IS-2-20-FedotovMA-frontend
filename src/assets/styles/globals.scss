@@ -8,9 +8,25 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
+}
+
+input {
+	outline: none;
+	border: none;
+	background-color: transparent;
 }
 
 * {
@@ -29,81 +45,8 @@ ul {
 	list-style: none;
 }
 
-:root {
-	--header-height: 64px;
-	--footer-height: 70px;
-	--color-primary: rgb(252, 133, 7);
-	--color-secondary: rgb(51, 51, 51);
-	--color-white: #fff;
-	--color-blue: #0d61af;
-	--shadow-dns: 0 1px 2px 0 rgb(0 0 0 / 16%);
-	--main-radius: 8px;
-}
-
-.my-swiper {
-	&:hover {
-		.swiper-button-prev,
-		.swiper-button-next {
-			opacity: 1;
-		}
-		.swiper-button-prev {
-			transform: translateX(0px);
-		}
-		.swiper-button-next {
-			transform: translateX(0px);
-		}
-	}
-
-	.swiper-button-prev {
-		transform: translateX(-200px);
-	}
-	.swiper-button-next {
-		transform: translateX(200px);
-	}
-
-	.swiper-button-prev,
-	.swiper-button-next {
-		opacity: 0;
-		color: gray;
-		width: 45px;
-		height: 45px;
-		border-radius: 50%;
-		background-color: #fff;
-		box-shadow: 0 5px 20px 0 rgb(0 0 0 / 20%), inset 0 0 0 1px rgb(0 0 0 / 10%);
-		transition: all 0.3s ease-in-out;
-
-		&:hover {
-			color: #fff;
-			background-color: orange;
-		}
-	}
-	.swiper-button-prev::after,
-	.swiper-button-next::after {
-		font-size: 1rem;
-		font-weight: 700;
-	}
-}
-
-.my-link {
-	transition: color 0.2s ease-in-out;
-
-	&:hover {
-		color: var(--color-primary);
-	}
-}
-
-.my-icon {
-	position: absolute;
-	top: 20px;
-	right: 15px;
-
-	svg {
-		fill: var(--color-primary);
-	}
-}
-
-.image-like-bg {
-	object-position: center;
-	object-fit: cover;
-	pointer-events: none;
+button {
+	outline: none;
+	border: none;
+	background-color: transparent;
 }

@@ -1,10 +1,8 @@
-// import { IOffer } from '@/types/offer.types';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { OfferSlide } from './OfferSlide';
 import styles from './FreshOffers.module.scss';
-import { IOffer } from '@/types/offer.types';
 
 SwiperCore.use([Navigation, Pagination]);
 

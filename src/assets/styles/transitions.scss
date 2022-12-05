@@ -1,0 +1,39 @@
+.header-nav-anim-enter {
+	opacity: 0;
+	transform: translateX(-350px);
+}
+
+.header-nav-anim-enter-active {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 300ms, transform 300ms;
+}
+
+.header-nav-anim-exit {
+	opacity: 1;
+}
+.header-nav-anim-exit-active {
+	opacity: 0;
+	transform: translateX(-350px);
+	transition: opacity 300ms, transform 300ms;
+}
+
+.reminder-anim-enter {
+	opacity: 0;
+	transform: scale(0.9);
+}
+
+.reminder-anim-enter-active {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 300ms, transform 300ms;
+}
+
+.reminder-anim-exit {
+	opacity: 1;
+}
+.reminder-anim-exit-active {
+	opacity: 0;
+	transform: scale(0.9);
+	transition: opacity 300ms, transform 300ms;
+}

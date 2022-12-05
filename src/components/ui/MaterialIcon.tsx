@@ -1,26 +1,34 @@
-import ChevronRight from '@mui/icons-material/ChevronRight';
-import ChevronLeft from '@mui/icons-material/ChevronLeft';
-import PersonIcon from '@mui/icons-material/Person';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import TelegramIcon from '@mui/icons-material/Telegram';
-import PublicIcon from '@mui/icons-material/Public';
-import DiscountIcon from '@mui/icons-material/Discount';
-import DevicesOtherIcon from '@mui/icons-material/DevicesOther';
+import {
+	MdChevronLeft,
+	MdChevronRight,
+	MdPerson,
+	MdShoppingCart,
+	MdOutlineFavorite,
+	MdDevicesOther,
+	MdOutlineLogin,
+	MdOutlineLogout,
+	MdSearch,
+} from 'react-icons/md';
+import { FaGithub, FaTelegramPlane, FaVk } from 'react-icons/fa';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { IoMdPricetags } from 'react-icons/io';
 import { FC } from 'react';
 
 const icons = {
-	['ChevronRight']: ChevronRight,
-	['ChevronLeft']: ChevronLeft,
-	['PersonIcon']: PersonIcon,
-	['ShoppingCartIcon']: ShoppingCartIcon,
-	['FavoriteIcon']: FavoriteIcon,
-	['GitHubIcon']: GitHubIcon,
-	['TelegramIcon']: TelegramIcon,
-	['PublicIcon']: PublicIcon,
-	['DiscountIcon']: DiscountIcon,
-	['DevicesOtherIcon']: DevicesOtherIcon,
+	['ChevronRight']: MdChevronRight,
+	['ChevronLeft']: MdChevronLeft,
+	['PersonIcon']: MdPerson,
+	['ShoppingCartIcon']: MdShoppingCart,
+	['FavoriteIcon']: MdOutlineFavorite,
+	['GitHubIcon']: FaGithub,
+	['TelegramIcon']: FaTelegramPlane,
+	['PublicIcon']: FaVk,
+	['DiscountIcon']: IoMdPricetags,
+	['DevicesOtherIcon']: MdDevicesOther,
+	['LoginIcon']: MdOutlineLogin,
+	['LogoutIcon']: MdOutlineLogout,
+	['SearchIcon']: MdSearch,
+	['MenuIcon']: GiHamburgerMenu,
 };
 
 export type MaterialIconType = keyof typeof icons;

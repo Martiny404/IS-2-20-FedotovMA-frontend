@@ -1,8 +1,9 @@
+import { Heading } from '@/components/ui/heading/Heading';
 import { Paper } from '@/components/ui/paper/Paper';
-import { Tooltip, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import styles from './Reminder.module.scss';
 
 export interface IReminderProps {
@@ -20,19 +21,39 @@ export const Reminder: FC<IReminderProps> = ({
 	title,
 	img,
 }) => {
+	const [open, setOpen] = useState(false);
+
 	const shortedText = text.slice(0, 40) + '...';
+
+	const visible = () => {
+		setOpen(true);
+	};
+
+	const hide = () => {
+		setOpen(false);
+	};
 
 	return (
 		<Paper height={230} className={styles.reminder}>
 			<div className={styles.block} style={{ backgroundImage: `url(${img})` }}>
-				<Typography variant='h6' component='span'>
+				<Heading className={styles.title} headingLevel='h4'>
 					{title}
-				</Typography>
-				<Tooltip title={text}>
-					<Typography sx={{ mb: 3 }} variant='body2' component='p'>
+				</Heading>
+
+				<div className={styles.text}>
+					<p onMouseEnter={visible} onMouseLeave={hide}>
 						{shortedText}
-					</Typography>
-				</Tooltip>
+					</p>
+					<CSSTransition
+						in={open}
+						timeout={400}
+						unmountOnExit
+						classNames='reminder-anim'
+					>
+						<p className={styles.tooltip}>{text}</p>
+					</CSSTransition>
+				</div>
+
 				<Link className='my-link' href={link}>
 					{linkText}
 				</Link>

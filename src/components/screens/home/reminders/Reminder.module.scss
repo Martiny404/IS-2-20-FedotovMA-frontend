@@ -15,3 +15,15 @@
 		color: var(--color-blue);
 	}
 }
+.title {
+	margin-bottom: 15px;
+}
+
+.tooltip {
+	margin-top: 5px;
+	background-color: var(--color-blue);
+	font-size: 12px;
+	padding: 5px;
+	color: var(--color-white);
+	border-radius: 7px;
+}

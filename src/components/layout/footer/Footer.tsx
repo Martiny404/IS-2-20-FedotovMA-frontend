@@ -1,10 +1,5 @@
 import { FC } from 'react';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import MaterialLink from '@mui/material/Link';
-import { AppBar, Container, Divider, Toolbar, Typography } from '@mui/material';
+
 import { MaterialIcon, MaterialIconType } from '../../ui/MaterialIcon';
 
 import styles from './Footer.module.scss';
@@ -35,39 +30,31 @@ const links: IFooterLink[] = [
 
 export const Footer: FC = () => {
 	return (
-		<AppBar
-			component='footer'
-			className={styles.footer}
-			color='secondary'
-			position='static'
-		>
-			<Box>
-				<Container maxWidth='sm'>
-					<Grid container spacing={2}>
-						{links.map(item => {
-							return (
-								<Grid key={item.link} className={styles.gridItem} item xs={4}>
-									<MaterialLink
-										className={styles.link}
-										target='_blank'
-										href={item.link}
-									>
-										<MaterialIcon muiName={item.icon} />
-										<span>{item.title}</span>
-									</MaterialLink>
-								</Grid>
-							);
-						})}
-					</Grid>
-					<Divider color='#fff' />
+		<footer className={styles.footer}>
+			<div className={styles.wrapper}>
+				<ul>
+					{links.map(item => {
+						return (
+							<li key={item.link} className={styles.gridItem}>
+								<a
+									className={styles.link}
+									target='_blank'
+									href={item.link}
+									rel='noreferrer'
+								>
+									<MaterialIcon muiName={item.icon} />
+									<span>{item.title}</span>
+								</a>
+							</li>
+						);
+					})}
+				</ul>
+			</div>
+			<div className='hr'></div>
 
-					<div className={styles.text}>
-						<Typography component='span' variant='body1'>
-							&copy; FedotovShop | {new Date().getFullYear()} год
-						</Typography>
-					</div>
-				</Container>
-			</Box>
-		</AppBar>
+			<div className={styles.text}>
+				<span>&copy; FedotovShop | {new Date().getFullYear()} год</span>
+			</div>
+		</footer>
 	);
 };

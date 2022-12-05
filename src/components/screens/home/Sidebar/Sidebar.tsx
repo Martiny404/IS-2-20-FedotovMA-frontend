@@ -1,6 +1,6 @@
+import { Heading } from '@/components/ui/heading/Heading';
 import { getCategoriesUrl } from '@/config/url.config';
 import { ICategory } from '@/types/category.types';
-import { List, ListItem, ListItemText, Typography } from '@mui/material';
 import Link from 'next/link';
 import { FC } from 'react';
 import { MaterialIcon, MaterialIconType } from '../../../ui/MaterialIcon';
@@ -14,20 +14,20 @@ interface ISidebar {
 export const Sidebar: FC<ISidebar> = ({ items, iconName }) => {
 	return (
 		<aside className={styles.sidebar}>
-			<Typography variant='h6' component='span'>
+			<Heading className={styles.title} headingLevel='h4'>
 				Категории
-			</Typography>
-			<List>
+			</Heading>
+			<ul className='simple-list'>
 				{items.map(item => {
 					return (
-						<ListItem key={item.id}>
+						<li key={item.id}>
 							<Link href={`${getCategoriesUrl(item.id)}`}>
-								<ListItemText className='my-link' primary={item.name} />
+								<span className='my-link'>{item.name}</span>
 							</Link>
-						</ListItem>
+						</li>
 					);
 				})}
-			</List>
+			</ul>
 			<div className='my-icon'>
 				<MaterialIcon muiName={iconName} />
 			</div>

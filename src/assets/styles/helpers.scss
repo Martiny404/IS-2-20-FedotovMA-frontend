@@ -1,0 +1,47 @@
+.my-link {
+	transition: color 0.2s ease-in-out;
+
+	&:hover {
+		color: var(--color-primary);
+	}
+}
+
+.my-icon {
+	position: absolute;
+	top: 20px;
+	right: 15px;
+
+	svg {
+		fill: var(--color-primary);
+		height: 22px;
+		width: 22px;
+	}
+}
+
+.image-like-bg {
+	object-position: center;
+	object-fit: cover;
+	pointer-events: none;
+}
+
+.hr {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	height: 1px;
+	background-color: var(--color-gray);
+}
+
+.simple-list {
+	display: flex;
+	flex-direction: column;
+
+	> li {
+		&:not(:last-child) {
+			margin-bottom: 15px;
+		}
+	}
+}
+
+.actvie-link {
+	color: var(--color-primary);
+}

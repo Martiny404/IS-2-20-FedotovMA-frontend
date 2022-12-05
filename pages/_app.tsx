@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import 'swiper/swiper-bundle.css';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import createEmotionCache from '../src/utils/createEmotionCache';
-import lightTheme from '../src/assets/styles/theme/lightTheme';
-import '../src/assets/styles/globals.scss';
+import '@/assets/styles/vars.css';
+import '@/assets/styles/globals.scss';
+import '@/assets/styles/slider.scss';
+import '@/assets/styles/helpers.scss';
+import '@/assets/styles/transitions.scss';
+
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import { Layout } from '@/components/layout/Layout';
 import { QueryClientProvider, Hydrate, QueryClient } from 'react-query';
 import { HeadProvider } from '@/providers/head/HeadProvider';
 
-const clientSideEmotionCache = createEmotionCache();
-
-type MyAppProps = AppProps & EmotionCache;
+type MyAppProps = AppProps;
 
 const MyApp = (props: MyAppProps) => {
-	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+	const { Component, pageProps } = props;
 	const [queryClient] = useState(
 		() =>
 			new QueryClient({
@@ -31,14 +30,9 @@ const MyApp = (props: MyAppProps) => {
 		<HeadProvider>
 			<QueryClientProvider client={queryClient}>
 				<Hydrate state={pageProps.dehydratedState}>
-					<CacheProvider value={emotionCache}>
-						<ThemeProvider theme={lightTheme}>
-							<CssBaseline />
-							<Layout>
-								<Component {...pageProps} />
-							</Layout>
-						</ThemeProvider>
-					</CacheProvider>
+					<Layout>
+						<Component {...pageProps} />
+					</Layout>
 				</Hydrate>
 			</QueryClientProvider>
 		</HeadProvider>
