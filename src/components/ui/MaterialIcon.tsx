@@ -8,6 +8,7 @@ import {
 	MdOutlineLogin,
 	MdOutlineLogout,
 	MdSearch,
+	MdClose,
 } from 'react-icons/md';
 import { FaGithub, FaTelegramPlane, FaVk } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -29,6 +30,7 @@ const icons = {
 	['LogoutIcon']: MdOutlineLogout,
 	['SearchIcon']: MdSearch,
 	['MenuIcon']: GiHamburgerMenu,
+	['MdClose']: MdClose,
 };
 
 export type MaterialIconType = keyof typeof icons;

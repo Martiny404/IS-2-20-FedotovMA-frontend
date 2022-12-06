@@ -1,0 +1,42 @@
+.search {
+	border: 1px solid transparent;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.15);
+	padding: 10px 15px;
+	border-radius: var(--main-radius);
+
+	svg {
+		fill: var(--color-black);
+		height: 22px;
+		width: 22px;
+	}
+	> input {
+		width: 100%;
+	}
+}
+
+@keyframes search-anim {
+	0% {
+		transform: scale(0.85);
+		opacity: 0.75;
+	}
+
+	50% {
+		opacity: 0.9;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 0.75;
+		border: 1px solid var(--color-white);
+	}
+}
+
+.animated {
+	animation-name: search-anim;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}

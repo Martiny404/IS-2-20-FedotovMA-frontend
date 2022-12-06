@@ -1,14 +1,28 @@
-import { MaterialIcon } from '@/components/ui/MaterialIcon';
-import { FC, memo } from 'react';
-import styles from '../Header.module.scss';
+import { SearchField } from '@/components/ui/search-field/SearchField';
+import { useOutside } from '@/hooks/useOutside';
+import { FC, memo, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { SearchList } from './search-list/SearchList';
+import styles from './Search.module.scss';
 
 export const Search: FC = memo(() => {
+	const { isShow: open, setIsShow: setOpen, ref } = useOutside(true);
+
+	const closeList = () => {
+		setOpen(false);
+	};
+
 	return (
-		<div>
-			<button>
-				<MaterialIcon muiName='SearchIcon' />
-			</button>
-			<input type='text' />
+		<div ref={ref} className={styles.wrapper}>
+			<SearchField searchTerm='' handleSearch={() => {}} />
+			<CSSTransition
+				in={open}
+				timeout={800}
+				unmountOnExit
+				classNames='reminder-anim'
+			>
+				<SearchList closeList={closeList} />
+			</CSSTransition>
 		</div>
 	);
 });

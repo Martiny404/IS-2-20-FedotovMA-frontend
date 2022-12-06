@@ -36,9 +36,8 @@ export const Header: FC = () => {
 					Главная
 				</Link>
 			</div>
-			<div className={styles.right}>
-				<Search />
-			</div>
+
+			<Search />
 		</header>
 	);
 };

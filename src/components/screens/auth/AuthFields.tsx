@@ -1,3 +1,4 @@
+import { Field } from '@/components/ui/form-elements/Field';
 import { validEmail } from '@/shared/regexp/validEmail.regexp';
 import { FC } from 'react';
 import { FormState, UseFormRegister } from 'react-hook-form';
@@ -16,7 +17,7 @@ export const AuthFields: FC<IAuthFields> = ({
 }) => {
 	return (
 		<>
-			<input
+			<Field
 				type='text'
 				{...register('email', {
 					required: 'Электронная почта - обязательное поле!',
@@ -28,7 +29,7 @@ export const AuthFields: FC<IAuthFields> = ({
 				placeholder='Электронная почта'
 				autoComplete='off'
 			/>
-			<input
+			<Field
 				{...register(
 					'password',
 					isPasswordRequired
