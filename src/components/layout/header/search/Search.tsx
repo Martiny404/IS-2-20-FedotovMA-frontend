@@ -1,6 +1,6 @@
 import { SearchField } from '@/components/ui/search-field/SearchField';
 import { useOutside } from '@/hooks/useOutside';
-import { FC, memo, useState } from 'react';
+import { FC, memo } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { SearchList } from './search-list/SearchList';
 import styles from './Search.module.scss';

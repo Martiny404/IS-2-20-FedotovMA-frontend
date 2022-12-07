@@ -12,6 +12,7 @@ import { Heading } from '@/components/ui/heading/Heading';
 import { IBrand } from '@/types/brand.types';
 import Image from 'next/image';
 import { BrandsSlider } from './brands-slider/BrandsSlider';
+import { Test } from './t/Test';
 
 export interface IHomeProps {
 	offers: IOfferSlide[];
@@ -68,6 +69,8 @@ export const Home: FC<IHomeProps> = ({
 				Бренды
 			</Heading>
 			<BrandsSlider brands={brands} />
+
+			<Test />
 		</Meta>
 	);
 };
