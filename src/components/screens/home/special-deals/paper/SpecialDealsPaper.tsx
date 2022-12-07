@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/form-elements/Button';
 import { Heading } from '@/components/ui/heading/Heading';
 import { MaterialIcon } from '@/components/ui/MaterialIcon';
 import { Paper } from '@/components/ui/paper/Paper';
@@ -26,7 +27,7 @@ export const SpecialDealsPaper: FC = () => {
 					</li>
 				</ul>
 				<div className={styles.buttonsWrapper}>
-					<button>Все акции</button>
+					<Button className={styles.btn}>Все акции</Button>
 				</div>
 				<div className='my-icon'>
 					<MaterialIcon muiName='DiscountIcon' />

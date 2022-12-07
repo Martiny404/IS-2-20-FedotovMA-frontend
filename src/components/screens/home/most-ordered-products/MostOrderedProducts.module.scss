@@ -1,0 +1,29 @@
+.list {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+}
+
+.slider {
+	.swiper-wrapper {
+		justify-content: space-between !important;
+	}
+	margin-bottom: 25px;
+}
+
+@media (max-width: 1170px) {
+	.slider {
+		max-width: 900px;
+	}
+}
+@media (max-width: 882px) {
+	.slider {
+		max-width: 600px;
+	}
+}
+
+@media (max-width: 629px) {
+	.slider {
+		max-width: 310px;
+	}
+}

@@ -1,9 +1,9 @@
 .field {
+	position: relative;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-left: 10px;
 	padding-right: 30px;
-	margin-bottom: 12px;
 	width: 100%;
 	transition: border-color 0.2s ease-in-out;
 	border: 1px solid transparent;
@@ -23,6 +23,18 @@
 	}
 }
 
+.error {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	bottom: -32px;
+	height: 30px;
+	left: 0;
+	font-size: 12px;
+	width: 100%;
+	color: crimson;
+}
+
 .outlined {
 	border-color: var(--color-primary);
 
@@ -30,5 +42,38 @@
 		span {
 			font-size: 12px;
 		}
+	}
+}
+
+.button {
+	border-radius: var(--main-radius);
+	min-width: 100px;
+	min-height: 34px;
+}
+
+.btnOutlined {
+	cursor: pointer;
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(--color-gray);
+	color: var(--color-black);
+	background-color: var(--color-white);
+	transition: background-color, 0.3s ease-in-out;
+
+	&:hover {
+		background-color: rgb(186, 183, 183);
+	}
+}
+
+.btnContained {
+	background: linear-gradient(0deg, #fc8507, #ffa218);
+	border-color: #fc8507 transparent #ffa218;
+	border-style: solid;
+	border-width: 1px;
+	color: var(--color-white);
+	transition: box-shadow 0.3s ease-in-out;
+
+	&:hover {
+		box-shadow: inset 0 0 0 50px hsl(0deg 0% 100% / 10%);
 	}
 }

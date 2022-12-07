@@ -6,3 +6,18 @@
 	box-shadow: var(--shadow-dns);
 	background-color: var(--color-white);
 }
+
+.title {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.btns {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.authField {
+	margin-bottom: 50px;
+}

@@ -1,10 +1,10 @@
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import SwiperCore, { Navigation } from 'swiper';
 import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { OfferSlide } from './OfferSlide';
 import styles from './FreshOffers.module.scss';
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation]);
 
 export interface IOfferSlide {
 	id: number;

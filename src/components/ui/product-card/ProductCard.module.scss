@@ -1,0 +1,91 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--color-white);
+	width: 280px;
+	height: 356px;
+	border-radius: var(--main-radius);
+	box-shadow: var(--shadow-dns);
+	padding: 12px;
+
+	> .textWrap {
+		margin-bottom: 8px;
+		position: relative;
+
+		.tooltip {
+			position: absolute;
+			top: -30px;
+			left: 0;
+			width: 255px;
+			height: 160px;
+			background-color: rgb(13, 97, 175, 0.84);
+			font-size: 13px;
+			padding: 12px;
+			color: var(--color-white);
+			border-radius: 7px;
+			overflow-y: scroll;
+		}
+	}
+
+	.img {
+		display: block;
+		width: 100%;
+		position: relative;
+		height: 200px;
+		margin-bottom: 12px;
+		img {
+			width: 100%;
+			object-fit: contain;
+		}
+	}
+	p {
+		min-height: 45px;
+		line-height: 1.4;
+	}
+	.rating {
+		display: flex;
+		align-items: center;
+
+		> span {
+			font-weight: 700;
+		}
+		> svg {
+			margin-left: 3px;
+			height: 18px;
+			width: 18px;
+			fill: var(--color-primary);
+		}
+	}
+	.actions {
+		margin-top: auto;
+		display: flex;
+		align-items: center;
+
+		> .price {
+			font-size: 18px;
+			font-weight: 700;
+		}
+
+		> .btns {
+			margin-left: auto;
+			display: flex;
+			align-items: center;
+
+			> button {
+				&:not(:last-child) {
+					margin-right: 15px;
+				}
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-width: auto;
+				width: 44px;
+				height: 44px;
+				> svg {
+					width: 18px;
+					height: 18px;
+				}
+			}
+		}
+	}
+}

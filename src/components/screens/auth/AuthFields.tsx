@@ -3,6 +3,7 @@ import { validEmail } from '@/shared/regexp/validEmail.regexp';
 import { FC } from 'react';
 import { FormState, UseFormRegister } from 'react-hook-form';
 import { IAuthInput } from './auth.interface';
+import styles from './Auth.module.scss';
 
 interface IAuthFields {
 	register: UseFormRegister<any>;
@@ -18,6 +19,7 @@ export const AuthFields: FC<IAuthFields> = ({
 	return (
 		<>
 			<Field
+				className={styles.authField}
 				type='text'
 				{...register('email', {
 					required: 'Электронная почта - обязательное поле!',
@@ -28,8 +30,10 @@ export const AuthFields: FC<IAuthFields> = ({
 				})}
 				placeholder='Электронная почта'
 				autoComplete='off'
+				error={errors.email}
 			/>
 			<Field
+				className={styles.authField}
 				{...register(
 					'password',
 					isPasswordRequired
@@ -45,6 +49,7 @@ export const AuthFields: FC<IAuthFields> = ({
 				type='password'
 				autoComplete='off'
 				placeholder='Пароль'
+				error={errors.password}
 			/>
 		</>
 	);

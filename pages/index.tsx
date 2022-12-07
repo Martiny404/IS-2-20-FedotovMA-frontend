@@ -1,9 +1,18 @@
 import { Home } from '@/components/screens/home/Home';
 import { useFreshOffers } from '@/hooks/data/useFreshOffers';
+import { useGetAllBrands } from '@/hooks/data/useGetAllBrands';
 import { useGetAllCategories } from '@/hooks/data/useGetAllCategories';
+import { useMostOrderedProducts } from '@/hooks/data/useMostOrderedProducts';
+import { getAllBrands } from '@/services/brand.service';
 import { getAllCategories } from '@/services/category.service';
 import { getFreshOffers } from '@/services/offer.service';
-import { FRESH_OFFERS, GET_ALL_CATEGORIES } from 'constants/queries';
+import { getMostOrdered } from '@/services/statistics.service';
+import {
+	FRESH_OFFERS,
+	GET_ALL_BRANDS,
+	GET_ALL_CATEGORIES,
+	GET_MOST_ORDERED_PRODUCTS,
+} from 'constants/queries';
 
 import type { GetStaticProps, NextPage } from 'next';
 import { dehydrate, QueryClient } from 'react-query';
@@ -13,6 +22,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
 	await queryClient.prefetchQuery(FRESH_OFFERS, getFreshOffers);
 	await queryClient.prefetchQuery(GET_ALL_CATEGORIES, getAllCategories);
+	await queryClient.prefetchQuery(GET_MOST_ORDERED_PRODUCTS, getMostOrdered);
+	await queryClient.prefetchQuery(GET_ALL_BRANDS, getAllBrands);
 
 	return {
 		props: {
@@ -24,7 +35,16 @@ export const getStaticProps: GetStaticProps = async () => {
 const HomePage: NextPage = () => {
 	const offers = useFreshOffers();
 	const categories = useGetAllCategories();
-	return <Home offers={offers || []} categories={categories || []} />;
+	const mostOrdered = useMostOrderedProducts();
+	const brands = useGetAllBrands();
+	return (
+		<Home
+			offers={offers || []}
+			categories={categories || []}
+			mostOrdered={mostOrdered || []}
+			brands={brands || []}
+		/>
+	);
 };
 
 export default HomePage;

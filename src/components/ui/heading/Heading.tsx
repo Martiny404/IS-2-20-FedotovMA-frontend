@@ -8,7 +8,12 @@ export const Heading: FC<HeadingProps> = ({
 	headingLevel,
 	children,
 	className,
+	style,
 }) => {
 	const THeading = headingLevel;
-	return <THeading className={className}>{children}</THeading>;
+	return (
+		<THeading style={style} className={className}>
+			{children}
+		</THeading>
+	);
 };

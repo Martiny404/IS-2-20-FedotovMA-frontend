@@ -6,7 +6,7 @@ import { useOutside } from '@/hooks/useOutside';
 import clsx from 'clsx';
 
 export const Field = forwardRef<HTMLInputElement, IField>(
-	({ placeholder, error, type = 'text', style, ...rest }, ref) => {
+	({ placeholder, error, type = 'text', style, className, ...rest }, ref) => {
 		const { isShow, ref: divRef, setIsShow } = useOutside(false);
 
 		const outline = () => {
@@ -17,7 +17,7 @@ export const Field = forwardRef<HTMLInputElement, IField>(
 			<div
 				ref={divRef}
 				onClick={outline}
-				className={clsx(styles.field, {
+				className={clsx(styles.field, className, {
 					[styles.outlined]: isShow,
 				})}
 				style={style}

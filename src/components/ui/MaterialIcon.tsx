@@ -9,10 +9,12 @@ import {
 	MdOutlineLogout,
 	MdSearch,
 	MdClose,
+	MdStar,
 } from 'react-icons/md';
 import { FaGithub, FaTelegramPlane, FaVk } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdPricetags } from 'react-icons/io';
+
 import { FC } from 'react';
 
 const icons = {
@@ -31,6 +33,7 @@ const icons = {
 	['SearchIcon']: MdSearch,
 	['MenuIcon']: GiHamburgerMenu,
 	['MdClose']: MdClose,
+	['MdStar']: MdStar,
 };
 
 export type MaterialIconType = keyof typeof icons;
