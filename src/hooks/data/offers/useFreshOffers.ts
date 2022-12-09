@@ -4,7 +4,7 @@ import { FRESH_OFFERS } from 'constants/queries';
 import { useQuery } from 'react-query';
 
 export const useFreshOffers = () => {
-	const { data } = useQuery(FRESH_OFFERS, () => getFreshOffers(), {
+	const { data } = useQuery(FRESH_OFFERS, getFreshOffers, {
 		select: data =>
 			data.map(
 				(item): IOfferSlide => ({

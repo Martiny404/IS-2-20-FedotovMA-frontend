@@ -14,3 +14,5 @@ export const getStatisticsApi = (endpoint: string) =>
 	`${API_URL}/statistics/${endpoint}`;
 export const getSpecialOfferApi = (endpoint: string) =>
 	`${API_URL}/special-offer/${endpoint}`;
+
+export const getAuthApi = (endpoint: string) => `${API_URL}/auth/${endpoint}`;

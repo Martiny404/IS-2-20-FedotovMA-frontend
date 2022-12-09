@@ -6,7 +6,7 @@ import { SearchList } from './search-list/SearchList';
 import styles from './Search.module.scss';
 
 export const Search: FC = memo(() => {
-	const { isShow: open, setIsShow: setOpen, ref } = useOutside(true);
+	const { isShow: open, setIsShow: setOpen, ref } = useOutside(false);
 
 	const closeList = () => {
 		setOpen(false);

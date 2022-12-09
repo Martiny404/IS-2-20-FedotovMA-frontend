@@ -40,8 +40,8 @@ export const AuthFields: FC<IAuthFields> = ({
 						? {
 								required: 'Пароль - обязательное поле!',
 								minLength: {
-									value: 6,
-									message: 'Длина должна быть от 6 символов!',
+									value: 5,
+									message: 'Длина должна быть от 5 символов!',
 								},
 						  }
 						: {}

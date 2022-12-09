@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'swiper/swiper-bundle.css';
+import 'react-toastify/dist/ReactToastify.css';
 import '@/assets/styles/vars.css';
 import '@/assets/styles/globals.scss';
 import '@/assets/styles/slider.scss';
@@ -7,13 +8,17 @@ import '@/assets/styles/helpers.scss';
 import '@/assets/styles/transitions.scss';
 
 import { AppProps } from 'next/dist/shared/lib/router/router';
-import { Layout } from '@/components/layout/Layout';
 import { QueryClientProvider, Hydrate, QueryClient } from 'react-query';
-import { HeadProvider } from '@/providers/head/HeadProvider';
 
-type MyAppProps = AppProps;
+import { Provider } from 'react-redux';
+import { store } from '@/store/store';
 
-const MyApp = (props: MyAppProps) => {
+import { MainProvider } from '@/providers/MainProvider';
+import { ComponentAuthFields } from '@/types/auth.types';
+
+type AppPropsType = AppProps & ComponentAuthFields;
+
+const MyApp = (props: AppPropsType) => {
 	const { Component, pageProps } = props;
 	const [queryClient] = useState(
 		() =>
@@ -27,15 +32,15 @@ const MyApp = (props: MyAppProps) => {
 	);
 
 	return (
-		<HeadProvider>
+		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
 				<Hydrate state={pageProps.dehydratedState}>
-					<Layout>
+					<MainProvider Component={Component}>
 						<Component {...pageProps} />
-					</Layout>
+					</MainProvider>
 				</Hydrate>
 			</QueryClientProvider>
-		</HeadProvider>
+		</Provider>
 	);
 };
 

@@ -6,3 +6,8 @@ export const getFreshOffers = async () => {
 	const data = await axios.get<IOffer[]>(getSpecialOfferApi('fresh'));
 	return data.data;
 };
+
+export const getAllOffers = async () => {
+	const response = await axios.get<IOffer[]>(getSpecialOfferApi(''));
+	return response.data;
+};

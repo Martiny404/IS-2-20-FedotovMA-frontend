@@ -13,7 +13,7 @@
 }
 
 .block {
-	button {
+	.headerBtn {
 		padding-left: 15px;
 		display: flex;
 		align-items: center;
@@ -39,24 +39,9 @@
 	}
 
 	> li {
-		> a {
+		.link {
 			display: flex;
 			align-items: center;
-		}
-	}
-}
-.authItems {
-	padding: 10px 15px;
-
-	a {
-		display: flex;
-		align-items: center;
-		> span {
-			margin-left: 10px;
-		}
-		> svg {
-			height: 22px;
-			width: 22px;
 		}
 	}
 }
@@ -84,6 +69,10 @@
 	position: absolute;
 	top: -9px;
 	right: -5px;
+}
+
+.linkText {
+	font-size: 16px;
 }
 
 .link {

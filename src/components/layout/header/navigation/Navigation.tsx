@@ -4,6 +4,7 @@ import { NavigationItem } from './NavigationItem';
 import { CSSTransition } from 'react-transition-group';
 import { AuthItems } from './AuthItems';
 import styles from './Navigation.module.scss';
+import { useAuth } from '@/hooks/useAuth';
 
 export interface INavigationProps {
 	handleDrawerClose: () => void;
@@ -14,6 +15,8 @@ export const Navigation: FC<INavigationProps> = ({
 	handleDrawerClose,
 	open,
 }) => {
+	const { user } = useAuth();
+
 	return (
 		<CSSTransition
 			classNames='header-nav-anim'
@@ -23,7 +26,7 @@ export const Navigation: FC<INavigationProps> = ({
 		>
 			<nav className={styles.nav}>
 				<div className={styles.block}>
-					<button onClick={handleDrawerClose}>
+					<button className={styles.headerBtn} onClick={handleDrawerClose}>
 						<MaterialIcon muiName='ChevronRight' />
 						<span>FedotovShop</span>
 					</button>

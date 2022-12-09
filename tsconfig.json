@@ -27,7 +27,9 @@
 			"@/hooks/*": ["hooks/*"],
 			"@/services/*": ["services/*"],
 			"@/utils/*": ["utils/*"],
-			"@/constants/*": ["constants/*"]
+			"@/constants/*": ["constants/*"],
+			"@/store/*": ["store/*"],
+			"@/api/*": ["api/*"]
 		}
 	},
 	"include": [

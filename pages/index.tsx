@@ -1,8 +1,8 @@
 import { Home } from '@/components/screens/home/Home';
-import { useFreshOffers } from '@/hooks/data/useFreshOffers';
-import { useGetAllBrands } from '@/hooks/data/useGetAllBrands';
-import { useGetAllCategories } from '@/hooks/data/useGetAllCategories';
-import { useMostOrderedProducts } from '@/hooks/data/useMostOrderedProducts';
+import { useFreshOffers } from '@/hooks/data/offers/useFreshOffers';
+import { useGetAllBrands } from '@/hooks/data/brand/useGetAllBrands';
+import { useGetAllCategories } from '@/hooks/data/category/useGetAllCategories';
+import { useMostOrderedProducts } from '@/hooks/data/statistic/useMostOrderedProducts';
 import { getAllBrands } from '@/services/brand.service';
 import { getAllCategories } from '@/services/category.service';
 import { getFreshOffers } from '@/services/offer.service';

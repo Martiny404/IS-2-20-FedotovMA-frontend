@@ -21,7 +21,11 @@ const settings = {
 
 export const FreshOffers: FC<{ offers: IOfferSlide[] }> = ({ offers }) => {
 	return (
-		<Swiper className={`${styles.slider} my-swiper`} {...settings}>
+		<Swiper
+			aria-label='offers-slider'
+			className={`${styles.slider} my-swiper`}
+			{...settings}
+		>
 			{offers.map(offer => (
 				<SwiperSlide key={offer.id}>
 					<OfferSlide
