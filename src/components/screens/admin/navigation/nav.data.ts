@@ -3,6 +3,11 @@ import { IAdminNavItem } from './nav.interface';
 
 export const navItems: IAdminNavItem[] = [
 	{
+		icon: 'TbReportAnalytics',
+		link: '/admin',
+		title: 'Отчеты',
+	},
+	{
 		icon: 'FaUsers',
 		link: getAdminUrl('clients'),
 		title: 'Клиенты',
@@ -22,11 +27,7 @@ export const navItems: IAdminNavItem[] = [
 		link: getAdminUrl('categories'),
 		title: 'Категории',
 	},
-	{
-		icon: 'TbReportAnalytics',
-		link: getAdminUrl('statistics'),
-		title: 'Отчеты',
-	},
+
 	{
 		icon: 'GoPackage',
 		link: getAdminUrl('orders'),

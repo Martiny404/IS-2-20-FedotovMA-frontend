@@ -6,19 +6,17 @@ import { navItems } from './nav.data';
 
 export const AdminNavigation: FC = () => {
 	return (
-		<header>
-			<nav className={styles.nav}>
-				<ul>
-					{navItems.map(item => (
-						<AdminNavigationItem
-							key={item.link}
-							title={item.title}
-							icon={item.icon}
-							link={item.link}
-						/>
-					))}
-				</ul>
-			</nav>
-		</header>
+		<nav className={styles.nav}>
+			<ul>
+				{navItems.map(item => (
+					<AdminNavigationItem
+						key={item.link}
+						title={item.title}
+						icon={item.icon}
+						link={item.link}
+					/>
+				))}
+			</ul>
+		</nav>
 	);
 };

@@ -7,6 +7,20 @@
 	background-color: var(--color-white);
 }
 
+.modal {
+	height: 100%;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	> span {
+		font-weight: 700;
+		font-size: 18px;
+	}
+}
+
 .title {
 	text-align: center;
 	margin-bottom: 30px;

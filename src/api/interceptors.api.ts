@@ -6,7 +6,7 @@ import { getNewTokens } from '@/services/auth.serivce';
 
 import { API_URL } from '@/config/api.config';
 
-import { errorCatcher, getContentType } from '@/api/helpers.api';
+import { getContentType } from '@/api/helpers.api';
 
 export const axiosClassic = axios.create({
 	baseURL: API_URL,
@@ -16,6 +16,7 @@ export const axiosClassic = axios.create({
 export const instance = axios.create({
 	baseURL: API_URL,
 	headers: getContentType(),
+	withCredentials: true,
 });
 
 instance.interceptors.request.use(config => {
@@ -40,8 +41,9 @@ instance.interceptors.response.use(
 			try {
 				await getNewTokens();
 				return instance.request(originalRequest);
-			} catch (e) {
-				if (errorCatcher(e) === 'jwt expired') clearTokensFromStorage();
+			} catch (e: any) {
+				console.log(e.message);
+				if (e.response.status == 401) clearTokensFromStorage();
 			}
 		}
 		throw error;

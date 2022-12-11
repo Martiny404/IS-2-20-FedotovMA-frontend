@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const HomePage: NextPage = () => {
 	const offers = useFreshOffers();
 	const categories = useGetAllCategories();
-	const mostOrdered = useMostOrderedProducts();
+	const { data: mostOrdered } = useMostOrderedProducts();
 	const brands = useGetAllBrands();
 	return (
 		<Home

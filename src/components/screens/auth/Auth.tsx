@@ -1,5 +1,5 @@
 import { Meta } from '@/utils/meta/Meta';
-import { FC, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IAuthInput } from './auth.interface';
 import { AuthFields } from './AuthFields';
@@ -10,9 +10,11 @@ import { useActions } from '@/hooks/useActions';
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/router';
 import { IS_CLIENT } from '@/constants/other';
+import { Modal } from '@/components/ui/modal';
 
 export const Auth: FC = () => {
 	const [type, setType] = useState<'login' | 'register'>('login');
+	const [open, setOpen] = useState(false);
 	const { push } = useRouter();
 	const {
 		register: registerField,
@@ -23,6 +25,15 @@ export const Auth: FC = () => {
 		mode: 'onChange',
 	});
 
+	const handleClose = useCallback(() => {
+		setOpen(false);
+		if (IS_CLIENT) {
+			setTimeout(() => {
+				push('/');
+			}, 600);
+		}
+	}, [push]);
+
 	const { login, register } = useActions();
 
 	const { isLoading } = useAuth();
@@ -31,10 +42,14 @@ export const Auth: FC = () => {
 		if (type === 'login') login(data);
 		else if (type === 'register') register(data);
 		reset();
-		if (IS_CLIENT) {
-			setTimeout(() => {
-				push('/');
-			}, 1900);
+		if (type === 'login') {
+			if (IS_CLIENT) {
+				setTimeout(() => {
+					push('/');
+				}, 1900);
+			}
+		} else {
+			setOpen(true);
 		}
 	};
 
@@ -44,6 +59,11 @@ export const Auth: FC = () => {
 				<Heading headingLevel='h1' className={styles.title}>
 					Форма входа | регистрации
 				</Heading>
+				<Modal onClose={handleClose} opened={open}>
+					<div className={styles.modal}>
+						<span>Подтвердите регистрацию по почте!</span>
+					</div>
+				</Modal>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<AuthFields
 						formState={formState}

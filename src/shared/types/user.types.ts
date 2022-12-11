@@ -1,6 +1,6 @@
 export interface IUserInfo {
-	email: string;
 	id: number;
+	email: string;
 	isActivated: boolean;
 	role: UserRole;
 }
@@ -14,4 +14,16 @@ export type UserRole = 'admin' | 'user';
 
 export interface IUser extends ITokens {
 	user: IUserInfo;
+}
+
+export namespace UserTypes {
+	export interface IUserInfo {
+		id: number;
+		email: string;
+		isActivated: boolean;
+		role: {
+			roleName: UserRole;
+		};
+		createdAt: string;
+	}
 }

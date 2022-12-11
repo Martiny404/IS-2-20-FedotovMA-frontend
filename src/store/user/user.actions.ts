@@ -19,7 +19,6 @@ export const register = createAsyncThunk<IUser, IUserLoginData>(
 	async ({ email, password }, thunkApi) => {
 		try {
 			const response = await authRegister(email, password);
-			notification('Регистрация прошла успешно!', 'success', 2000);
 			return response;
 		} catch (e) {
 			errorHandler(e);

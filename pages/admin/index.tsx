@@ -1,8 +1,8 @@
-import { Admin } from '@/components/screens/admin/Admin';
+import { AdminStatistics } from '@/components/screens/admin/statistics/AdminStatistics';
 import { NextPageAuth } from '@/types/auth.types';
 
 const AdminHomePage: NextPageAuth = () => {
-	return <Admin />;
+	return <AdminStatistics />;
 };
 
 AdminHomePage.onlyForAdmin = true;

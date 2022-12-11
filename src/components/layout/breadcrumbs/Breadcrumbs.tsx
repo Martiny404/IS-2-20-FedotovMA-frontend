@@ -16,7 +16,7 @@ export const Breadcrumbs: FC = () => {
 	const [routes, setRoutes] = useState<IBreadcrumb[]>([]);
 
 	useEffect(() => {
-		if (router.pathname === '/') {
+		if (router.asPath === '/') {
 			setRoutes([
 				{
 					title: breadcrumbs[''],
@@ -26,10 +26,10 @@ export const Breadcrumbs: FC = () => {
 			return;
 		}
 
-		const splitedPath = router.pathname.split('/');
+		const splitedPath = router.asPath.split('/');
 
 		const r: IBreadcrumb[] = splitedPath.map(p => {
-			const title = breadcrumbs[p];
+			const title = breadcrumbs.hasOwnProperty(p) ? breadcrumbs[p] : p;
 
 			return {
 				title,
@@ -38,7 +38,7 @@ export const Breadcrumbs: FC = () => {
 		});
 
 		setRoutes(r);
-	}, [router.pathname]);
+	}, [router.asPath]);
 
 	return (
 		<ul className={styles.breadcrumbs}>

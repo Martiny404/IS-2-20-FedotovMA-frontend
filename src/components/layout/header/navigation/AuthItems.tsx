@@ -1,7 +1,6 @@
 import { MaterialIcon } from '@/components/ui/MaterialIcon';
 import { useActions } from '@/hooks/useActions';
 import { useAuth } from '@/hooks/useAuth';
-import clsx from 'clsx';
 import Link from 'next/link';
 import { FC } from 'react';
 
@@ -15,7 +14,7 @@ export const AuthItems: FC = () => {
 		<ul className={styles.list}>
 			{!user ? (
 				<li>
-					<Link href='/login' className={styles.link}>
+					<Link href='/auth' className={styles.link}>
 						<div className={styles.icon}>
 							<MaterialIcon muiName='LoginIcon' />
 						</div>

@@ -2,6 +2,7 @@
 const nextConfig = {
 	poweredByHeader: false,
 	swcMinify: true,
+	reactStrictMode: false,
 	optimizeFonts: true,
 	env: {
 		APP_URL: process.env.REACT_APP_URL,

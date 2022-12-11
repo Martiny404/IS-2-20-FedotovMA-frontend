@@ -1,9 +1,10 @@
 export interface IMostOrderedProduct {
 	c: string;
 	rating: string;
-	name: string;
+	product_name: string;
 	description: string;
 	id: number;
+	in_stock: string;
 	created_at: Date;
 	options: Object & Record<string, any>;
 	price: number;

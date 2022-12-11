@@ -30,11 +30,11 @@ export const ProductCard: FC<IProductCard> = ({ item, className }) => {
 	return (
 		<li className={clsx(styles.card, className)}>
 			<Link href='/' className={styles.img}>
-				<Image src={item.poster} alt={item.name} fill />
+				<Image src={item.poster} alt={item.product_name} fill />
 			</Link>
 			<ProductCardDescription
 				fullText={text}
-				name={item.name}
+				name={item.product_name}
 				shortText={slicedText}
 			/>
 			<div className={styles.rating}>

@@ -8,7 +8,7 @@ export interface IModal {
 	opened: boolean;
 }
 
-export const SimpleAnimatedModal: FC<PropsWithChildren<IModal>> = ({
+export const Modal: FC<PropsWithChildren<IModal>> = ({
 	opened,
 	onClose,
 	children,

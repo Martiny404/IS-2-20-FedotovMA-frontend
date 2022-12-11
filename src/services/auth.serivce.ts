@@ -10,7 +10,7 @@ export const register = async (
 	email: string,
 	password: string
 ): Promise<IUser> => {
-	const response = await axiosClassic.post<IUser>(getAuthApi('/register'), {
+	const response = await axiosClassic.post<IUser>(getAuthApi('/registration'), {
 		email,
 		password,
 	});

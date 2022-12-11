@@ -5,3 +5,5 @@ export const GET_ALL_BRANDS = 'get-all-brands';
 export const GET_OFFERS_BY_BRAND = 'get-offers-by-brand';
 export const GET_OFFERS_BY_CATEGORY = 'get-offers-by-category';
 export const GET_OFFERS = 'get-offers';
+export const GET_ORDERS_BY_TIME = 'get-orders-by-time';
+export const GET_ALL_USERS = 'get-all-users';
