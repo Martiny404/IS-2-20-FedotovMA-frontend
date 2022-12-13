@@ -1,3 +1,5 @@
+import { OrderStatus } from './order.types';
+
 export namespace OrderByTme {
 	export interface User {
 		id: number;
@@ -28,11 +30,11 @@ export namespace OrderByTme {
 
 	export interface IOrder {
 		id: number;
-		createdAt: Date;
-		orderStatus: string;
+		createdAt: string;
+		orderStatus: OrderStatus;
 		is_activated: boolean;
 		total?: number;
 		user: User;
-		orderProducts: IOrderProductByTime[];
+		orderProducts: IOrderProduct[];
 	}
 }

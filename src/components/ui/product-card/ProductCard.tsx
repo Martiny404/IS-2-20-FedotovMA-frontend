@@ -1,4 +1,5 @@
 import { IMostOrderedProduct } from '@/types/statistics.types';
+import { parsePrice } from '@/utils/parsePrice';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -42,9 +43,7 @@ export const ProductCard: FC<IProductCard> = ({ item, className }) => {
 				<MaterialIcon muiName='MdStar' />
 			</div>
 			<div className={styles.actions}>
-				<div className={styles.price}>
-					{new Intl.NumberFormat('ru-RU').format(item.price)} ₽
-				</div>
+				<div className={styles.price}>{parsePrice(item.price)} ₽</div>
 				<div className={styles.btns}>
 					<Button variant='outlined'>
 						<MaterialIcon muiName='FavoriteIcon' />

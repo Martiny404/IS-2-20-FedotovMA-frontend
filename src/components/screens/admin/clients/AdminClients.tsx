@@ -1,5 +1,6 @@
 import { getAdminUrl } from '@/config/url.config';
 import { useGetAllUsers } from '@/hooks/data/users/useGetAllUsers';
+import { parseDate } from '@/utils/parseDate';
 import Link from 'next/link';
 
 import { FC } from 'react';
@@ -14,13 +15,9 @@ export const AdminClients: FC = () => {
 			<AdminNavigation />
 			<ul className={styles.clients}>
 				{clients?.map(item => {
-					const date = new Date(item.createdAt).toLocaleDateString('ru-RU', {
-						year: 'numeric',
-						month: 'short',
-						day: 'numeric',
-					});
+					const date = parseDate(item.createdAt);
 					return (
-						<Link key={item.id} href={getAdminUrl('clients/' + item.id)}>
+						<Link key={item.id} href={getAdminUrl(`clients/${item.id}`)}>
 							<li>
 								<span>ID: {item.id}</span>
 								<span>Почта: {item.email}</span>

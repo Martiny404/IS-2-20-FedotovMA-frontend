@@ -18,12 +18,6 @@
 	}
 }
 
-.image-like-bg {
-	object-position: center;
-	object-fit: cover;
-	pointer-events: none;
-}
-
 .hr {
 	margin-top: 5px;
 	margin-bottom: 5px;
@@ -44,4 +38,53 @@
 
 .actvie-link {
 	color: var(--color-primary);
+}
+
+.my-datepicker {
+	font-family: 'Roboto', monospace;
+	background-color: var(--color-primary);
+	padding: 15px;
+	color: #ffffff;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator {
+	background-color: #ffffff;
+	padding: 5px;
+	cursor: pointer;
+	border-radius: 3px;
+	-webkit-appearance: none;
+}
+
+@media (max-width: 500px) {
+	.my-datepicker {
+		width: 140px;
+		padding: 6px;
+	}
+
+	::-webkit-calendar-picker-indicator {
+		background-color: #ffffff;
+		padding: 3px;
+		cursor: pointer;
+		border-radius: 3px;
+		-webkit-appearance: none;
+	}
+}
+
+.red {
+	color: crimson;
+}
+.green {
+	color: green;
+}
+.yellow {
+	color: var(--color-primary);
+}
+.blue {
+	color: blue;
+}
+.violet {
+	color: blueviolet;
 }

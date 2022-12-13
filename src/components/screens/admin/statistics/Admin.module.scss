@@ -24,6 +24,7 @@
 			justify-content: center;
 			position: relative;
 			margin-bottom: 12px;
+			align-self: center;
 			img {
 				width: 100%;
 				object-fit: contain;
@@ -90,6 +91,79 @@
 				margin-bottom: 10px;
 				margin-right: 0;
 			}
+		}
+	}
+}
+
+.ordersByTime {
+	overflow: hidden;
+}
+
+.inputs {
+	margin-bottom: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.list {
+	display: grid;
+
+	row-gap: 20px;
+	column-gap: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+	> li {
+		position: relative;
+		border-radius: var(--main-radius);
+		padding: 5px;
+		box-shadow: var(--shadow-dns);
+		background-color: var(--color-white);
+
+		button {
+			cursor: pointer;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+
+			&:hover {
+				> svg {
+					fill: var(--color-primary);
+				}
+			}
+
+			> svg {
+				transition: fill 0.25s ease-in-out;
+				width: 22px;
+				height: 22px;
+			}
+		}
+
+		> .itemInfo {
+			display: flex;
+			flex-direction: column;
+			> span {
+				display: block;
+				&:not(:last-child) {
+					margin-bottom: 12px;
+				}
+			}
+
+			> a {
+				> span {
+					color: blue;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 539px) {
+	.list {
+		column-gap: 20px;
+		> li {
+			padding: 20px;
 		}
 	}
 }

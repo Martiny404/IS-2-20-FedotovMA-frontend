@@ -1,4 +1,4 @@
-import instance from '@/api/interceptors.api';
+import { instance } from '@/api/interceptors.api';
 import { getUserApi } from '@/config/api.config';
 import { UserTypes } from '@/types/user.types';
 

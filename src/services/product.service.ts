@@ -7,3 +7,8 @@ export const getBySearchTerm = async (searchTerm?: string) => {
 	});
 	return data.data;
 };
+
+export const getOne = async (id: number) => {
+	const response = await axios.get(getProductApi(`info/${id}`));
+	return response.data;
+};

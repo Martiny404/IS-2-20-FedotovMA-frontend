@@ -12,7 +12,6 @@ import { errorHandler } from '@/utils/error-handler';
 import { IUserLoginData } from './user.interface';
 import { notification } from '@/utils/notification';
 import { IUser } from '@/types/user.types';
-import { AxiosError } from 'axios';
 
 export const register = createAsyncThunk<IUser, IUserLoginData>(
 	'auth/register',
@@ -52,18 +51,16 @@ export const checkAuth = createAsyncThunk<IUser>(
 		try {
 			const response = await refresh();
 			return response.data;
-		} catch (e) {
-			if (e instanceof AxiosError) {
-				if (e.response?.status == 401) {
-					notification(
-						'Вас выкинуло из системы, время сессии подошло к концу!',
-						'error',
-						2000
-					);
-
-					thunkApi.dispatch(logout());
-				}
+		} catch (e: any) {
+			if (e.response?.status == 401) {
+				notification(
+					'Вас выкинуло из системы, время сессии подошло к концу!',
+					'error',
+					2000
+				);
+				thunkApi.dispatch(logout());
 			}
+
 			errorHandler(e);
 			return thunkApi.rejectWithValue(e);
 		}

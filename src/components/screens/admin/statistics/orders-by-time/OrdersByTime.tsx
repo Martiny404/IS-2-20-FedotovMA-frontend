@@ -1,29 +1,45 @@
-import { SkeletonLoader } from '@/components/ui/skeleton/SkeletonLoader';
+import { DatePicker } from '@/components/ui/date-picker/DatePicker';
 import { useGetOrdersByTime } from '@/hooks/data/statistic/useGetOrdersByTime';
-import { FC } from 'react';
+import { useRouter } from 'next/router';
+import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 import styles from '../Admin.module.scss';
+import { OrderByTimeList } from './list/OrderByTimeList';
 
 export const OrdersByTime: FC = () => {
-	const { data: ordersByTime, isLoading: isOrdersByTimeLoading } =
-		useGetOrdersByTime();
+	const [start, setStart] = useState('');
+	const [end, setEnd] = useState('');
+	const { data, isFetched, refetch } = useGetOrdersByTime(start, end);
 
-	if (isOrdersByTimeLoading) {
-		<SkeletonLoader
-			width='100%'
-			className={styles.loader}
-			height={100}
-			count={5}
-		/>;
-	}
+	useEffect(() => {
+		if (start !== '' && end !== '') {
+			refetch();
+		}
+	}, [start, end, refetch]);
+
+	const changeStart = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+		setStart(e.target.value);
+	}, []);
+	const changeEnd = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+		setEnd(e.target.value);
+	}, []);
 
 	return (
-		<ul>
-			{ordersByTime?.map(item => (
-				<li key={item.id}>
-					{item.id} -- {item.orderStatus}
-				</li>
-			))}
-		</ul>
+		<div className={styles.ordersByTime}>
+			<div className={styles.inputs}>
+				<DatePicker value={start} onChange={changeStart} />
+				<DatePicker value={end} onChange={changeEnd} />
+			</div>
+
+			<CSSTransition
+				in={isFetched}
+				timeout={700}
+				unmountOnExit
+				classNames='orders-anim'
+			>
+				<OrderByTimeList items={data || []} />
+			</CSSTransition>
+		</div>
 	);
 };

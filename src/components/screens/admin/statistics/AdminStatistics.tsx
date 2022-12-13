@@ -4,6 +4,8 @@ import { AdminNavigation } from '../navigation/AdminNavigation';
 import { Heading } from '@/components/ui/heading/Heading';
 import { OrdersByTime } from './orders-by-time/OrdersByTime';
 import { TopThreeProducts } from './most-ordered-top-three/TopThreeProducts';
+import { IMostOrderedProduct } from '@/types/statistics.types';
+import { OrderByTme } from '@/types/order/order-by-time.types';
 
 export const AdminStatistics: FC = () => {
 	return (

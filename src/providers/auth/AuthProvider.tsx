@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import { FC, PropsWithChildren, useEffect, useState } from 'react';
+import { FC, PropsWithChildren, useEffect } from 'react';
 
 import { useActions } from '@/hooks/useActions';
 import { useAuth } from '@/hooks/useAuth';

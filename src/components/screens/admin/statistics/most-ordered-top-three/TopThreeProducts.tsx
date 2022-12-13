@@ -1,24 +1,25 @@
 import { SkeletonLoader } from '@/components/ui/skeleton/SkeletonLoader';
-import { useMostOrderedProducts } from '@/hooks/data/statistic/useMostOrderedProducts';
 import { FC, useMemo } from 'react';
 import { TopProduct } from './TopProduct';
 import styles from '../Admin.module.scss';
+import { useMostOrderedProducts } from '@/hooks/data/statistic/useMostOrderedProducts';
 
 export const TopThreeProducts: FC = () => {
-	const { data: mostOrdered, isLoading: isMostOrderedLoaing } =
-		useMostOrderedProducts();
+	const { data, isLoading } = useMostOrderedProducts();
 
 	const three = useMemo(() => {
-		return mostOrdered?.slice(0, 3);
-	}, [mostOrdered]);
+		return data?.slice(0, 3);
+	}, [data]);
 
-	if (isMostOrderedLoaing) {
-		<SkeletonLoader
-			width='100%'
-			className={styles.loader}
-			height={100}
-			count={3}
-		/>;
+	if (isLoading) {
+		<ul className={styles.block}>
+			<SkeletonLoader
+				width='100%'
+				className={styles.loader}
+				height={100}
+				count={3}
+			/>
+		</ul>;
 	}
 
 	return (

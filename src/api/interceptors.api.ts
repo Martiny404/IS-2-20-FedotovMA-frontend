@@ -11,6 +11,7 @@ import { getContentType } from '@/api/helpers.api';
 export const axiosClassic = axios.create({
 	baseURL: API_URL,
 	headers: getContentType(),
+	withCredentials: true,
 });
 
 export const instance = axios.create({
@@ -31,6 +32,7 @@ instance.interceptors.request.use(config => {
 instance.interceptors.response.use(
 	config => config,
 	async error => {
+		Cookies.get('clientRefreshToken');
 		const originalRequest = error.config;
 		if (
 			error.response.status === 401 &&
@@ -42,12 +44,9 @@ instance.interceptors.response.use(
 				await getNewTokens();
 				return instance.request(originalRequest);
 			} catch (e: any) {
-				console.log(e.message);
 				if (e.response.status == 401) clearTokensFromStorage();
 			}
 		}
 		throw error;
 	}
 );
-
-export default instance;

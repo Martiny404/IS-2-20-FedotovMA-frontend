@@ -11,6 +11,7 @@ import {
 	MdClose,
 	MdStar,
 	MdCategory,
+	MdModeEditOutline,
 } from 'react-icons/md';
 import { FaGithub, FaTelegramPlane, FaUsers, FaVk } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -45,6 +46,7 @@ const icons = {
 	['MdCategory']: MdCategory,
 	['TbReportAnalytics']: TbReportAnalytics,
 	['GoPackage']: GoPackage,
+	['MdModeEditOutline']: MdModeEditOutline,
 };
 
 export type MaterialIconType = keyof typeof icons;

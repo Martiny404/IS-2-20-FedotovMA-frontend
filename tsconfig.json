@@ -32,11 +32,6 @@
 			"@/api/*": ["api/*"]
 		}
 	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		"src/components/screens/home/Sidebar/Sidebartsx"
-	],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }
