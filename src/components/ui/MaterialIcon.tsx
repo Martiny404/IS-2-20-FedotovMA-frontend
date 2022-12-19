@@ -17,7 +17,7 @@ import { FaGithub, FaTelegramPlane, FaUsers, FaVk } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdPricetags } from 'react-icons/io';
 import { BsFillGearFill } from 'react-icons/bs';
-import { GrUserWorker } from 'react-icons/gr';
+import { GrRedo, GrUserWorker } from 'react-icons/gr';
 import { TbReportAnalytics } from 'react-icons/tb';
 import { GoPackage } from 'react-icons/go';
 
@@ -47,6 +47,7 @@ const icons = {
 	['TbReportAnalytics']: TbReportAnalytics,
 	['GoPackage']: GoPackage,
 	['MdModeEditOutline']: MdModeEditOutline,
+	['GrRedo']: GrRedo,
 };
 
 export type MaterialIconType = keyof typeof icons;

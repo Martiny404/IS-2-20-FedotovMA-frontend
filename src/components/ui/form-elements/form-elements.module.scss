@@ -59,6 +59,7 @@
 	color: var(--color-black);
 	background-color: var(--color-white);
 	transition: background-color, 0.3s ease-in-out;
+	padding: 5px 10px;
 
 	&:hover {
 		background-color: rgb(186, 183, 183);

@@ -1,25 +1,29 @@
-import { Button } from '@/components/ui/form-elements/Button';
 import { Heading } from '@/components/ui/heading/Heading';
 
-import { useGetOrderInfo } from '@/hooks/data/order/useGetOrderInfo';
+import { useOrder } from '@/hooks/data/order/useOrder';
 
 import { FC } from 'react';
-import styles from './AdminOrder.module.scss';
-import { AdminOrderInfo } from './AdminOrderInfo';
+import { AdminNavigation } from '../navigation/AdminNavigation';
+import { AdminEditOrder } from './edit/AdminEditOrder';
+import { AdminOrderInfo } from './info/AdminOrderInfo';
 
 export const AdminOrder: FC = () => {
-	const { data, isLoading } = useGetOrderInfo();
+	const { data } = useOrder();
 
 	if (!data) {
-		return null;
+		return (
+			<>
+				<AdminNavigation />
+				<Heading headingLevel='h1'>Заказ не найден!</Heading>
+			</>
+		);
 	}
 
 	return (
 		<>
-			<Heading className={styles.heading} headingLevel='h1'>
-				Заказ номер: {data?.id}
-			</Heading>
-			<Button className={styles.editBtn}>Изменить</Button>
+			<AdminNavigation />
+
+			<AdminEditOrder order={data} />
 
 			<AdminOrderInfo order={data} />
 		</>

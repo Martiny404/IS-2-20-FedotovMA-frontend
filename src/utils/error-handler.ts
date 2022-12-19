@@ -5,5 +5,4 @@ export const errorHandler = (error: any) => {
 	const message = errorCatcher(error);
 
 	notification(message, 'error', 1800);
-	throw message;
 };

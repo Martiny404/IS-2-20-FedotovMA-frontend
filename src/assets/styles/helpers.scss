@@ -88,3 +88,21 @@
 .violet {
 	color: blueviolet;
 }
+
+.pag-item {
+	cursor: pointer;
+	background-color: var(--color-white);
+	color: var(--color-black);
+	border-radius: 50%;
+	font-weight: 700;
+	display: flex;
+	width: 45px;
+	height: 45px;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease-in-out;
+	&.pag-item-active {
+		background-color: var(--color-primary);
+		color: var(--color-white);
+	}
+}

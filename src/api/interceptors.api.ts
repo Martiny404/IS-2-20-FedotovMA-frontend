@@ -6,7 +6,8 @@ import { getNewTokens } from '@/services/auth.serivce';
 
 import { API_URL } from '@/config/api.config';
 
-import { getContentType } from '@/api/helpers.api';
+import { errorStatus, getContentType } from '@/api/helpers.api';
+import { useRedirect } from '@/hooks/useRedirect';
 
 export const axiosClassic = axios.create({
 	baseURL: API_URL,
@@ -34,17 +35,16 @@ instance.interceptors.response.use(
 	async error => {
 		Cookies.get('clientRefreshToken');
 		const originalRequest = error.config;
-		if (
-			error.response.status === 401 &&
-			error.config &&
-			!error.config._isRetry
-		) {
+
+		if (errorStatus(error) === 401 && error.config && !error.config._isRetry) {
 			originalRequest._isRetry = true;
 			try {
 				await getNewTokens();
 				return instance.request(originalRequest);
 			} catch (e: any) {
-				if (e.response.status == 401) clearTokensFromStorage();
+				if (errorStatus(e) == 403) {
+					clearTokensFromStorage();
+				}
 			}
 		}
 		throw error;

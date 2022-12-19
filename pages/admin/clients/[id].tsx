@@ -1,7 +1,8 @@
+import { AdminClient } from '@/components/screens/admin/clients/admin-client/AdminClient';
 import { NextPageAuth } from '@/types/auth.types';
 
 const AdminClientPage: NextPageAuth = () => {
-	return <h1>AdminClientPage</h1>;
+	return <AdminClient />;
 };
 
 AdminClientPage.onlyForAdmin = true;

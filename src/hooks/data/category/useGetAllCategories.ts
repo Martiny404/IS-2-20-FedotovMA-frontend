@@ -4,5 +4,5 @@ import { useQuery } from 'react-query';
 
 export const useGetAllCategories = () => {
 	const { data } = useQuery(GET_ALL_CATEGORIES, getAllCategories);
-	return data;
+	return data || [];
 };

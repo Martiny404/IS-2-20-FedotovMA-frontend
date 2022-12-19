@@ -1,5 +1,5 @@
 import { MaterialIcon } from '@/components/ui/MaterialIcon';
-import { getProductsUrl } from '@/config/url.config';
+import { getAdminUrl } from '@/config/url.config';
 import { IMostOrderedProduct } from '@/types/statistics.types';
 import { parsePrice } from '@/utils/parsePrice';
 import Image from 'next/image';
@@ -10,7 +10,10 @@ import styles from '../Admin.module.scss';
 export const TopProduct: FC<{ item: IMostOrderedProduct }> = ({ item }) => {
 	return (
 		<li className={styles.product}>
-			<Link href={getProductsUrl(item.id)} className={styles.img}>
+			<Link
+				href={getAdminUrl(`products/edit/${item.id}`)}
+				className={styles.img}
+			>
 				<Image
 					draggable={false}
 					fill

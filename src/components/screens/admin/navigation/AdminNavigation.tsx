@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import styles from './AdminNavigation.module.scss';
 import { AdminNavigationItem } from './AdminNavigationItem';
 import { navItems } from './nav.data';

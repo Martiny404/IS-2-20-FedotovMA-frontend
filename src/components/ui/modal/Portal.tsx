@@ -6,8 +6,10 @@ export const Portal: FC<PropsWithChildren> = ({ children }) => {
 
 	useEffect(() => {
 		document.body.appendChild(container);
+		document.body.style.overflow = 'hidden';
 		return () => {
 			document.body.removeChild(container);
+			document.body.style.overflow = 'visible';
 		};
 	}, []);
 

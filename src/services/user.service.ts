@@ -7,3 +7,20 @@ export const getAllUsers = async () => {
 
 	return response.data;
 };
+
+export const getUserWishlist = async () => {
+	const respnse = await instance.get(getUserApi('wishlist'));
+
+	return respnse.data;
+};
+
+export const getUserBasket = async () => {
+	const respnse = await instance.get(getUserApi('basket'));
+
+	return respnse.data;
+};
+
+export const getUserMe = async () => {
+	const respnse = await instance.get(getUserApi('me'));
+	return respnse.data;
+};

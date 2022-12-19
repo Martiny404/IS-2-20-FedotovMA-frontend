@@ -5,6 +5,8 @@ import { CSSTransition } from 'react-transition-group';
 import { AuthItems } from './AuthItems';
 import styles from './Navigation.module.scss';
 import { useAuth } from '@/hooks/useAuth';
+import { useGetUserWishlist } from '@/hooks/data/users/useGetUserWishlist';
+import { useGetUserBasket } from '@/hooks/data/users/useGetUserBasket';
 
 export interface INavigationProps {
 	handleDrawerClose: () => void;
@@ -16,6 +18,13 @@ export const Navigation: FC<INavigationProps> = ({
 	open,
 }) => {
 	const { user } = useAuth();
+
+	const { data: wishlist } = useGetUserWishlist();
+	const { data: basket } = useGetUserBasket();
+
+	const wishlistLength = wishlist?.length || 0;
+
+	const basketLength = basket?.length || 0;
 
 	return (
 		<CSSTransition
@@ -38,12 +47,13 @@ export const Navigation: FC<INavigationProps> = ({
 							icon='FavoriteIcon'
 							link='/wishlist'
 							title='Избранное'
-							notifications={2}
+							notifications={wishlistLength}
 						/>
 						<NavigationItem
 							icon='ShoppingCartIcon'
 							link='/basket'
 							title='Корзина'
+							notifications={basketLength}
 						/>
 					</ul>
 					<div className='hr'></div>

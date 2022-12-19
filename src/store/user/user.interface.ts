@@ -1,6 +1,7 @@
 import { UserRole } from '@/types/user.types';
 
 export interface IUserState {
+	id: number;
 	email: string;
 	isActivated: boolean;
 	role: UserRole;

@@ -1,0 +1,29 @@
+.wrapper {
+	min-height: 50vh;
+}
+
+.link {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.pag {
+	margin-top: 50px;
+	display: flex;
+	align-items: center;
+}
+.pag {
+	> li {
+		&:not(:last-child) {
+			margin-right: 15px;
+		}
+	}
+}
+
+.select {
+	margin-bottom: 20px;
+
+	> div:first-child {
+		margin-bottom: 20px;
+	}
+}
