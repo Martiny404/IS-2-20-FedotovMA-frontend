@@ -1,4 +1,9 @@
-import { ButtonHTMLAttributes, InputHTMLAttributes } from 'react';
+import {
+	ButtonHTMLAttributes,
+	CSSProperties,
+	InputHTMLAttributes,
+	TextareaHTMLAttributes,
+} from 'react';
 import { FieldError } from 'react-hook-form';
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,3 +18,17 @@ export interface IFieldProps {
 type InputPropsFieldType = InputHTMLAttributes<HTMLInputElement> & IFieldProps;
 
 export interface IField extends InputPropsFieldType {}
+
+type TextProps = TextareaHTMLAttributes<HTMLTextAreaElement> & IFieldProps;
+
+export interface ITextArea extends TextProps {}
+
+export interface IUploadField {
+	folder?: string;
+	value?: string;
+	onChange: (...event: any[]) => void;
+	placeholder: string;
+	error?: FieldError;
+	style?: CSSProperties;
+	isNoImage?: boolean;
+}

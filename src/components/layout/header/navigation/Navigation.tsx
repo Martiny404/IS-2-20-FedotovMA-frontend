@@ -17,8 +17,6 @@ export const Navigation: FC<INavigationProps> = ({
 	handleDrawerClose,
 	open,
 }) => {
-	const { user } = useAuth();
-
 	const { data: wishlist } = useGetUserWishlist();
 	const { data: basket } = useGetUserBasket();
 

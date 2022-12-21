@@ -8,25 +8,6 @@
 	box-shadow: var(--shadow-dns);
 	padding: 12px;
 
-	> .textWrap {
-		margin-bottom: 8px;
-		position: relative;
-
-		.tooltip {
-			position: absolute;
-			top: -30px;
-			left: 0;
-			width: 255px;
-			height: 160px;
-			background-color: rgb(13, 97, 175, 0.84);
-			font-size: 13px;
-			padding: 12px;
-			color: var(--color-white);
-			border-radius: 7px;
-			overflow-y: scroll;
-		}
-	}
-
 	.img {
 		display: block;
 		width: 100%;
@@ -38,9 +19,10 @@
 			object-fit: contain;
 		}
 	}
-	p {
+	.descr {
 		min-height: 45px;
 		line-height: 1.4;
+		margin-bottom: 10px;
 	}
 	.rating {
 		display: flex;

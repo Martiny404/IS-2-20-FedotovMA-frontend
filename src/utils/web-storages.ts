@@ -7,7 +7,9 @@ export const saveTokensToCookies = (
 	refreshToken: string
 ) => {
 	Cookies.set('accessToken', accessToken);
-	Cookies.set('clientRefreshToken', refreshToken);
+	Cookies.set('clientRefreshToken', refreshToken, {
+		expires: 7,
+	});
 };
 
 export const clearTokensFromStorage = () => {

@@ -10,7 +10,7 @@ import styles from './AdminProducts.module.scss';
 import { IOption } from '@/types/select.types';
 import Link from 'next/link';
 import { getAdminUrl } from '@/config/url.config';
-import clsx from 'clsx';
+import { createCategoryAndBrandOptions } from '@/utils/createBrandsAndCategoriesOptions';
 
 export const AdminProducts: FC = () => {
 	const [categoryId, setCategoryId] = useState<IOption | undefined>(undefined);
@@ -34,15 +34,8 @@ export const AdminProducts: FC = () => {
 	const categories = useGetAllCategories();
 	const brands = useGetAllBrands();
 
-	const brandsOptions = brands.map(brand => ({
-		value: brand.id,
-		label: brand.name,
-	}));
-
-	const categoriesOptions = categories.map(category => ({
-		value: category.id,
-		label: category.name,
-	}));
+	const brandsOptions = createCategoryAndBrandOptions(brands);
+	const categoriesOptions = createCategoryAndBrandOptions(categories);
 
 	const onCategoryChanged = (option: any) => {
 		setCategoryId(option);
@@ -61,7 +54,8 @@ export const AdminProducts: FC = () => {
 		<>
 			<AdminNavigation />
 			<Link
-				className={clsx('my-link', styles.link)}
+				className='my-link'
+				style={{ display: 'block', marginBottom: 20 }}
 				href={getAdminUrl('products/create')}
 			>
 				Создать новый

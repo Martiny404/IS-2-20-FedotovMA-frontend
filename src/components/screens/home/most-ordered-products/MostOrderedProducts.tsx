@@ -9,12 +9,12 @@ import { useHydrate } from '@/hooks/useHydrate';
 
 SwiperCore.use([Navigation]);
 
-export const MostOrderedProducts: FC<{ items: IMostOrderedProduct[] }> = ({
+const MostOrderedProducts: FC<{ items: IMostOrderedProduct[] }> = ({
 	items,
 }) => {
 	const hydrated = useHydrate();
 
-	if (!hydrated) return null;
+	// if (!hydrated) return null;
 	return (
 		<Swiper
 			id='swiper-most-ordered-home'
@@ -47,3 +47,5 @@ export const MostOrderedProducts: FC<{ items: IMostOrderedProduct[] }> = ({
 		</Swiper>
 	);
 };
+
+export default MostOrderedProducts;

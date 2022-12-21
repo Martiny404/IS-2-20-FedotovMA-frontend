@@ -10,12 +10,29 @@ export enum ProductStatus {
 export type IProductOptions = Object &
 	Record<string, string | number | boolean>;
 
+export interface Image {
+	id: number;
+	photo: string;
+}
+
+export interface IUpdateProduct {
+	name?: string;
+	description?: string;
+	inStock?: number;
+	discount_percentage?: number;
+	status?: string;
+	poster?: string;
+	price?: string;
+}
+
 export namespace ProductTypes {
 	export interface IProduct {
 		id: number;
 		createdAt: string;
 		updatedAt: string;
 		name: string;
+		productOrders: number;
+		rating: number;
 		inStock: number;
 		views: number;
 		description: string;
@@ -27,6 +44,7 @@ export namespace ProductTypes {
 		options: IProductOptions;
 		category: ICategory;
 		brand: IBrand;
+		images: Image[];
 	}
 
 	export interface GetAllProductsResponse {

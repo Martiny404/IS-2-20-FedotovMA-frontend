@@ -1,3 +1,5 @@
+import { instance } from '@/api/interceptors.api';
+import { ICreateProduct } from '@/components/screens/admin/products/create/CreateProduct.interface';
 import { getProductApi } from '@/config/api.config';
 import { ProductTypes } from '@/types/product.types';
 import axios from 'axios';
@@ -9,8 +11,10 @@ export const getBySearchTerm = async (searchTerm?: string) => {
 	return data.data;
 };
 
-export const getOne = async (id: number) => {
-	const response = await axios.get(getProductApi(`info/${id}`));
+export const getOne = async (id: string) => {
+	const response = await axios.get<ProductTypes.IProduct>(
+		getProductApi(`info/${id}`)
+	);
 	return response.data;
 };
 
@@ -31,5 +35,15 @@ export const getAllProducts = async (dto: GetAllProductsDto) => {
 			},
 		}
 	);
+	return response.data;
+};
+
+export const createProduct = async (dto: ICreateProduct) => {
+	const response = await instance.post(getProductApi(''), dto);
+	return response.data;
+};
+
+export const editProduct = async (id: number, dto: any) => {
+	const response = await instance.patch(getProductApi(`update/${id}`), dto);
 	return response.data;
 };

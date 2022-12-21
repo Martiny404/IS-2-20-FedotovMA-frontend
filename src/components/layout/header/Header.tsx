@@ -1,17 +1,14 @@
 import { MaterialIcon } from '@/components/ui/MaterialIcon';
 import Link from 'next/link';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { Navigation } from './navigation/Navigation';
-import { CSSTransition } from 'react-transition-group';
 
 import { Search } from './search/Search';
 
 import styles from './Header.module.scss';
-import clsx from 'clsx';
 import { useOutside } from '@/hooks/useOutside';
 
 export const Header: FC = () => {
-	//const [open, setOpen] = useState<boolean>(false);
 	const { isShow: open, setIsShow: setOpen, ref } = useOutside(false);
 
 	const handleDrawerOpen = () => {

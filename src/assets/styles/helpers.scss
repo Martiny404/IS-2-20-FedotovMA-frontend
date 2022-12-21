@@ -1,5 +1,6 @@
 .my-link {
 	transition: color 0.2s ease-in-out;
+	text-decoration: underline;
 
 	&:hover {
 		color: var(--color-primary);
@@ -105,4 +106,8 @@
 		background-color: var(--color-primary);
 		color: var(--color-white);
 	}
+}
+
+.digit-input {
+	max-width: 160px;
 }

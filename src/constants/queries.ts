@@ -17,3 +17,6 @@ export const GET_OPTION_VALUES = 'get-option-values';
 export const GET_USER_WISHLIST = 'get-user-wishlist';
 export const GET_USER_BASKET = 'get-user-bakset';
 export const GET_USER_ME = 'get-user-me';
+export const GET_ONE_ADMIN_PRODUCT = 'get-one-admin-product';
+export const CREATE_PRODUCT = 'create-product';
+export const EDIT_PRODUCT = 'edit-product';

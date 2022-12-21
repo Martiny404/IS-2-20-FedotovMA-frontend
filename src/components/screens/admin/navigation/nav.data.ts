@@ -27,12 +27,6 @@ export const navItems: IAdminNavItem[] = [
 		link: getAdminUrl('categories'),
 		title: 'Категории',
 	},
-
-	{
-		icon: 'GoPackage',
-		link: getAdminUrl('orders'),
-		title: 'Заказы',
-	},
 	{
 		icon: 'DiscountIcon',
 		link: getAdminUrl('offers'),

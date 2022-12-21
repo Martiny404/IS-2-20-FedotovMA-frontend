@@ -7,10 +7,17 @@ import { SpecialDealsPaper } from './special-deals/paper/SpecialDealsPaper';
 import { FreshOffers, IOfferSlide } from './special-deals/slider/FreshOffers';
 import styles from './Home.module.scss';
 import { IMostOrderedProduct } from '@/types/statistics.types';
-import { MostOrderedProducts } from './most-ordered-products/MostOrderedProducts';
 import { Heading } from '@/components/ui/heading/Heading';
 import { IBrand } from '@/types/brand.types';
 import { BrandsSlider } from './brands-slider/BrandsSlider';
+import dynamic from 'next/dynamic';
+
+const MostOrderedProducts = dynamic(
+	() => import('./most-ordered-products/MostOrderedProducts'),
+	{
+		ssr: false,
+	}
+);
 
 export interface IHomeProps {
 	offers: IOfferSlide[];
@@ -50,7 +57,7 @@ export const Home: FC<IHomeProps> = ({
 						/>
 
 						<Reminder
-							img='/wish-reminder.png'
+							img='/blog.jpeg'
 							link='/wishlist'
 							linkText='Перейти к блогу'
 							title='У нас есть блог!'

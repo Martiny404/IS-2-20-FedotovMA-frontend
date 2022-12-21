@@ -1,9 +1,8 @@
+import { AdminProduct } from '@/components/ui/admin-product/AdminProduct';
 import { Heading } from '@/components/ui/heading/Heading';
-import { getAdminUrl, getProductsUrl } from '@/config/url.config';
+
 import { ProductTypes } from '@/types/product.types';
-import { parsePrice } from '@/utils/parsePrice';
-import Image from 'next/image';
-import Link from 'next/link';
+
 import { FC } from 'react';
 import styles from '../statistics/Admin.module.scss';
 
@@ -16,21 +15,23 @@ export const AdminProductsList: FC<{ products: ProductTypes.IProduct[] }> = ({
 	return (
 		<ul className={styles.block}>
 			{products.map(item => (
-				<li key={item.id}>
-					<Link
-						href={getAdminUrl(`products/edit/${item.id}`)}
-						className={styles.img}
-					>
-						<Image draggable={false} fill alt={item.name} src={item.poster} />
-					</Link>
-					<div className={styles.info}>
-						<span>Название: {item.name}</span>
-						<span>Бренд: {item.brand.name}</span>
-						<span>Категория: {item.category.name}</span>
-						<span>Цена: {parsePrice(item.price)} ₽</span>
-						<span>В наличии: {item.inStock}</span>
-					</div>
-				</li>
+				<AdminProduct
+					key={item.id}
+					item={{
+						rating: item.rating?.toString(),
+						c: item.productOrders?.toString(),
+						brand_name: item.brand.name,
+						category_name: item.category.name,
+						description: item.description,
+						in_stock: item.inStock.toString(),
+						options: item.options,
+						price: item.price,
+						poster: item.poster,
+						product_name: item.name,
+						id: item.id,
+						created_at: item.createdAt,
+					}}
+				/>
 			))}
 		</ul>
 	);

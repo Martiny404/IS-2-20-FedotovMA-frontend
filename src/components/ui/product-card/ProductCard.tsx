@@ -7,7 +7,6 @@ import { FC, useMemo } from 'react';
 import { Button } from '../form-elements/Button';
 import { MaterialIcon } from '../MaterialIcon';
 import styles from './ProductCard.module.scss';
-import { ProductCardDescription } from './ProductCardDescription';
 
 export interface IProductCard {
 	className?: string;
@@ -33,11 +32,9 @@ export const ProductCard: FC<IProductCard> = ({ item, className }) => {
 			<Link href='/' className={styles.img}>
 				<Image src={item.poster} alt={item.product_name} fill />
 			</Link>
-			<ProductCardDescription
-				fullText={text}
-				name={item.product_name}
-				shortText={slicedText}
-			/>
+			<p className={styles.descr}>
+				<strong>{item.product_name}</strong> | {slicedText}
+			</p>
 			<div className={styles.rating}>
 				<span>Средняя оценка: {parseFloat(item.rating)}</span>
 				<MaterialIcon muiName='MdStar' />

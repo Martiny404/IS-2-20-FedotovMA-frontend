@@ -6,6 +6,7 @@ import '@/assets/styles/globals.scss';
 import '@/assets/styles/slider.scss';
 import '@/assets/styles/helpers.scss';
 import '@/assets/styles/transitions.scss';
+import '@/assets/styles/mixins.scss';
 
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import { QueryClientProvider, Hydrate, QueryClient } from 'react-query';

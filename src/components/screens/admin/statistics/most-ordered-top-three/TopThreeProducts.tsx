@@ -1,8 +1,9 @@
 import { SkeletonLoader } from '@/components/ui/skeleton/SkeletonLoader';
 import { FC, useMemo } from 'react';
-import { TopProduct } from './TopProduct';
+
 import styles from '../Admin.module.scss';
 import { useMostOrderedProducts } from '@/hooks/data/statistic/useMostOrderedProducts';
+import { AdminProduct } from '@/components/ui/admin-product/AdminProduct';
 
 export const TopThreeProducts: FC = () => {
 	const { data, isLoading } = useMostOrderedProducts();
@@ -25,7 +26,7 @@ export const TopThreeProducts: FC = () => {
 	return (
 		<ul className={styles.block}>
 			{three?.map(item => (
-				<TopProduct key={item.id} item={item} />
+				<AdminProduct key={item.id} item={item} />
 			))}
 		</ul>
 	);
