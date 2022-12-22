@@ -1,7 +1,8 @@
+import { AdminCategories } from '@/components/screens/admin/categories/AdminCategories';
 import { NextPageAuth } from '@/types/auth.types';
 
 const AdminCategoriesPage: NextPageAuth = () => {
-	return <h1>AdminCategoriesPage</h1>;
+	return <AdminCategories />;
 };
 
 AdminCategoriesPage.onlyForAdmin = true;

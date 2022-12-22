@@ -1,3 +1,4 @@
+import { instance } from '@/api/interceptors.api';
 import { getBrandApi } from '@/config/api.config';
 import { IBrand } from '@/types/brand.types';
 import axios from 'axios';
@@ -5,5 +6,31 @@ import axios from 'axios';
 export const getAllBrands = async () => {
 	const response = await axios.get<IBrand[]>(getBrandApi('all'));
 
+	return response.data;
+};
+
+export interface CreateBrandDto {
+	name: string;
+	brandImgPath: string;
+}
+
+export const createBrand = async (dto: CreateBrandDto) => {
+	const response = await instance.post(getBrandApi(''), dto);
+	return response.data;
+};
+
+export interface IEditBrand {
+	description?: string;
+	brandImgPath?: string;
+	name?: string;
+}
+
+export const editBrand = async (brandId: number, dto: IEditBrand) => {
+	const response = await instance.post(getBrandApi(`update/${brandId}`), dto);
+	return response.data;
+};
+
+export const removeBrand = async (brandId: number) => {
+	const response = await instance.post(getBrandApi(`remove/${brandId}`));
 	return response.data;
 };

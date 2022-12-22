@@ -1,7 +1,8 @@
+import { AdminBrands } from '@/components/screens/admin/brands/AdminBrands';
 import { NextPageAuth } from '@/types/auth.types';
 
 const AdminBrandsPage: NextPageAuth = () => {
-	return <h1>AdminBrandsPage</h1>;
+	return <AdminBrands />;
 };
 
 AdminBrandsPage.onlyForAdmin = true;
