@@ -47,3 +47,22 @@ export const editProduct = async (id: number, dto: any) => {
 	const response = await instance.patch(getProductApi(`update/${id}`), dto);
 	return response.data;
 };
+
+export const addImage = async (productId: number, path: string) => {
+	const response = await instance.patch(getProductApi(`add-img/${productId}`), {
+		path,
+	});
+	return response.data;
+};
+
+export const removeProduct = async (productId: number) => {
+	const response = await instance.delete(getProductApi(`remove/${productId}`));
+	return response.data;
+};
+
+export const removeImage = async (imageId: number) => {
+	const response = await instance.delete(
+		getProductApi(`remove-img/${imageId}`)
+	);
+	return response.data;
+};

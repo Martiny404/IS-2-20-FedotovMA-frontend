@@ -6,7 +6,9 @@ export const saveTokensToCookies = (
 	accessToken: string,
 	refreshToken: string
 ) => {
-	Cookies.set('accessToken', accessToken);
+	Cookies.set('accessToken', accessToken, {
+		expires: 7,
+	});
 	Cookies.set('clientRefreshToken', refreshToken, {
 		expires: 7,
 	});

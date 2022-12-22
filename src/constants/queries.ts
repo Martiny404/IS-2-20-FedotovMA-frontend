@@ -20,3 +20,6 @@ export const GET_USER_ME = 'get-user-me';
 export const GET_ONE_ADMIN_PRODUCT = 'get-one-admin-product';
 export const CREATE_PRODUCT = 'create-product';
 export const EDIT_PRODUCT = 'edit-product';
+export const DELETE_PRODUCT = 'delete-product';
+export const DELETE_PRODUCT_PHOTO = 'delete-product-photo';
+export const ADD_PRODUCT_PHOTO = 'add-product-photo';

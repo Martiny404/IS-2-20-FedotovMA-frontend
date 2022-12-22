@@ -1,5 +1,10 @@
-import { EDIT_PRODUCT, GET_ONE_ADMIN_PRODUCT } from '@/constants/queries';
-import { getOne, editProduct } from '@/services/product.service';
+import { getAdminUrl } from '@/config/url.config';
+import {
+	DELETE_PRODUCT,
+	EDIT_PRODUCT,
+	GET_ONE_ADMIN_PRODUCT,
+} from '@/constants/queries';
+import { getOne, editProduct, removeProduct } from '@/services/product.service';
 import { IUpdateProduct } from '@/types/product.types';
 import { errorHandler } from '@/utils/error-handler';
 import { getKeys } from '@/utils/getKeys';
@@ -61,24 +66,23 @@ export const useEditProduct = (setValue: UseFormSetValue<any>) => {
 		}
 	);
 
+	const { mutateAsync: removeProductMutation } = useMutation(
+		DELETE_PRODUCT,
+		() => removeProduct(+productId),
+		{
+			onError(e) {
+				errorHandler(e);
+			},
+			onSuccess() {
+				notification('Продукт удален успешно', 'success', 1500);
+				push(getAdminUrl('products'));
+			},
+		}
+	);
+
 	return {
 		data,
 		editProductMutation,
+		removeProductMutation,
 	};
 };
-
-// const { isLoading } = useQuery(
-//   ['movie', movieId],
-//   () => movieService.getById(movieId),
-//   {
-//     onSuccess({ data }) {
-//       getKeys(data).forEach(key => {
-//         setValue(key, data[key]);
-//       });
-//     },
-//     onError(e) {
-//       errorHandler(e, 'Get movie');
-//     },
-//     enabled: !!query.id,
-//   }
-// );

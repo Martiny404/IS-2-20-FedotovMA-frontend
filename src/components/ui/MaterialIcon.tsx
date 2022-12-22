@@ -13,7 +13,13 @@ import {
 	MdCategory,
 	MdModeEditOutline,
 } from 'react-icons/md';
-import { FaGithub, FaTelegramPlane, FaUsers, FaVk } from 'react-icons/fa';
+import {
+	FaGithub,
+	FaTelegramPlane,
+	FaUsers,
+	FaVk,
+	FaTrash,
+} from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdPricetags } from 'react-icons/io';
 import { BsFillGearFill } from 'react-icons/bs';
@@ -48,6 +54,7 @@ const icons = {
 	['GoPackage']: GoPackage,
 	['MdModeEditOutline']: MdModeEditOutline,
 	['GrRedo']: GrRedo,
+	FaTrash: FaTrash,
 };
 
 export type MaterialIconType = keyof typeof icons;

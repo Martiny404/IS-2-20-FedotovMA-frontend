@@ -13,6 +13,8 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import styles from './EditAdminProduct.module.scss';
+import { AdminDeleteProduct } from './AdminDeleteProduct';
+import { Meta } from '@/utils/meta/Meta';
 
 export const EditAdminProduct: FC = () => {
 	const {
@@ -25,7 +27,11 @@ export const EditAdminProduct: FC = () => {
 		mode: 'onChange',
 	});
 
-	const { data: product, editProductMutation } = useEditProduct(setValue);
+	const {
+		data: product,
+		editProductMutation,
+		removeProductMutation,
+	} = useEditProduct(setValue);
 
 	const statusOptions = productStatusMapper();
 
@@ -33,8 +39,15 @@ export const EditAdminProduct: FC = () => {
 		editProductMutation(data);
 	};
 
+	if (!product) {
+		return null;
+	}
+
 	return (
-		<>
+		<Meta
+			title='Страница удаления и изменения продукта'
+			description='На этой странице администратору предоставлен функционал по удалению и изменения продукта'
+		>
 			<Heading headingLevel='h1' style={{ marginBottom: 30 }}>
 				Страница редактирования продукта номер {product?.id}
 			</Heading>
@@ -112,11 +125,13 @@ export const EditAdminProduct: FC = () => {
 			<div className='hr'></div>
 			<Link
 				className='my-link'
-				style={{ display: 'block', marginTop: 10 }}
-				href={getAdminUrl(`products/edit/${product?.id}/photos`)}
+				style={{ display: 'block', margin: '20px 0' }}
+				href={getAdminUrl(`products/edit/${product.id}/photos`)}
 			>
 				Изменить фотографии
 			</Link>
-		</>
+
+			<AdminDeleteProduct handler={() => removeProductMutation()} />
+		</Meta>
 	);
 };

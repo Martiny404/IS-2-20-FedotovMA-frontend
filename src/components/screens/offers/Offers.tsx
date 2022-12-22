@@ -1,4 +1,5 @@
 import { Heading } from '@/components/ui/heading/Heading';
+import { Meta } from '@/utils/meta/Meta';
 import Image from 'next/image';
 import { FC } from 'react';
 
@@ -6,7 +7,10 @@ import { OfferProps } from './offer.interface';
 
 export const Offers: FC<OfferProps> = ({ offers }) => {
 	return (
-		<>
+		<Meta
+			title='Страница спец-предложений!'
+			description='На этой странице представлены специальные предложения от нашего магазина!'
+		>
 			<Heading headingLevel='h1'>Акции</Heading>
 
 			<ul>
@@ -26,6 +30,6 @@ export const Offers: FC<OfferProps> = ({ offers }) => {
 					</li>
 				))}
 			</ul>
-		</>
+		</Meta>
 	);
 };

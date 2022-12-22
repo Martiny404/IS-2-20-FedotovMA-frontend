@@ -1,0 +1,49 @@
+.h1 {
+	margin-bottom: 30px;
+}
+
+.h2 {
+	margin-bottom: 30px;
+}
+
+.form {
+	padding: 30px;
+	border-radius: var(--main-radius);
+	box-shadow: var(--shadow-dns);
+	background-color: var(--color-white);
+
+	> .submitBtn {
+		margin-top: 50px;
+		padding: 8px 20px;
+	}
+}
+
+.images {
+	margin-bottom: 30px;
+
+	> li {
+		border-radius: var(--main-radius);
+		box-shadow: var(--shadow-dns);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 340px;
+		background-color: var(--color-white);
+		position: relative;
+		> .removeBtn {
+			position: absolute;
+			min-width: 60px;
+			min-height: 32px;
+			top: 15px;
+			right: 15px;
+
+			> svg {
+				width: 22px;
+				height: 20px;
+			}
+		}
+		> img {
+			object-fit: contain;
+		}
+	}
+}

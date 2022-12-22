@@ -1,4 +1,4 @@
-import { AdminEditPhotos } from '@/components/screens/admin/orders/edit/AdminEditPhotos';
+import { AdminEditPhotos } from '@/components/screens/admin/products/edit/photos/AdminEditPhotos';
 import { NextPageAuth } from '@/types/auth.types';
 
 const AdminProductEditPagePhotos: NextPageAuth = () => {

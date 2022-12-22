@@ -8,6 +8,7 @@ import { useGetAllBrands } from '@/hooks/data/brand/useGetAllBrands';
 import { useGetAllCategories } from '@/hooks/data/category/useGetAllCategories';
 import { useProduct } from '@/hooks/data/product/useAdminProduct';
 import { createCategoryAndBrandOptions } from '@/utils/createBrandsAndCategoriesOptions';
+import { Meta } from '@/utils/meta/Meta';
 import Link from 'next/link';
 
 import { FC } from 'react';
@@ -41,7 +42,10 @@ export const AdminProductsCreate: FC = () => {
 	};
 
 	return (
-		<>
+		<Meta
+			title='Страница создания продукта'
+			description='На этой странице администратор имеет функционал по созданию продукта'
+		>
 			<Link
 				className='my-link'
 				style={{ display: 'block', marginBottom: 20 }}
@@ -147,6 +151,6 @@ export const AdminProductsCreate: FC = () => {
 				/>
 				<Button>Подтвердить</Button>
 			</form>
-		</>
+		</Meta>
 	);
 };

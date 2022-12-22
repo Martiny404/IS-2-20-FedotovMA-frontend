@@ -11,6 +11,7 @@ import { IOption } from '@/types/select.types';
 import Link from 'next/link';
 import { getAdminUrl } from '@/config/url.config';
 import { createCategoryAndBrandOptions } from '@/utils/createBrandsAndCategoriesOptions';
+import { Meta } from '@/utils/meta/Meta';
 
 export const AdminProducts: FC = () => {
 	const [categoryId, setCategoryId] = useState<IOption | undefined>(undefined);
@@ -51,7 +52,10 @@ export const AdminProducts: FC = () => {
 	};
 
 	return (
-		<>
+		<Meta
+			title='Страница продуктов в админ-панеле'
+			description='Главная продуктовая страница продуктов в панеле администратора'
+		>
 			<AdminNavigation />
 			<Link
 				className='my-link'
@@ -81,6 +85,6 @@ export const AdminProducts: FC = () => {
 					pages={pages}
 				/>
 			</div>
-		</>
+		</Meta>
 	);
 };
