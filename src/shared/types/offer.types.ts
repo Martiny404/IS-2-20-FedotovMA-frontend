@@ -6,7 +6,6 @@ export interface IOffer {
 	createdAt: Date;
 	updatedAt: Date;
 	endDate: string;
-	discount: number;
 	description?: string;
 	photo: string;
 	brand: IBrand;

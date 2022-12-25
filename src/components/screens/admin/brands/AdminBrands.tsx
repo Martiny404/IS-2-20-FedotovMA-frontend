@@ -24,6 +24,7 @@ export const AdminBrands: FC = () => {
 			<ul className={styles.list}>
 				{brands.map(brand => (
 					<BCCard
+						type='brand'
 						key={brand.id}
 						item={{ ...brand, image: brand.brandImgPath }}
 						forAdmin={true}

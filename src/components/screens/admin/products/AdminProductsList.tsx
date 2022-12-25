@@ -15,23 +15,7 @@ export const AdminProductsList: FC<{ products: ProductTypes.IProduct[] }> = ({
 	return (
 		<ul className={styles.block}>
 			{products.map(item => (
-				<AdminProduct
-					key={item.id}
-					item={{
-						rating: item.rating?.toString(),
-						c: item.productOrders?.toString(),
-						brand_name: item.brand.name,
-						category_name: item.category.name,
-						description: item.description,
-						in_stock: item.inStock.toString(),
-						options: item.options,
-						price: item.price,
-						poster: item.poster,
-						product_name: item.name,
-						id: item.id,
-						created_at: item.createdAt,
-					}}
-				/>
+				<AdminProduct key={item.id} item={item} />
 			))}
 		</ul>
 	);

@@ -36,8 +36,14 @@ export const ProductCard: FC<IProductCard> = ({ item, className }) => {
 				<strong>{item.product_name}</strong> | {slicedText}
 			</p>
 			<div className={styles.rating}>
-				<span>Средняя оценка: {parseFloat(item.rating)}</span>
-				<MaterialIcon muiName='MdStar' />
+				{item.rating ? (
+					<>
+						<span>Средняя оценка: {parseFloat(item.rating)}</span>
+						<MaterialIcon muiName='MdStar' />
+					</>
+				) : (
+					<span>Оценок нет</span>
+				)}
 			</div>
 			<div className={styles.actions}>
 				<div className={styles.price}>{parsePrice(item.price)} ₽</div>

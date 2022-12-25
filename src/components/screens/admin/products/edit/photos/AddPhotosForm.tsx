@@ -3,6 +3,7 @@ import UploadField from '@/components/ui/form-elements/upload-field/UploadField'
 import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import styles from './AdminEditPhotos.module.scss';
+
 interface IAddPhoto {
 	photo: string;
 }

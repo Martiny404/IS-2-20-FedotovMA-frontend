@@ -7,11 +7,13 @@ import { AdminNavigation } from '../navigation/AdminNavigation';
 import { AdminProductsList } from './AdminProductsList';
 import { AdminProductsPagination } from './AdminProductsPagination';
 import styles from './AdminProducts.module.scss';
+import publicStyles from '../AdminPublic.module.scss';
 import { IOption } from '@/types/select.types';
 import Link from 'next/link';
 import { getAdminUrl } from '@/config/url.config';
 import { createCategoryAndBrandOptions } from '@/utils/createBrandsAndCategoriesOptions';
 import { Meta } from '@/utils/meta/Meta';
+import clsx from 'clsx';
 
 export const AdminProducts: FC = () => {
 	const [categoryId, setCategoryId] = useState<IOption | undefined>(undefined);
@@ -58,8 +60,7 @@ export const AdminProducts: FC = () => {
 		>
 			<AdminNavigation />
 			<Link
-				className='my-link'
-				style={{ display: 'block', marginBottom: 20 }}
+				className={clsx('my-link', publicStyles.link)}
 				href={getAdminUrl('products/create')}
 			>
 				Создать новый

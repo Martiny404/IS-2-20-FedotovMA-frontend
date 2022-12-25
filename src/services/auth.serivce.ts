@@ -5,7 +5,6 @@ import { getAuthApi } from '@/config/api.config';
 import { IUser } from '@/types/user.types';
 
 import { clearTokensFromStorage, saveToStorage } from '@/utils/web-storages';
-import { useRouter } from 'next/router';
 
 export const register = async (
 	email: string,

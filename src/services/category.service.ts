@@ -1,15 +1,46 @@
-import { instance } from '@/api/interceptors.api';
+import { axiosClassic, instance } from '@/api/interceptors.api';
 import { getCategoryApi } from '@/config/api.config';
 import { ICategory } from '@/types/category.types';
-import axios from 'axios';
 
 export const getAllCategories = async () => {
-	const response = await axios.get<ICategory[]>(getCategoryApi('all'));
+	const response = await axiosClassic.get<ICategory[]>(getCategoryApi('all'));
+	return response.data;
+};
+
+export const getOneCategory = async (brandId: number) => {
+	const response = await axiosClassic.get<ICategory>(
+		getCategoryApi(`${brandId}`)
+	);
+	return response.data;
+};
+
+export const addOption = async (categoryId: number, optionId: number) => {
+	const response = await instance.post(
+		getCategoryApi(`add-options/${categoryId}`),
+		{
+			optionId,
+		}
+	);
+	return response.data;
+};
+
+export const removeCategoryOption = async (
+	categoryId: number,
+	optionId: number
+) => {
+	const response = await instance.post(
+		getCategoryApi(`remove-option/${categoryId}`),
+		{
+			optionId,
+		}
+	);
 	return response.data;
 };
 
 export const getCategoryOptions = async (categoryId: number) => {
-	const response = await axios.get(getCategoryApi(`all-options/${categoryId}`));
+	const response = await axiosClassic.get(
+		getCategoryApi(`all-options/${categoryId}`)
+	);
 	return response.data;
 };
 
@@ -30,7 +61,7 @@ export interface IEditCategory {
 }
 
 export const editCategory = async (categoryId: number, dto: IEditCategory) => {
-	const response = await instance.post(
+	const response = await instance.patch(
 		getCategoryApi(`update/${categoryId}`),
 		dto
 	);

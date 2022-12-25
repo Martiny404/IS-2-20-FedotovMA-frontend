@@ -1,6 +1,6 @@
 import { Heading } from '@/components/ui/heading/Heading';
 import { Paper } from '@/components/ui/paper/Paper';
-import Image from 'next/image';
+import { sliceText } from '@/utils/sliceText';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
@@ -23,7 +23,7 @@ export const Reminder: FC<IReminderProps> = ({
 }) => {
 	const [open, setOpen] = useState(false);
 
-	const shortedText = text.slice(0, 40) + '...';
+	const shortedText = sliceText(text);
 
 	const visible = () => {
 		setOpen(true);

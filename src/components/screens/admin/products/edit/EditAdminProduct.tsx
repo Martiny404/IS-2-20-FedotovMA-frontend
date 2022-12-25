@@ -12,7 +12,9 @@ import { productStatusMapper } from '@/utils/enum/productStatusMapper';
 import Link from 'next/link';
 import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import styles from './EditAdminProduct.module.scss';
+import styles from '../../AdminPublic.module.scss';
+import publicStyles from '../../AdminPublic.module.scss';
+import clsx from 'clsx';
 import { AdminDeleteProduct } from './AdminDeleteProduct';
 import { Meta } from '@/utils/meta/Meta';
 
@@ -52,8 +54,7 @@ export const EditAdminProduct: FC = () => {
 				Страница редактирования продукта номер {product?.id}
 			</Heading>
 			<Link
-				className='my-link'
-				style={{ display: 'block', marginBottom: 20 }}
+				className={clsx('my-link', publicStyles.link)}
 				href={getAdminUrl('products')}
 			>
 				К панели продуктов

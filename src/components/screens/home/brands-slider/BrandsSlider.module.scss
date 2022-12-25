@@ -9,6 +9,14 @@
 	padding: 10px;
 }
 
+.brands {
+	.link {
+		> img {
+			object-fit: contain;
+		}
+	}
+}
+
 @media (max-width: 1170px) {
 	.brands {
 		max-width: 900px;

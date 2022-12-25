@@ -26,7 +26,35 @@ export const TopThreeProducts: FC = () => {
 	return (
 		<ul className={styles.block}>
 			{three?.map(item => (
-				<AdminProduct key={item.id} item={item} />
+				<AdminProduct
+					key={item.id}
+					item={{
+						brand: {
+							id: item.brand_id,
+							name: item.brand_name,
+						},
+						category: {
+							id: item.category_id,
+							name: item.category_name,
+						},
+						createdAt: item.created_at,
+						description: item.description,
+						hidden: false,
+						id: item.id,
+						images: [],
+						inStock: +item.in_stock,
+						name: item.product_name,
+						options: item.options,
+						poster: item.poster,
+						price: item.price,
+						productOrders: +item.c,
+						rating: +item.rating,
+						status: item.status,
+						updatedAt: item.updated_at,
+						views: item.views,
+						discount_percentage: item.discount_percentage,
+					}}
+				/>
 			))}
 		</ul>
 	);

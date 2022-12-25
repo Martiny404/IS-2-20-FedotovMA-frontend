@@ -35,7 +35,7 @@ export const BrandsSlider: FC<{ brands: IBrand[] }> = ({ brands }) => {
 					<Link className={styles.link} href='/'>
 						<Image
 							alt={brand.name}
-							src={brand.brandImgPath}
+							src={brand?.brandImgPath || '/no_image.jpeg'}
 							width={180}
 							height={130}
 						/>

@@ -5,16 +5,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import styles from './MostOrderedProducts.module.scss';
 import clsx from 'clsx';
-import { useHydrate } from '@/hooks/useHydrate';
 
 SwiperCore.use([Navigation]);
 
 const MostOrderedProducts: FC<{ items: IMostOrderedProduct[] }> = ({
 	items,
 }) => {
-	const hydrated = useHydrate();
-
-	// if (!hydrated) return null;
 	return (
 		<Swiper
 			id='swiper-most-ordered-home'

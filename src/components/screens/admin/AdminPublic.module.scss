@@ -11,3 +11,50 @@
 		margin-bottom: 35px;
 	}
 }
+
+.form {
+	margin-bottom: 20px;
+	> div {
+		margin-bottom: 20px;
+	}
+}
+
+.text {
+	> label {
+		& > textarea {
+			min-height: 250px;
+		}
+	}
+}
+
+.removeBlock {
+	max-width: 400px;
+	padding: 15px 20px;
+}
+
+.btns {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+
+	> button {
+		padding: 10px 15px;
+	}
+
+	> button:first-child {
+		margin-right: 20px;
+	}
+}
+
+.help {
+	color: var(--color-primary);
+	font-weight: 700;
+}
+
+.link {
+	margin-bottom: 20px;
+}
+.links {
+	display: flex;
+	flex-direction: column;
+}

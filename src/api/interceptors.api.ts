@@ -7,7 +7,6 @@ import { getNewTokens } from '@/services/auth.serivce';
 import { API_URL } from '@/config/api.config';
 
 import { errorStatus, getContentType } from '@/api/helpers.api';
-import { useRedirect } from '@/hooks/useRedirect';
 
 export const axiosClassic = axios.create({
 	baseURL: API_URL,

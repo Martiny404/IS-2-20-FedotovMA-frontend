@@ -23,6 +23,13 @@ type TextProps = TextareaHTMLAttributes<HTMLTextAreaElement> & IFieldProps;
 
 export interface ITextArea extends TextProps {}
 
+export type IDatePickerProps = Pick<IFieldProps, 'error'>;
+
+type DatePickerPropsFieldType = InputHTMLAttributes<HTMLInputElement> &
+	IDatePickerProps;
+
+export interface IDatePicker extends DatePickerPropsFieldType {}
+
 export interface IUploadField {
 	folder?: string;
 	value?: string;

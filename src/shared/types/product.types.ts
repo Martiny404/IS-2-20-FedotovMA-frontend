@@ -31,19 +31,19 @@ export namespace ProductTypes {
 		createdAt: string;
 		updatedAt: string;
 		name: string;
-		productOrders: number;
-		rating: number;
 		inStock: number;
 		views: number;
 		description: string;
-		status: ProductStatus;
+		status: string;
 		hidden: boolean;
 		price: number;
-		discount_percentage: number;
+		discount_percentage?: number;
 		poster: string;
 		options: IProductOptions;
 		category: ICategory;
 		brand: IBrand;
+		rating: number;
+		productOrders: number;
 		images: Image[];
 	}
 

@@ -1,7 +1,8 @@
+import { AdminEditBrand } from '@/components/screens/admin/brands/edit/AdminEditBrand';
 import { NextPageAuth } from '@/types/auth.types';
 
 const AdminBrandsEditPage: NextPageAuth = () => {
-	return <h1>AdminBrandsEditPage</h1>;
+	return <AdminEditBrand />;
 };
 
 AdminBrandsEditPage.onlyForAdmin = true;

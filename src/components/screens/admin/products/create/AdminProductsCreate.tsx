@@ -16,6 +16,8 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { ICreateProduct } from './CreateProduct.interface';
 
 import styles from './CreateProduct.module.scss';
+import publicStyles from '../../AdminPublic.module.scss';
+import clsx from 'clsx';
 
 export const AdminProductsCreate: FC = () => {
 	const brands = useGetAllBrands();
@@ -47,8 +49,7 @@ export const AdminProductsCreate: FC = () => {
 			description='На этой странице администратор имеет функционал по созданию продукта'
 		>
 			<Link
-				className='my-link'
-				style={{ display: 'block', marginBottom: 20 }}
+				className={clsx('my-link', publicStyles.link)}
 				href={getAdminUrl('products')}
 			>
 				К панели продуктов

@@ -32,4 +32,9 @@ export const navItems: IAdminNavItem[] = [
 		link: getAdminUrl('offers'),
 		title: 'Акции',
 	},
+	{
+		icon: 'RiArticleLine',
+		link: getAdminUrl('posts'),
+		title: 'Блог',
+	},
 ];

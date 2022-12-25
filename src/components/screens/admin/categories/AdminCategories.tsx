@@ -24,6 +24,7 @@ export const AdminCategories: FC = () => {
 			<ul className={styles.list}>
 				{categories.map(category => (
 					<BCCard
+						type='category'
 						key={category.id}
 						item={{ ...category, image: category.categoryImgPath || '' }}
 						forAdmin={true}

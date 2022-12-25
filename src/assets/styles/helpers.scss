@@ -1,6 +1,7 @@
 .my-link {
 	transition: color 0.2s ease-in-out;
 	text-decoration: underline;
+	display: inline-block;
 
 	&:hover {
 		color: var(--color-primary);

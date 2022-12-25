@@ -52,7 +52,7 @@ export const Home: FC<IHomeProps> = ({
 							img='/wish-reminder.png'
 							link='/wishlist'
 							linkText='Проверить избранное'
-							title='Привет, Максим'
+							title='Привет, друг!'
 							text='Не забывай добавлять почаще товары в избранное, чтобы потом вернуться к их просмотру!'
 						/>
 

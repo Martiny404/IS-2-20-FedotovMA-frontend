@@ -1,0 +1,74 @@
+.list {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--color-white);
+	padding: 15px;
+	box-shadow: var(--shadow-dns);
+	border-radius: 8px;
+}
+.secondList {
+	padding-left: 15px;
+	margin-top: 15px;
+}
+.mainList {
+	margin-bottom: 30px;
+	li {
+		padding: 10px 0;
+		position: relative;
+	}
+}
+
+.secondLi {
+	max-width: 230px;
+	display: flex;
+	align-items: center;
+}
+
+.li {
+	margin-bottom: 10px;
+}
+
+.warn {
+	font-weight: 700;
+	margin-bottom: 20px;
+	display: block;
+}
+
+.removeBtn {
+	margin-left: 20px;
+	min-width: 20px;
+	min-height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.optionName {
+	display: flex;
+	align-items: center;
+}
+
+.form {
+	max-width: 300px;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--color-white);
+	padding: 15px;
+	box-shadow: var(--shadow-dns);
+	border-radius: 8px;
+	margin-bottom: 40px;
+}
+
+.title {
+	margin-bottom: 20px;
+}
+.field {
+	margin-bottom: 30px;
+}
+
+.actionBtn {
+	min-width: 140px;
+	&:not(:last-child) {
+		margin-right: 20px;
+	}
+}

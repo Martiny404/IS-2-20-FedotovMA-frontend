@@ -26,6 +26,7 @@ import { BsFillGearFill } from 'react-icons/bs';
 import { GrRedo, GrUserWorker } from 'react-icons/gr';
 import { TbReportAnalytics } from 'react-icons/tb';
 import { GoPackage } from 'react-icons/go';
+import { RiArticleLine } from 'react-icons/ri';
 
 import { FC } from 'react';
 
@@ -55,6 +56,7 @@ const icons = {
 	['MdModeEditOutline']: MdModeEditOutline,
 	['GrRedo']: GrRedo,
 	FaTrash: FaTrash,
+	RiArticleLine: RiArticleLine,
 };
 
 export type MaterialIconType = keyof typeof icons;

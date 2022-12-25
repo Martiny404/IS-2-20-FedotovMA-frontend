@@ -15,3 +15,5 @@ export const getSpecialOfferApi = (endpoint: string) =>
 	`${API_URL}/special-offer/${endpoint}`;
 
 export const getAuthApi = (endpoint: string) => `${API_URL}/auth/${endpoint}`;
+
+export const getPostsApi = (endpoint: string) => `${API_URL}/posts/${endpoint}`;
