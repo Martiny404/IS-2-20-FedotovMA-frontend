@@ -42,8 +42,8 @@ export const AdminEditPhotos: FC = () => {
 						{product.images.map(image => (
 							<li key={image.id}>
 								<Image
-									width={300}
-									height={200}
+									width={200}
+									height={160}
 									alt={`${image.id}`}
 									src={image.photo}
 								/>

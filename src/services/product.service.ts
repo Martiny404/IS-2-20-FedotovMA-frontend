@@ -3,10 +3,15 @@ import { ICreateProduct } from '@/components/screens/admin/products/create/Creat
 import { getProductApi } from '@/config/api.config';
 import { ProductTypes } from '@/types/product.types';
 
-export const getBySearchTerm = async (searchTerm?: string) => {
-	const data = await axiosClassic.get(getProductApi(''), {
-		params: searchTerm ? { searchTerm } : {},
-	});
+export const getBySearchTerm = async (searchTerm: string) => {
+	const data = await axiosClassic.get<ProductTypes.ISearchProduct[]>(
+		getProductApi('search'),
+		{
+			params: {
+				searchTerm,
+			},
+		}
+	);
 	return data.data;
 };
 
@@ -62,6 +67,32 @@ export const removeProduct = async (productId: number) => {
 export const removeImage = async (imageId: number) => {
 	const response = await instance.delete(
 		getProductApi(`remove-img/${imageId}`)
+	);
+	return response.data;
+};
+
+export interface addProductOptionDto {
+	optionId: number;
+	optionValueId: number;
+}
+
+export const addProductOption = async (
+	productId: number,
+	dto: addProductOptionDto
+) => {
+	const response = await instance.patch(
+		getProductApi(`add-option/${productId}`),
+		dto
+	);
+	return response.data;
+};
+
+export const removeProductOption = async (productId: number, key: string) => {
+	const response = await instance.patch(
+		getProductApi(`delete-options/${productId}`),
+		{
+			key,
+		}
 	);
 	return response.data;
 };

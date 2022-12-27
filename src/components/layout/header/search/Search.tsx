@@ -1,27 +1,31 @@
 import { SearchField } from '@/components/ui/search-field/SearchField';
+import { useSearch } from '@/hooks/data/useSearch';
 import { useOutside } from '@/hooks/useOutside';
-import { FC, memo } from 'react';
+import { useOutsideWithCallback } from '@/hooks/useOutsideWithCallback';
+import { FC, memo, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { SearchList } from './search-list/SearchList';
 import styles from './Search.module.scss';
 
 export const Search: FC = memo(() => {
-	const { isShow: open, setIsShow: setOpen, ref } = useOutside(false);
+	const { data, handleSearch, searchTerm, setDebounced } = useSearch();
+	const { ref } = useOutsideWithCallback(() => setDebounced(''));
 
 	const closeList = () => {
-		setOpen(false);
+		setDebounced('');
 	};
 
 	return (
 		<div ref={ref} className={styles.wrapper}>
-			<SearchField searchTerm='' handleSearch={() => {}} />
+			<SearchField searchTerm={searchTerm} handleSearch={handleSearch} />
+
 			<CSSTransition
-				in={open}
-				timeout={800}
+				in={!!data}
 				unmountOnExit
+				timeout={300}
 				classNames='reminder-anim'
 			>
-				<SearchList closeList={closeList} />
+				<SearchList closeList={closeList} products={data || []} />
 			</CSSTransition>
 		</div>
 	);

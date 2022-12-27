@@ -58,3 +58,19 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.addCategoryBtn {
+	margin-top: 20px;
+	min-width: 180px;
+}
+
+.wrapper {
+	min-width: 280px;
+	height: 400px;
+	padding: 40px;
+	overflow: scroll;
+}
+
+.addCategoryForm {
+	margin-bottom: 25px;
+}

@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import styles from '../../AdminPublic.module.scss';
+import { AdminAddCategoryToBrand } from './AdminAddCategoryToBrand';
 import { AdminDeleteBrand } from './AdminDeleteBrand';
 
 export const AdminEditBrand: FC = () => {
@@ -88,6 +89,8 @@ export const AdminEditBrand: FC = () => {
 			</form>
 
 			<AdminDeleteBrand handler={() => removeBrandMutation()} />
+
+			<AdminAddCategoryToBrand />
 		</Meta>
 	);
 };

@@ -37,8 +37,11 @@ export const removeCategoryOption = async (
 	return response.data;
 };
 
-export const getCategoryOptions = async (categoryId: number) => {
-	const response = await axiosClassic.get(
+export const getCategoryOptions = async (categoryId?: number) => {
+	if (!categoryId) {
+		return null;
+	}
+	const response = await axiosClassic.get<ICategory>(
 		getCategoryApi(`all-options/${categoryId}`)
 	);
 	return response.data;

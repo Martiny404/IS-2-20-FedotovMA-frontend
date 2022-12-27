@@ -22,10 +22,28 @@ export interface IUpdateProduct {
 	discount_percentage?: number;
 	status?: string;
 	poster?: string;
-	price?: string;
+	price?: number;
 }
 
 export namespace ProductTypes {
+	export interface ISearchProduct {
+		id: number;
+		createdAt: string;
+		updatedAt: string;
+		name: string;
+		inStock: number;
+		views: number;
+		description: string;
+		status: string;
+		hidden: boolean;
+		price: number;
+		discount_percentage?: number;
+		poster: string;
+		options: IProductOptions;
+		category: ICategory;
+		brand: IBrand;
+	}
+
 	export interface IProduct {
 		id: number;
 		createdAt: string;

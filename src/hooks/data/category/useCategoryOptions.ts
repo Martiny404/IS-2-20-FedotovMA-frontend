@@ -12,7 +12,7 @@ import { errorHandler } from '@/utils/error-handler';
 import { useRouter } from 'next/router';
 import { useMutation, useQuery } from 'react-query';
 
-export const useCategory = () => {
+export const useCategoryOptions = () => {
 	const { query, push } = useRouter();
 
 	const categoryId = String(query.id);
@@ -24,6 +24,8 @@ export const useCategory = () => {
 			onError(e) {
 				errorHandler(e);
 			},
+			enabled: !!query.id,
+			retry: 1,
 		}
 	);
 
@@ -40,7 +42,7 @@ export const useCategory = () => {
 		}
 	);
 
-	const { mutateAsync: removeOptionMutation } = useMutation(
+	const { mutateAsync: removeCategoryOptionMutation } = useMutation(
 		REMOVE_OPTION_CATEGORY,
 		(optionId: number) => removeCategoryOption(+categoryId, optionId),
 		{
@@ -57,6 +59,6 @@ export const useCategory = () => {
 		category,
 		refetch,
 		addOptionMutation,
-		removeOptionMutation,
+		removeCategoryOptionMutation,
 	};
 };

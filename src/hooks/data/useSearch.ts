@@ -8,7 +8,7 @@ import { useDebounce } from '../useDebounce';
 export const useSearch = () => {
 	const [searchTerm, setSearchTerm] = useState('');
 
-	const debounced = useDebounce(searchTerm, 500);
+	const { debounced, setDebounced } = useDebounce(searchTerm, 500);
 
 	const { isSuccess, data } = useQuery(
 		['search movie list', debounced],
@@ -28,5 +28,6 @@ export const useSearch = () => {
 		handleSearch,
 		data,
 		searchTerm,
+		setDebounced,
 	};
 };

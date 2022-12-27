@@ -7,14 +7,18 @@
 .list {
 	border-radius: var(--main-radius);
 	box-shadow: var(--shadow-dns);
+	display: flex;
+	flex-direction: column;
 	background-color: var(--color-white);
 	padding: 15px 0;
-	width: 310px;
+	min-width: 310px;
 	right: 10px;
 	position: absolute;
 	top: 68px;
 
-	& li {
+	& .listItem {
+		display: flex;
+		align-items: center;
 		font-size: 14px;
 		padding-left: 20px;
 		padding-top: 10px;
@@ -41,6 +45,40 @@
 		> svg {
 			width: 22px;
 			height: 22px;
+		}
+	}
+}
+
+.img {
+	border-radius: 4px;
+}
+
+.notFound {
+	align-self: center;
+	display: flex;
+	align-items: center;
+
+	> strong {
+		margin-right: 15px;
+	}
+
+	> svg {
+		width: 20px;
+		height: 20px;
+		> path {
+			fill: crimson;
+		}
+	}
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+	margin-left: 30px;
+
+	> a {
+		&:not(:last-child) {
+			margin-bottom: 15px;
 		}
 	}
 }

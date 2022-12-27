@@ -1,0 +1,81 @@
+.option {
+	margin-bottom: 20px;
+	background-color: var(--color-white);
+	padding: 15px;
+	border-radius: var(--main-radius);
+	box-shadow: var(--shadow-dns);
+
+	> span {
+		font-weight: 700;
+		font-size: 18px;
+		display: inline-block;
+		margin-right: 20px;
+	}
+
+	> label:not(:last-child) {
+		margin-right: 20px;
+	}
+}
+
+.value:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color: #d1d3d1;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
+	transition: background-color 0.25s ease-in-out;
+}
+
+.value:checked:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color: var(--color-primary);
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
+}
+
+.value:disabled::after {
+	background-color: crimson;
+}
+
+.productOptionWrapper {
+	margin-bottom: 20px;
+	background-color: var(--color-white);
+	display: flex;
+	align-items: center;
+	padding: 15px;
+	border-radius: var(--main-radius);
+	box-shadow: var(--shadow-dns);
+}
+
+.productOption {
+	font-weight: 700;
+	font-size: 18px;
+	display: inline-block;
+	margin-right: 20px;
+}
+.productValue {
+	display: flex;
+	align-items: center;
+}
+
+.removeBtn {
+	margin-left: 20px;
+	min-width: 20px;
+	min-height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

@@ -1,4 +1,4 @@
-import { AdminCategoryOptions } from '@/components/screens/admin/categories/options/AdminCategoryOptions';
+import { AdminCategoryOptions } from '@/components/screens/admin/categories/options/category/AdminCategoryOptions';
 import { NextPageAuth } from '@/types/auth.types';
 
 const AdminCategoryOptionsPage: NextPageAuth = () => {

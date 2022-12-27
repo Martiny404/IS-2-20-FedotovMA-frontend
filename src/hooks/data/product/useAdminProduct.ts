@@ -1,15 +1,20 @@
 import { ICreateProduct } from '@/components/screens/admin/products/create/CreateProduct.interface';
 import {
+	ADD_PRODUCT_OPTION,
 	ADD_PRODUCT_PHOTO,
 	CREATE_PRODUCT,
 	DELETE_PRODUCT_PHOTO,
 	GET_ONE_ADMIN_PRODUCT,
+	REMOVE_PRODUCT_OPTION,
 } from '@/constants/queries';
 import {
 	addImage,
+	addProductOption,
+	addProductOptionDto,
 	createProduct,
 	getOne,
 	removeImage,
+	removeProductOption,
 } from '@/services/product.service';
 import { errorHandler } from '@/utils/error-handler';
 import { notification } from '@/utils/notification';
@@ -75,11 +80,39 @@ export const useProduct = () => {
 		}
 	);
 
+	const { mutateAsync: addProductOptionMutation } = useMutation(
+		ADD_PRODUCT_OPTION,
+		(dto: addProductOptionDto) => addProductOption(+productId, dto),
+		{
+			onSuccess() {
+				refetch();
+			},
+			onError(e) {
+				errorHandler(e);
+			},
+		}
+	);
+
+	const { mutateAsync: removeProductOptionMutation } = useMutation(
+		REMOVE_PRODUCT_OPTION,
+		(key: string) => removeProductOption(+productId, key),
+		{
+			onSuccess() {
+				refetch();
+			},
+			onError(e) {
+				errorHandler(e);
+			},
+		}
+	);
+
 	return {
 		data,
 		createProductMutation,
 		refetch,
 		addPhotoMutation,
 		removePhotoMutation,
+		removeProductOptionMutation,
+		addProductOptionMutation,
 	};
 };

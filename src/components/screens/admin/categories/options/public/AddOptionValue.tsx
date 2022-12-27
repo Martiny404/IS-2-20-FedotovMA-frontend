@@ -50,12 +50,12 @@ export const AddOptionValue: FC = () => {
 							<Select
 								field={field}
 								options={opt || []}
-								placeholder='Производитель'
+								placeholder='Характеристика'
 								error={error}
 							/>
 						)}
 						rules={{
-							required: 'Производитель обязательное поле',
+							required: 'Характеристика обязательное поле',
 						}}
 					/>
 					<Field

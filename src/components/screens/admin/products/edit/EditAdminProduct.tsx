@@ -38,7 +38,19 @@ export const EditAdminProduct: FC = () => {
 	const statusOptions = productStatusMapper();
 
 	const onSubmit: SubmitHandler<IUpdateProduct> = data => {
-		editProductMutation(data);
+		const discount = data.discount_percentage
+			? +data.discount_percentage
+			: product?.discount_percentage;
+		const stock = data.inStock ? +data.inStock : product?.inStock;
+		const price = data.price ? +data.price : product?.price;
+
+		const dto = {
+			...data,
+			discount_percentage: discount,
+			inStock: stock,
+			price: price,
+		};
+		editProductMutation(dto);
 	};
 
 	if (!product) {
@@ -126,10 +138,18 @@ export const EditAdminProduct: FC = () => {
 			<div className='hr'></div>
 			<Link
 				className='my-link'
-				style={{ display: 'block', margin: '20px 0' }}
+				style={{ display: 'inline-block', marginTop: 20, marginRight: 20 }}
 				href={getAdminUrl(`products/edit/${product.id}/photos`)}
 			>
 				Изменить фотографии
+			</Link>
+
+			<Link
+				className='my-link'
+				style={{ display: 'inline-block', margin: '20px 0' }}
+				href={getAdminUrl(`products/edit/${product.id}/options`)}
+			>
+				Изменить характеристики
 			</Link>
 
 			<AdminDeleteProduct handler={() => removeProductMutation()} />

@@ -27,7 +27,7 @@ import { GrRedo, GrUserWorker } from 'react-icons/gr';
 import { TbReportAnalytics } from 'react-icons/tb';
 import { GoPackage } from 'react-icons/go';
 import { RiArticleLine } from 'react-icons/ri';
-
+import { CgSmileSad } from 'react-icons/cg';
 import { FC } from 'react';
 
 const icons = {
@@ -57,6 +57,7 @@ const icons = {
 	['GrRedo']: GrRedo,
 	FaTrash: FaTrash,
 	RiArticleLine: RiArticleLine,
+	CgSmileSad: CgSmileSad,
 };
 
 export type MaterialIconType = keyof typeof icons;
