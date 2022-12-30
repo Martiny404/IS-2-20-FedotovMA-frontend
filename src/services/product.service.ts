@@ -42,6 +42,13 @@ export const getAllProducts = async (dto: GetAllProductsDto) => {
 	return response.data;
 };
 
+export const getProducts = async () => {
+	const response = await axiosClassic.get<ProductTypes.IProduct[]>(
+		getProductApi('all')
+	);
+	return response.data;
+};
+
 export const createProduct = async (dto: ICreateProduct) => {
 	const response = await instance.post(getProductApi(''), dto);
 	return response.data;
@@ -94,5 +101,33 @@ export const removeProductOption = async (productId: number, key: string) => {
 			key,
 		}
 	);
+	return response.data;
+};
+export const getUserProductRate = async (productId: number) => {
+	const response = await instance.get(
+		getProductApi(`user-product-rate/${productId}`)
+	);
+	return response.data;
+};
+
+export const getProductAvgRate = async (productId: number) => {
+	const response = await axiosClassic.get(
+		getProductApi(`rate-product/${productId}`)
+	);
+	return response.data;
+};
+
+export const evaluteProduct = async (productId: number, rate: number) => {
+	const response = await instance.post(
+		getProductApi(`evalute-product/${productId}`),
+		{
+			rate,
+		}
+	);
+	return response.data;
+};
+
+export const updateCountOpened = async (productId: number) => {
+	const response = await axiosClassic.post(getProductApi(`views/${productId}`));
 	return response.data;
 };

@@ -78,6 +78,7 @@ export const EditAdminProduct: FC = () => {
 					error={errors.inStock}
 				/>
 				<TextField
+					className={styles.text}
 					{...register('description')}
 					placeholder='Описание'
 					error={errors.description}

@@ -4,7 +4,6 @@ import { NavigationItem } from './NavigationItem';
 import { CSSTransition } from 'react-transition-group';
 import { AuthItems } from './AuthItems';
 import styles from './Navigation.module.scss';
-import { useAuth } from '@/hooks/useAuth';
 import { useGetUserWishlist } from '@/hooks/data/users/useGetUserWishlist';
 import { useGetUserBasket } from '@/hooks/data/users/useGetUserBasket';
 

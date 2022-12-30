@@ -7,8 +7,7 @@ export enum ProductStatus {
 	NOT_AVAILABLE_FOR_FALSE = 'NOT_AVAILABLE_FOR_FALSE',
 }
 
-export type IProductOptions = Object &
-	Record<string, string | number | boolean>;
+export type IProductOptions = Object & Record<string, string>;
 
 export interface Image {
 	id: number;
@@ -37,7 +36,7 @@ export namespace ProductTypes {
 		status: string;
 		hidden: boolean;
 		price: number;
-		discount_percentage?: number;
+		discount_percentage: number;
 		poster: string;
 		options: IProductOptions;
 		category: ICategory;
@@ -55,7 +54,7 @@ export namespace ProductTypes {
 		status: string;
 		hidden: boolean;
 		price: number;
-		discount_percentage?: number;
+		discount_percentage: number;
 		poster: string;
 		options: IProductOptions;
 		category: ICategory;

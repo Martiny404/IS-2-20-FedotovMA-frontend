@@ -1,0 +1,32 @@
+.none {
+	margin-top: 15px;
+}
+.btns {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+
+	> button {
+		&:not(:last-child) {
+			margin-right: 15px;
+		}
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: auto;
+		width: 44px;
+		height: 44px;
+		> svg {
+			width: 18px;
+			height: 18px;
+		}
+	}
+}
+
+.inWish {
+	> svg {
+		fill: crimson;
+	}
+}
+.inBasket {
+}

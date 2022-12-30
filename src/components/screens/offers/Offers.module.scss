@@ -1,0 +1,33 @@
+.list {
+	grid-template-columns: repeat(auto-fill, minmax(360px, 360px));
+	gap: 20px;
+	display: grid;
+}
+
+.item {
+	background-color: var(--color-white);
+	padding: 10px;
+	box-shadow: var(--shadow-main);
+	border-radius: var(--main-radius);
+	display: flex;
+	flex-direction: column;
+	> a {
+		align-self: center;
+		margin-bottom: 10px;
+	}
+
+	.img {
+		> img {
+			border-radius: var(--main-radius);
+		}
+	}
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+
+	> strong:not(:last-child) {
+		margin-bottom: 10px;
+	}
+}

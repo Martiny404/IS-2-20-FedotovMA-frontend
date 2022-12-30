@@ -34,7 +34,13 @@ export const AdminEditCategory: FC = () => {
 	} = useEditAndRemoveCategory(setValue);
 
 	const onSubmit: SubmitHandler<IEditCategory> = data => {
-		editCategoryMutation(data);
+		const dto = {
+			categoryImgPath: data.categoryImgPath,
+			description: data.description,
+			name: data.name,
+		};
+
+		editCategoryMutation(dto);
 	};
 
 	if (!category) {

@@ -49,7 +49,7 @@ export const TopThreeProducts: FC = () => {
 						price: item.price,
 						productOrders: +item.c,
 						rating: +item.rating,
-						status: item.status,
+						status: item.product_status,
 						updatedAt: item.updated_at,
 						views: item.views,
 						discount_percentage: item.discount_percentage,

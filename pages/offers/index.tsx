@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const OffersPage: NextPage = () => {
 	const offers = useAllOffers();
-	return <Offers offers={offers || []} />;
+	return <Offers type='all' offers={offers || []} />;
 };
 
 export default OffersPage;

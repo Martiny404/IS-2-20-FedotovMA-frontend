@@ -1,8 +1,10 @@
 import { Basket } from '@/components/screens/basket/Basket';
-import type { NextPage } from 'next';
+import { NextPageAuth } from '@/types/auth.types';
 
-const BasketPage: NextPage = () => {
+const BasketPage: NextPageAuth = () => {
 	return <Basket />;
 };
+
+BasketPage.onlyForUsers = true;
 
 export default BasketPage;

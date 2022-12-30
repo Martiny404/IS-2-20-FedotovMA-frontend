@@ -1,6 +1,6 @@
 import { instance } from '@/api/interceptors.api';
 import { getUserApi } from '@/config/api.config';
-import { UserTypes } from '@/types/user.types';
+import { IBasket, IWishlist, UserTypes } from '@/types/user.types';
 
 export const getAllUsers = async () => {
 	const response = await instance.get<UserTypes.IUserInfo[]>(getUserApi(''));
@@ -9,18 +9,46 @@ export const getAllUsers = async () => {
 };
 
 export const getUserWishlist = async () => {
-	const respnse = await instance.get(getUserApi('wishlist'));
+	const respnse = await instance.get<IWishlist[]>(getUserApi('wishlist'));
 
 	return respnse.data;
 };
 
 export const getUserBasket = async () => {
-	const respnse = await instance.get(getUserApi('basket'));
+	const respnse = await instance.get<IBasket[]>(getUserApi('basket'));
 
 	return respnse.data;
 };
 
 export const getUserMe = async () => {
 	const respnse = await instance.get(getUserApi('me'));
+	return respnse.data;
+};
+
+export const addToBasket = async (productId: number) => {
+	const respnse = await instance.post(getUserApi('basket'), {
+		productId,
+	});
+	return respnse.data;
+};
+
+export const toggleToWishlist = async (productId: number) => {
+	const respnse = await instance.post(getUserApi('wishlist'), {
+		productId,
+	});
+	return respnse.data;
+};
+
+export const incrementBasketItem = async (productId: number) => {
+	const respnse = await instance.patch(
+		getUserApi(`basket/increment/${productId}`)
+	);
+	return respnse.data;
+};
+
+export const decrementBasketItem = async (productId: number) => {
+	const respnse = await instance.patch(
+		getUserApi(`basket/decrementBasketItem/${productId}`)
+	);
 	return respnse.data;
 };

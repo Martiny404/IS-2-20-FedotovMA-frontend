@@ -22,12 +22,13 @@ import {
 } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdPricetags } from 'react-icons/io';
-import { BsFillGearFill } from 'react-icons/bs';
+import { BsFillGearFill, BsCheckLg } from 'react-icons/bs';
 import { GrRedo, GrUserWorker } from 'react-icons/gr';
 import { TbReportAnalytics } from 'react-icons/tb';
 import { GoPackage } from 'react-icons/go';
 import { RiArticleLine } from 'react-icons/ri';
 import { CgSmileSad } from 'react-icons/cg';
+import { AiFillEye } from 'react-icons/ai';
 import { FC } from 'react';
 
 const icons = {
@@ -58,6 +59,8 @@ const icons = {
 	FaTrash: FaTrash,
 	RiArticleLine: RiArticleLine,
 	CgSmileSad: CgSmileSad,
+	BsCheckLg: BsCheckLg,
+	AiFillEye: AiFillEye,
 };
 
 export type MaterialIconType = keyof typeof icons;

@@ -1,12 +1,12 @@
 import { IMostOrderedProduct } from '@/types/statistics.types';
-import { parsePrice } from '@/utils/parsePrice';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useMemo } from 'react';
-import { Button } from '../form-elements/Button';
+import { ActionBtns } from '../action-btns/ActionBtns';
 import { MaterialIcon } from '../MaterialIcon';
 import styles from './ProductCard.module.scss';
+import { ProductPrice } from './ProductPrice';
 
 export interface IProductCard {
 	className?: string;
@@ -16,24 +16,34 @@ export interface IProductCard {
 export const ProductCard: FC<IProductCard> = ({ item, className }) => {
 	const text: string = useMemo(() => {
 		const options = item.options;
+
 		if (!options || Object.keys(options).length == 0)
 			return 'Характеристики отсутствуют!';
-		const arr: string[] = [];
-		for (const key in options) {
-			arr.push(`${key}: ${options[key]}`);
-		}
-		return arr.join('; ');
-	}, [item.options]);
 
-	const slicedText = text.slice(0, 31);
+		const opts = Object.keys(options)
+			.map((key, idx) => {
+				if (idx <= 2) {
+					return `${key}: ${options[key]}`;
+				}
+			})
+			.join('; ');
+
+		return opts;
+	}, [item.options]);
 
 	return (
 		<li className={clsx(styles.card, className)}>
-			<Link href='/' className={styles.img}>
-				<Image src={item.poster} alt={item.product_name} fill />
+			<Link href={`/products/${item.id}`} className={styles.img}>
+				<Image
+					src={item.poster}
+					alt={item.product_name}
+					width={256}
+					height={200}
+				/>
 			</Link>
 			<p className={styles.descr}>
-				<strong>{item.product_name}</strong> | {slicedText}
+				<strong>{item.product_name}</strong>
+				<span> | {text}</span>
 			</p>
 			<div className={styles.rating}>
 				{item.rating ? (
@@ -46,15 +56,12 @@ export const ProductCard: FC<IProductCard> = ({ item, className }) => {
 				)}
 			</div>
 			<div className={styles.actions}>
-				<div className={styles.price}>{parsePrice(item.price)} ₽</div>
-				<div className={styles.btns}>
-					<Button variant='outlined'>
-						<MaterialIcon muiName='FavoriteIcon' />
-					</Button>
-					<Button variant='contained'>
-						<MaterialIcon muiName='ShoppingCartIcon' />
-					</Button>
-				</div>
+				<ProductPrice
+					price={item.price}
+					discount={item.discount_percentage}
+					small
+				/>
+				<ActionBtns productId={item.id} />
 			</div>
 		</li>
 	);

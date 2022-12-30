@@ -1,3 +1,5 @@
+import { ProductTypes } from './product.types';
+
 export interface IUserInfo {
 	id: number;
 	email: string;
@@ -26,4 +28,15 @@ export namespace UserTypes {
 		};
 		createdAt: string;
 	}
+}
+
+export interface IWishlist {
+	id: number;
+	product: ProductTypes.IProduct;
+}
+
+export interface IBasket {
+	id: number;
+	quantity: number;
+	product: ProductTypes.IProduct;
 }

@@ -11,7 +11,6 @@ export const useProducts = (dto: GetAllProductsDto) => {
 			onError(e) {
 				errorHandler(e);
 			},
-			enabled: true,
 		}
 	);
 

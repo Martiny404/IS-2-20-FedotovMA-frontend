@@ -14,6 +14,7 @@ import { getAdminUrl } from '@/config/url.config';
 import { createCategoryAndBrandOptions } from '@/utils/createBrandsAndCategoriesOptions';
 import { Meta } from '@/utils/meta/Meta';
 import clsx from 'clsx';
+import { Button } from '@/components/ui/form-elements/Button';
 
 export const AdminProducts: FC = () => {
 	const [categoryId, setCategoryId] = useState<IOption | undefined>(undefined);
@@ -25,6 +26,12 @@ export const AdminProducts: FC = () => {
 		categoryId: categoryId?.value,
 		brandId: brandId?.value,
 	});
+
+	const reset = () => {
+		setCategoryId(undefined);
+		setBrandId(undefined);
+		setPage(1);
+	};
 
 	const pages = [];
 
@@ -65,6 +72,9 @@ export const AdminProducts: FC = () => {
 			>
 				Создать новый
 			</Link>
+			<Button onClick={reset} className={styles.reset} variant='outlined'>
+				сбросить
+			</Button>
 			<div className={styles.wrapper}>
 				<div className={styles.select}>
 					<Select

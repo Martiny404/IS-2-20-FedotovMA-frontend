@@ -11,8 +11,8 @@ export interface IMostOrderedProduct {
 	updated_at: string;
 	options: Object & Record<string, any>;
 	price: number;
-	status: ProductStatus;
-	discount_percentage?: number;
+	product_status: string;
+	discount_percentage: number;
 	poster: string;
 	brand_id: number;
 	category_id: number;

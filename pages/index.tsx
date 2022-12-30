@@ -39,7 +39,7 @@ const HomePage: NextPage = () => {
 	const brands = useGetAllBrands();
 	return (
 		<Home
-			offers={offers || []}
+			offers={offers}
 			categories={categories || []}
 			mostOrdered={mostOrdered || []}
 			brands={brands || []}

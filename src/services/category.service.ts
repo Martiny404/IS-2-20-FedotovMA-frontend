@@ -7,9 +7,16 @@ export const getAllCategories = async () => {
 	return response.data;
 };
 
-export const getOneCategory = async (brandId: number) => {
+export const getOneCategory = async (categoryId: number) => {
 	const response = await axiosClassic.get<ICategory>(
-		getCategoryApi(`${brandId}`)
+		getCategoryApi(`${categoryId}`)
+	);
+	return response.data;
+};
+
+export const getCategoryInfo = async (categoryId: number) => {
+	const response = await axiosClassic.get<ICategory>(
+		getCategoryApi(`info/${categoryId}`)
 	);
 	return response.data;
 };

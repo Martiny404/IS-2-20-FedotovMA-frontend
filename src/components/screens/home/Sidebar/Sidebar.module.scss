@@ -5,6 +5,10 @@
 	height: 100%;
 	position: relative;
 	background-color: var(--color-white);
+	> ul {
+		height: 55%;
+		overflow-y: scroll;
+	}
 }
 .title {
 	margin-bottom: 20px;

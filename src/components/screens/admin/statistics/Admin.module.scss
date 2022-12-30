@@ -48,7 +48,7 @@
 		box-shadow: var(--shadow-dns);
 		background-color: var(--color-white);
 
-		button {
+		> .editLink {
 			cursor: pointer;
 			position: absolute;
 			top: 10px;

@@ -9,8 +9,6 @@ export const Profile: FC = () => {
 		<Meta
 			title='Страница профиля пользователя'
 			description='Страница с информацией пользователя'
-		>
-			<div>{JSON.stringify(me)}</div>
-		</Meta>
+		></Meta>
 	);
 };

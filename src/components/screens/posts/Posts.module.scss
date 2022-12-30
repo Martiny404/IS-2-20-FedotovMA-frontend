@@ -1,0 +1,148 @@
+.toPostsLink {
+	position: absolute;
+	top: 70px;
+}
+
+.listWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.date {
+	margin-bottom: 15px;
+}
+
+.item {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--color-white);
+	padding: 20px;
+	box-shadow: var(--shadow-dns);
+	border-radius: var(--main-radius);
+	&:not(:last-child) {
+		margin-bottom: 15px;
+	}
+
+	> h2 {
+		margin-bottom: 20px;
+	}
+
+	.img {
+		display: block;
+		position: relative;
+		height: 340px;
+		width: 100%;
+		> img {
+			border-radius: var(--main-radius);
+		}
+		margin-bottom: 20px;
+	}
+}
+.views {
+	display: flex;
+	align-items: center;
+	> span {
+		margin-left: 10px;
+	}
+	> svg {
+		width: 22px;
+		height: 22px;
+	}
+}
+
+.post {
+	padding: 15px;
+	border-radius: var(--main-radius);
+	box-shadow: var(--shadow-dns);
+	background-color: var(--color-white);
+	position: relative;
+	> h1 {
+		padding-top: 100px;
+		margin-bottom: 25px;
+	}
+	.postTxt {
+		> h2 {
+			margin-bottom: 10px;
+		}
+		> p {
+			line-height: 1.6;
+			padding-left: 10px;
+			text-indent: 20px;
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+	.postImg {
+		position: relative;
+		height: 400px;
+		max-width: 600px;
+		margin-bottom: 20px;
+		> img {
+			border-radius: var(--main-radius);
+		}
+	}
+	.similarPosts {
+		position: absolute;
+		top: 15px;
+		> button {
+			min-width: 140px;
+		}
+	}
+}
+.similarPostsList {
+	width: 300px;
+	border-radius: var(--main-radius);
+	box-shadow: var(--shadow-dns);
+	background-color: var(--color-white);
+
+	max-height: 400px;
+	overflow-y: scroll;
+	.similarPost {
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--color-white);
+		transition: background-color 0.25s ease-in-out;
+
+		&:hover {
+			background-color: var(--color-light-gray);
+		}
+		> strong {
+			margin-bottom: 10px;
+		}
+		> a {
+			margin-bottom: 10px;
+			align-self: center;
+			display: block;
+			> img {
+			}
+		}
+	}
+}
+
+@media (max-width: 570px) {
+	.post {
+		.postImg {
+			height: 250px;
+		}
+	}
+	.item {
+		> .img {
+			height: 250px;
+		}
+	}
+}
+@media (max-width: 400px) {
+	.post {
+		.postImg {
+			height: 180px;
+		}
+	}
+	.item {
+		> .img {
+			height: 180px;
+		}
+	}
+}

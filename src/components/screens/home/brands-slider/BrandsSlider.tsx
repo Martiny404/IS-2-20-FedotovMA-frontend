@@ -1,3 +1,4 @@
+import { getBrandsUrl } from '@/config/url.config';
 import { IBrand } from '@/types/brand.types';
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -31,8 +32,8 @@ export const BrandsSlider: FC<{ brands: IBrand[] }> = ({ brands }) => {
 			className={clsx('my-swiper', styles.brands)}
 		>
 			{brands.map(brand => (
-				<SwiperSlide key={brand.id}>
-					<Link className={styles.link} href='/'>
+				<SwiperSlide className={styles.slide} key={brand.id}>
+					<Link className={styles.link} href={getBrandsUrl(brand.id)}>
 						<Image
 							alt={brand.name}
 							src={brand?.brandImgPath || '/no_image.jpeg'}

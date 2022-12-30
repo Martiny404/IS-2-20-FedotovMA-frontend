@@ -3,24 +3,21 @@
 	flex-direction: column;
 	background-color: var(--color-white);
 	width: 280px;
-	height: 356px;
+	min-height: 356px;
 	border-radius: var(--main-radius);
 	box-shadow: var(--shadow-dns);
 	padding: 12px;
 
 	.img {
 		display: block;
-		width: 100%;
-		position: relative;
-		height: 200px;
+
 		margin-bottom: 12px;
 		img {
-			width: 100%;
 			object-fit: contain;
 		}
 	}
 	.descr {
-		min-height: 45px;
+		min-height: 70px;
 		line-height: 1.4;
 		margin-bottom: 10px;
 	}
@@ -46,28 +43,6 @@
 		> .price {
 			font-size: 18px;
 			font-weight: 700;
-		}
-
-		> .btns {
-			margin-left: auto;
-			display: flex;
-			align-items: center;
-
-			> button {
-				&:not(:last-child) {
-					margin-right: 15px;
-				}
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				min-width: auto;
-				width: 44px;
-				height: 44px;
-				> svg {
-					width: 18px;
-					height: 18px;
-				}
-			}
 		}
 	}
 }

@@ -40,11 +40,18 @@ export const AdminOrderInfo: FC<{ order: OrderTypes.IOrder }> = ({ order }) => {
 					Продукты в заказе:
 				</Heading>
 
-				<ul className={styles.orderProducts}>
-					{order.orderProducts.map(item => (
-						<AdminOrderProduct key={item.product.id} orderProduct={item} />
-					))}
-				</ul>
+				{order.orderProducts.length > 0 ? (
+					<ul className={styles.orderProducts}>
+						{order.orderProducts.map(item => (
+							<AdminOrderProduct key={item.product.id} orderProduct={item} />
+						))}
+					</ul>
+				) : (
+					<Heading headingLevel='h2'>
+						Продукты были удалены, заказ оставлен для статистики. Можно его
+						удалить.
+					</Heading>
+				)}
 			</div>
 		</div>
 	);

@@ -1,0 +1,147 @@
+.product {
+	background-color: var(--color-white);
+	border-radius: var(--main-radius);
+	padding: 14px;
+	position: relative;
+	display: flex;
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+	.main {
+		flex-grow: 1;
+	}
+
+	.actions {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.btns {
+			margin-bottom: 20px;
+		}
+	}
+
+	.first {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 15px;
+		img {
+			object-fit: contain;
+		}
+		.descr {
+			margin-left: 25px;
+		}
+		.info {
+			margin-bottom: 15px;
+			display: flex;
+		}
+	}
+}
+.link {
+	position: relative;
+	color: var(--color-blue);
+	&:not(:last-child) {
+		margin-right: 10px;
+		&::after {
+			content: '';
+			width: 1px;
+			height: 100%;
+			background-color: var(--color-blue);
+			position: absolute;
+			top: 0;
+			right: -5px;
+			transition: background-color 0.25s ease-in-out;
+		}
+	}
+	&:hover {
+		&::after {
+			background-color: var(--color-primary);
+		}
+	}
+}
+
+.rqWrapper {
+	display: flex;
+	align-items: center;
+
+	.quantity {
+		margin-left: 15px;
+	}
+}
+
+.second {
+	.rating {
+		margin-left: 100px;
+		display: flex;
+		align-items: center;
+
+		> strong {
+			margin-right: 5px;
+		}
+
+		> svg {
+			fill: var(--color-primary);
+		}
+	}
+	.discount {
+		border-radius: 14px;
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--color-white);
+		background-color: crimson;
+		width: 35px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 700px) {
+	.product {
+		flex-direction: column;
+		align-items: flex-start;
+
+		.actions {
+			margin-top: 15px;
+			display: flex;
+			flex-direction: row;
+		}
+		.btns {
+			margin-right: 30px;
+		}
+	}
+}
+
+@media (max-width: 537px) {
+	.product {
+		.first {
+			.info {
+				flex-direction: column;
+				margin-bottom: 20px;
+			}
+			.link {
+				&::after {
+					content: none;
+				}
+				margin: 0;
+				&:not(:last-child) {
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 537px) {
+	.price {
+		> div {
+			flex-direction: column;
+			align-items: flex-start;
+			> span {
+				&:first-child {
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}

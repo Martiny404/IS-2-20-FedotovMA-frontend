@@ -1,21 +1,28 @@
-import { getOfferUrl } from '@/config/url.config';
+import { getCatalogUrl } from '@/config/url.config';
+import { IOffer } from '@/types/offer.types';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { FC } from 'react';
-import styles from './FreshOffers.module.scss';
-export const OfferSlide: FC<{ id: number; src: string; alt: string }> = ({
-	id,
-	src,
-	alt,
-}) => {
-	const { push } = useRouter();
 
+export const OfferSlide: FC<{ offer: IOffer }> = ({ offer }) => {
 	return (
-		<div
-			style={{ position: 'relative', height: '100%', cursor: 'pointer' }}
-			onClick={() => push(getOfferUrl(id))}
+		<Link
+			href={getCatalogUrl(
+				`categoryId=${offer.category.id}&brandId=${offer.brand.id}&discount=true`
+			)}
+			style={{
+				position: 'relative',
+				height: '100%',
+				cursor: 'pointer',
+				display: 'block',
+			}}
 		>
-			<Image fill priority src={src} alt={alt} />
-		</div>
+			<Image
+				fill
+				priority
+				src={offer.photo}
+				alt={offer?.description || 'Special offer'}
+			/>
+		</Link>
 	);
 };

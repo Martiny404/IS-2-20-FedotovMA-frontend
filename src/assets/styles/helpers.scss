@@ -2,6 +2,7 @@
 	transition: color 0.2s ease-in-out;
 	text-decoration: underline;
 	display: inline-block;
+	color: var(--color-black);
 
 	&:hover {
 		color: var(--color-primary);
@@ -111,4 +112,30 @@
 
 .digit-input {
 	max-width: 160px;
+}
+
+.product-price {
+	display: flex;
+	align-items: center;
+
+	> span:first-child {
+		font-weight: 700;
+		font-size: 20px;
+		margin-right: 15px;
+	}
+
+	> span:last-child {
+		color: var(--color-gray);
+		text-decoration: line-through;
+	}
+}
+
+.product-price-small {
+	> span:first-child {
+		font-size: 16px;
+		margin-right: 10px;
+	}
+	> span:last-child {
+		font-size: 14px;
+	}
 }

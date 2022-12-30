@@ -41,3 +41,8 @@ export const deletePost = async (postId: number) => {
 	const response = await instance.delete(getPostsApi(`${postId}`));
 	return response.data;
 };
+
+export const updatePostViews = async (postId: number) => {
+	const response = await instance.post(getPostsApi(`views/${postId}`));
+	return response.data;
+};

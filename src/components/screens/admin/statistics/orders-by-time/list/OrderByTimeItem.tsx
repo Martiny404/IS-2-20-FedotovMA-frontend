@@ -29,9 +29,9 @@ export const OrderByTimeItem: FC<{ item: OrderByTme.IOrder }> = ({ item }) => {
 					<span>Клиент: {item.user.email}</span>
 				</Link>
 			</div>
-			<button onClick={() => router.push(getAdminUrl(`orders/${item.id}`))}>
+			<Link className={styles.editLink} href={getAdminUrl(`orders/${item.id}`)}>
 				<MaterialIcon muiName='MdModeEditOutline' />
-			</button>
+			</Link>
 		</li>
 	);
 };

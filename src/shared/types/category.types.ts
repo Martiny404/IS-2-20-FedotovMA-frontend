@@ -1,4 +1,5 @@
 import { Option } from './option.types';
+import { ProductTypes } from './product.types';
 
 export interface ICategory {
 	id: number;
@@ -6,4 +7,5 @@ export interface ICategory {
 	description?: string;
 	categoryImgPath?: string;
 	options?: Option[];
+	products?: ProductTypes.ISearchProduct[];
 }

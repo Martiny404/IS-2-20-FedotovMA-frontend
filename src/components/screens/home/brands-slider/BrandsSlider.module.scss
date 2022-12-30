@@ -1,20 +1,23 @@
 .link {
-	display: block;
-	background-color: var(--color-white);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: var(--main-radius);
-	box-shadow: var(--shadow-dns);
-	padding: 10px;
 }
 
 .brands {
+	padding: 10px;
 	.link {
 		> img {
 			object-fit: contain;
 		}
 	}
+}
+
+.slide {
+	background-color: var(--color-white);
+	border-radius: var(--main-radius);
+	box-shadow: var(--shadow-dns);
+	padding: 10px;
 }
 
 @media (max-width: 1170px) {

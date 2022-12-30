@@ -1,8 +1,10 @@
 import { Wishlist } from '@/components/screens/wishlist/Wishlist';
-import type { NextPage } from 'next';
+import { NextPageAuth } from '@/types/auth.types';
 
-const WishlistPage: NextPage = () => {
+const WishlistPage: NextPageAuth = () => {
 	return <Wishlist />;
 };
+
+WishlistPage.onlyForUsers = true;
 
 export default WishlistPage;

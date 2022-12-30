@@ -8,16 +8,13 @@
 	position: relative;
 
 	.img {
-		width: 250px;
-		height: 250px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		position: relative;
+
 		margin-bottom: 12px;
 		align-self: center;
-		img {
-			width: 100%;
+		> img {
 			object-fit: contain;
 		}
 	}
