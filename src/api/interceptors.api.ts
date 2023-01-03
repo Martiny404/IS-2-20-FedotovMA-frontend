@@ -26,22 +26,26 @@ instance.interceptors.request.use(config => {
 	if (config.headers && accessToken) {
 		config.headers.Authorization = `Bearer ${accessToken}`;
 		return config;
+	} else {
+		return config;
 	}
 });
 
 instance.interceptors.response.use(
 	config => config,
 	async error => {
-		Cookies.get('clientRefreshToken');
 		const originalRequest = error.config;
+		const status = errorStatus(error);
+		const token = Cookies.get('accessToken');
 
-		if (errorStatus(error) === 401 && error.config && !error.config._isRetry) {
+		if (status === 401 && error.config && !error.config._isRetry && token) {
 			originalRequest._isRetry = true;
 			try {
 				await getNewTokens();
 				return instance.request(originalRequest);
 			} catch (e: any) {
-				if (errorStatus(e) == 403) {
+				const status = errorStatus(error);
+				if (status == 403) {
 					clearTokensFromStorage();
 				}
 			}

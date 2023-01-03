@@ -39,7 +39,6 @@ export const TopThreeProducts: FC = () => {
 						},
 						createdAt: item.created_at,
 						description: item.description,
-						hidden: false,
 						id: item.id,
 						images: [],
 						inStock: +item.in_stock,

@@ -11,7 +11,7 @@ export const errorCatcher = (error: any): string => {
 };
 
 export const errorStatus = (error: any): number => {
-	return error.response && error.response.data
-		? error.response.data.status
+	return error.response && error.response
+		? error.response.status
 		: error.status;
 };

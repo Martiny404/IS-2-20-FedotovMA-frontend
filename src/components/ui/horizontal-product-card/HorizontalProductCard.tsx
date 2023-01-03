@@ -19,7 +19,14 @@ export const HorizontalProductCard: FC<{
 	product: ProductTypes.IProduct;
 	isRemoved?: boolean;
 	isIncremental?: boolean;
-}> = ({ product, isRemoved = false, isIncremental = false, quantity }) => {
+	optionsVisible?: boolean;
+}> = ({
+	product,
+	isRemoved = false,
+	isIncremental = false,
+	quantity,
+	optionsVisible = false,
+}) => {
 	return (
 		<li className={styles.product}>
 			<div className={styles.main}>
@@ -68,7 +75,7 @@ export const HorizontalProductCard: FC<{
 					)}
 					<div className={styles.rqWrapper}>
 						<div className={styles.rating}>
-							<strong>{product.rating}</strong>
+							<strong>Средняя оценка: {product.rating}</strong>
 							<MaterialIcon muiName='MdStar' />
 						</div>
 						{quantity && (
@@ -76,6 +83,16 @@ export const HorizontalProductCard: FC<{
 						)}
 					</div>
 				</div>
+				{optionsVisible && (
+					<div className={styles.options}>
+						{Object.keys(product.options).map(key => (
+							<div className={styles.option} key={key}>
+								<span>{key}:</span>
+								<span>{product.options[key]};</span>
+							</div>
+						))}
+					</div>
+				)}
 			</div>
 
 			<div className={styles.actions}>

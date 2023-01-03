@@ -14,6 +14,7 @@ export interface IProductCard {
 }
 
 export const ProductCard: FC<IProductCard> = ({ item, className }) => {
+	console.log(item);
 	const text: string = useMemo(() => {
 		const options = item.options;
 

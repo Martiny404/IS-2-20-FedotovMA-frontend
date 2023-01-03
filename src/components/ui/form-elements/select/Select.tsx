@@ -13,6 +13,7 @@ export const Select: FC<ISelect> = ({
 	error,
 	isLoading,
 	isMulti,
+	id,
 }) => {
 	const onChange = (newValue: unknown | OnChangeValue<IOption, boolean>) => {
 		field.onChange(
@@ -37,6 +38,8 @@ export const Select: FC<ISelect> = ({
 			<label>
 				<span>{placeholder}</span>
 				<ReactSelect
+					id={id || 'id'}
+					instanceId={id || 'instanceId'}
 					classNamePrefix='custom-select'
 					options={options}
 					value={getValue()}

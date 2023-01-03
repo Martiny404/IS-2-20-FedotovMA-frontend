@@ -14,3 +14,14 @@ export const breadcrumbs: Object & Record<string, string> = {
 	['products']: 'Товары',
 	['clients']: 'Клиенты',
 };
+
+export const profileNavigation = [
+	{
+		title: 'Профиль',
+		link: '/profile',
+	},
+	{
+		title: 'Заказы',
+		link: '/profile/orders',
+	},
+];

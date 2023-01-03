@@ -16,6 +16,8 @@ export const GET_ORDER_INFO = 'get-order-info';
 export const CHANGE_ORDER_STATUS = 'change-order-status';
 export const REMOVE_ORDER = 'remove-order';
 export const TOGGLE_ORDER_ACTIVE = 'toggle-order-active';
+export const CANCLE_ORDER = 'cancle-order';
+export const CREATE_ORDER = 'create-order';
 
 export const GET_ALL_USERS = 'get-all-users';
 export const GET_USER_WISHLIST = 'get-user-wishlist';
@@ -25,6 +27,8 @@ export const ADD_TO_BASKET = 'add-to-basket';
 export const ADD_TO_WISHLIST = 'add-to-wishlist';
 export const DECREMENT_BASKET = 'decrement-wishlist';
 export const INCREMENT_BASKET = 'increment-basket';
+export const ADD_VALIDATION_CODE = 'add-validation-code';
+export const UPDATE_USER_INFO = 'update-user-info';
 
 export const GET_ALL_PRODUCTS = 'get-all-products';
 export const GET_ONE_ADMIN_PRODUCT = 'get-one-admin-product';
@@ -69,3 +73,5 @@ export const REMOVE_OPTION = 'remove-option';
 export const REMOVE_OPTION_VALUE = 'remove-option-value';
 export const ADD_OPTION_VALUE = 'add-option-value';
 export const CREATE_OPTION = 'create-option';
+
+export const GET_CATALOG = 'get-catalog';

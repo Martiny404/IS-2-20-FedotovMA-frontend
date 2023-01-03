@@ -18,6 +18,13 @@ export const Brand: FC<{ brand: IBrand }> = ({ brand }) => {
 		>
 			<div className={styles.category}>
 				<Heading headingLevel='h1'>{brand.name}</Heading>
+				{/* <Link
+					className='my-link'
+					style={{ marginBottom: 20 }}
+					href={getCatalogUrl(`brandId=${brand.id}`)}
+				>
+					Перейти в каталог к покупкам
+				</Link> */}
 				<div className={styles.content}>
 					{brand.description ? (
 						<div
@@ -63,7 +70,7 @@ export const Brand: FC<{ brand: IBrand }> = ({ brand }) => {
 									price: product.price,
 									product_name: product.name,
 									product_status: product.status,
-									rating: '',
+									rating: product.rating.toString(),
 									updated_at: product.updatedAt,
 								}}
 							/>
@@ -76,12 +83,12 @@ export const Brand: FC<{ brand: IBrand }> = ({ brand }) => {
 				<Heading headingLevel='h2'>Категории бренда</Heading>
 
 				<div style={{ marginBottom: 20 }}>
-					<CategorySlider categories={brand.categories || []} />
+					{brand.categories && brand.categories.length > 0 ? (
+						<CategorySlider categories={brand.categories || []} />
+					) : (
+						<Heading headingLevel='h3'>Категорий нет!</Heading>
+					)}
 				</div>
-
-				<Link className='my-link' href={getCatalogUrl(`brandId=${brand.id}`)}>
-					Перейти в каталог к покупкам
-				</Link>
 			</div>
 		</Meta>
 	);

@@ -1,0 +1,154 @@
+.notFound {
+	margin-left: 30px;
+	background-color: var(--color-white);
+	border-radius: var(--main-radius);
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	> span {
+		margin-top: 15px;
+	}
+}
+
+.sort {
+	background-color: var(--color-white);
+	border-radius: var(--main-radius);
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+
+	> .sortBtn {
+		margin-top: 20px;
+		width: 120px;
+	}
+}
+
+.catalog {
+	display: flex;
+}
+.list {
+	flex-grow: 1;
+	margin-left: 30px;
+}
+.link {
+	padding-left: 10px;
+}
+
+.filtersWrapper {
+	margin: 15px 0;
+}
+.filters {
+	background-color: var(--color-white);
+	border-radius: var(--main-radius);
+	width: 270px;
+	padding: 20px 0;
+}
+
+.filter {
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+	&.opened {
+		> .filterBtn {
+			> svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	> .filterBtn {
+		padding: 10px;
+		font-family: inherit;
+		width: 100%;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		transition: background-color 0.25s ease-in-out;
+		&:hover {
+			background-color: #fff7da;
+
+			> span {
+				color: var(--color-primary);
+			}
+			> svg {
+				fill: var(--color-primary);
+			}
+		}
+
+		> span {
+			font-size: 16px;
+			transition: color 0.25s ease-in-out;
+		}
+
+		> svg {
+			transition: all 0.25s ease-in-out;
+			height: 14px;
+			width: 14px;
+			margin-right: 8px;
+		}
+	}
+
+	.filterValues {
+		display: flex;
+		flex-direction: column;
+		> label {
+			display: flex;
+			align-items: center;
+			transition: background-color 0.25s ease-in-out;
+			> input {
+				margin: 0;
+			}
+			&:hover {
+				background-color: #fff7da;
+			}
+			padding: 4px 10px;
+			display: flex;
+			align-items: center;
+			> span {
+				margin-left: 4px;
+			}
+		}
+	}
+}
+
+.pag {
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	> .pagItem {
+		cursor: pointer;
+		font-family: inherit;
+		min-height: 30px;
+		min-width: 30px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		font-size: 12px;
+		justify-content: center;
+		background-color: var(--color-primary);
+		color: var(--color-white);
+		font-weight: 500;
+		> svg {
+			height: 20px;
+			width: 20px;
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	.catalog {
+		flex-direction: column;
+		.filters {
+			width: 100%;
+		}
+		.list {
+			margin-left: 0;
+			margin-top: 30px;
+		}
+	}
+}

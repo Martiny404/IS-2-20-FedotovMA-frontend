@@ -10,19 +10,16 @@ import {
 	getUserProductRate,
 } from '@/services/product.service';
 import { errorHandler } from '@/utils/error-handler';
-import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 
 export const useSingleProduct = (productId: number) => {
-	const { data: userRate, refetch: userRateRefetch } = useQuery(
-		GET_USER_PRODUCT_RATE,
-		() => getUserProductRate(productId),
-		{
-			onError(e: any) {
-				errorHandler(e);
-			},
-		}
-	);
+	const {
+		data: userRate,
+		refetch: userRateRefetch,
+		isError,
+	} = useQuery(GET_USER_PRODUCT_RATE, () => getUserProductRate(productId), {
+		retry: 1,
+	});
 
 	const { data: rate, refetch: productRateRefetch } = useQuery(
 		GET_PRODUCT_RATE,
@@ -47,5 +44,6 @@ export const useSingleProduct = (productId: number) => {
 		userRate,
 		evaluteProductMutation,
 		rate,
+		isError,
 	};
 };

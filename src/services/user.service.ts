@@ -21,7 +21,7 @@ export const getUserBasket = async () => {
 };
 
 export const getUserMe = async () => {
-	const respnse = await instance.get(getUserApi('me'));
+	const respnse = await instance.get<UserTypes.Profile>(getUserApi('me'));
 	return respnse.data;
 };
 
@@ -51,4 +51,24 @@ export const decrementBasketItem = async (productId: number) => {
 		getUserApi(`basket/decrementBasketItem/${productId}`)
 	);
 	return respnse.data;
+};
+
+export interface UpdateUserInfoDto {
+	email?: string;
+
+	password?: string;
+
+	code: string;
+
+	avatar?: string;
+}
+
+export const addValidationCode = async () => {
+	const response = await instance.patch(getUserApi('add-validation-code'));
+	return response.data;
+};
+
+export const updateUserInfo = async (dto: UpdateUserInfoDto) => {
+	const response = await instance.patch(getUserApi('update-user-info'), dto);
+	return response.data;
 };

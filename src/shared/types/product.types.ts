@@ -52,7 +52,6 @@ export namespace ProductTypes {
 		views: number;
 		description: string;
 		status: string;
-		hidden: boolean;
 		price: number;
 		discount_percentage: number;
 		poster: string;
@@ -60,7 +59,7 @@ export namespace ProductTypes {
 		category: ICategory;
 		brand: IBrand;
 		rating: number;
-		productOrders: number;
+		productOrders?: number;
 		images: Image[];
 	}
 

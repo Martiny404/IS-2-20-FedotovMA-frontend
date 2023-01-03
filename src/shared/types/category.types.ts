@@ -7,5 +7,5 @@ export interface ICategory {
 	description?: string;
 	categoryImgPath?: string;
 	options?: Option[];
-	products?: ProductTypes.ISearchProduct[];
+	products?: ProductTypes.IProduct[];
 }

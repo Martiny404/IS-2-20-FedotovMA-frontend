@@ -28,7 +28,11 @@ export const Product: FC<{ product: ProductTypes.IProduct }> = ({
 					<Heading headingLevel='h2'>Описание</Heading>
 					<p>{product.description}</p>
 				</div>
-				<ProductOptions options={product.options} />
+				{Object.keys(product.options).length > 0 ? (
+					<ProductOptions options={product.options} />
+				) : (
+					<Heading headingLevel='h3'>Характеристик нет!</Heading>
+				)}
 			</div>
 		</div>
 	);

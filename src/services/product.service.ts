@@ -24,8 +24,17 @@ export const getOne = async (id: string) => {
 
 export interface GetAllProductsDto {
 	categoryId?: number;
-	page?: number;
+
 	brandId?: number;
+
+	discount?: boolean;
+
+	sort?: string;
+
+	type?: string;
+	page?: number;
+
+	filters?: string;
 }
 
 export const getAllProducts = async (dto: GetAllProductsDto) => {
@@ -36,6 +45,10 @@ export const getAllProducts = async (dto: GetAllProductsDto) => {
 				categoryId: dto.categoryId,
 				brandId: dto.brandId,
 				page: dto.page,
+				discount: dto.discount,
+				sort: dto.sort,
+				type: dto.type,
+				filters: dto.filters,
 			},
 		}
 	);

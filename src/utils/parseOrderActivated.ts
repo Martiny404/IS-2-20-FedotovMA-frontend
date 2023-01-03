@@ -1,3 +1,3 @@
 export function parseOrderActivated(isActivated: boolean) {
-	return isActivated ? ['Активен', 'green'] : ['Неактивен', 'red'];
+	return isActivated ? ['Активирован', 'green'] : ['Неактивирован', 'red'];
 }

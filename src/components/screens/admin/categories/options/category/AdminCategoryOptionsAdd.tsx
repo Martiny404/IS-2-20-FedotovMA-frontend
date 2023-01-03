@@ -5,10 +5,9 @@ import { useOption } from '@/hooks/data/option/useOption';
 import { createOptions } from '@/utils/createOptions';
 import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import options from '../../../../../../../pages/admin/categories/options';
 
 export const AdminCategoryOptionsAdd: FC = () => {
-	const { category, addOptionMutation } = useCategoryOptions();
+	const { addOptionMutation } = useCategoryOptions();
 
 	const { control, handleSubmit, reset } = useForm<{ optionId: number }>({
 		mode: 'onChange',

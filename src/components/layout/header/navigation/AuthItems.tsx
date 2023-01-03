@@ -2,6 +2,7 @@ import { MaterialIcon } from '@/components/ui/MaterialIcon';
 import { useActions } from '@/hooks/useActions';
 import { useAuth } from '@/hooks/useAuth';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 
 import styles from './Navigation.module.scss';
@@ -9,6 +10,7 @@ import styles from './Navigation.module.scss';
 export const AuthItems: FC = () => {
 	const { user } = useAuth();
 	const { logout } = useActions();
+	const { push } = useRouter();
 
 	return (
 		<ul className={styles.list}>
@@ -23,7 +25,13 @@ export const AuthItems: FC = () => {
 				</li>
 			) : (
 				<li>
-					<button onClick={() => logout()} className={styles.link}>
+					<button
+						onClick={() => {
+							logout();
+							push('/auth');
+						}}
+						className={styles.link}
+					>
 						<div className={styles.icon}>
 							<MaterialIcon muiName='LoginIcon' />
 						</div>

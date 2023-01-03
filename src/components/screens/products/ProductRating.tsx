@@ -9,7 +9,7 @@ const arr = [1, 2, 3, 4, 5];
 const ProductRating: FC<{ rate: number; productId: number }> = ({
 	productId,
 }) => {
-	const { userRate, rate, evaluteProductMutation } =
+	const { userRate, rate, evaluteProductMutation, isError } =
 		useSingleProduct(productId);
 
 	const colored = rate - 1;
@@ -35,8 +35,14 @@ const ProductRating: FC<{ rate: number; productId: number }> = ({
 				</div>
 			</div>
 			<div className={styles.userRate}>
-				<strong>Ваша оценка: {userRate}</strong>
-				<MaterialIcon muiName='MdStar' />
+				{isError ? (
+					<strong>Чтобы поставить оценку нужно авторизоваться</strong>
+				) : (
+					<>
+						<strong>Ваша оценка: {userRate}</strong>
+						<MaterialIcon muiName='MdStar' />
+					</>
+				)}
 			</div>
 		</div>
 	);

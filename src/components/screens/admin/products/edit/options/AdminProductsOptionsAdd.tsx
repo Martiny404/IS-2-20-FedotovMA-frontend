@@ -3,7 +3,6 @@ import { useProduct } from '@/hooks/data/product/useAdminProduct';
 import { useProductOptions } from '@/hooks/data/product/useProductOptions';
 import { Option, OptionValue } from '@/types/option.types';
 import { FC, FormEvent, useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
 import styles from './AdminProductsOptions.module.scss';
 
 const group = 'product-option-group';

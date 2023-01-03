@@ -2,13 +2,14 @@ import { Button } from '@/components/ui/form-elements/Button';
 import { Heading } from '@/components/ui/heading/Heading';
 import { HorizontalProductCard } from '@/components/ui/horizontal-product-card/HorizontalProductCard';
 import { useGetUserBasket } from '@/hooks/data/users/useGetUserBasket';
+import { CreateOrderDto, CreateOrderItem } from '@/services/order.service';
 import { Meta } from '@/utils/meta/Meta';
 import { parsePrice } from '@/utils/parsePrice';
 import { FC } from 'react';
 import styles from './Basket.module.scss';
 
 export const Basket: FC = () => {
-	const { data } = useGetUserBasket();
+	const { data, createOrderMutation } = useGetUserBasket();
 
 	const products = data.map(item => ({
 		p: item.product.discount_percentage
@@ -20,10 +21,14 @@ export const Basket: FC = () => {
 
 	const total = products.reduce((acc, v) => acc + v.p * v.q, 0);
 
-	const orderProducts = data.map(item => ({
+	const orderProducts: CreateOrderItem[] = data.map(item => ({
 		productId: item.product.id,
 		quantity: item.quantity,
 	}));
+
+	const dto: CreateOrderDto = {
+		orderProducts: orderProducts,
+	};
 
 	return (
 		<Meta
@@ -44,7 +49,7 @@ export const Basket: FC = () => {
 			</ul>
 			<div className={styles.block}>
 				<strong>Общая сумма: {parsePrice(total)} ₽</strong>
-				<Button>оформить заказ</Button>
+				<Button onClick={() => createOrderMutation(dto)}>оформить заказ</Button>
 			</div>
 		</Meta>
 	);

@@ -43,7 +43,7 @@ export const SearchList: FC<{
 							</Link>
 							<Link
 								className={clsx('my-link')}
-								href={getCatalogUrl(`categoryId=${product.category.id}`)}
+								href={getCatalogUrl(`id=${product.category.id}`)}
 							>
 								Перейти к {product.category.name}
 							</Link>

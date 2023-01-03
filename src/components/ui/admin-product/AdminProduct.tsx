@@ -29,7 +29,9 @@ export const AdminProduct: FC<{ item: ProductTypes.IProduct }> = ({ item }) => {
 				<span>Название: {item.name}</span>
 				<span>Бренд: {item.brand.name}</span>
 				<span>Категория: {item.category.name}</span>
-				<span>Кол-во продаж: {item.productOrders}</span>
+				{typeof item.productOrders !== 'undefined' && (
+					<span>Кол-во продаж: {item.productOrders}</span>
+				)}
 				<span>Цена: {parsePrice(item.price)} ₽</span>
 				<span>В наличии: {item.inStock}</span>
 				<span className={color}>{status}</span>

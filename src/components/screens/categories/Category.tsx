@@ -18,6 +18,13 @@ export const Category: FC<{ category: ICategory }> = ({ category }) => {
 		>
 			<div className={styles.category}>
 				<Heading headingLevel='h1'>{category.name}</Heading>
+				<Link
+					style={{ marginBottom: 20 }}
+					className='my-link'
+					href={getCatalogUrl(`id=${category.id}`)}
+				>
+					Перейти в каталог к покупкам
+				</Link>
 				<div className={styles.content}>
 					{category.description ? (
 						<div
@@ -64,7 +71,7 @@ export const Category: FC<{ category: ICategory }> = ({ category }) => {
 									price: product.price,
 									product_name: product.name,
 									product_status: product.status,
-									rating: '',
+									rating: product.rating.toString(),
 									updated_at: product.updatedAt,
 								}}
 							/>
@@ -73,13 +80,6 @@ export const Category: FC<{ category: ICategory }> = ({ category }) => {
 						<Heading headingLevel='h3'>Список пуст!</Heading>
 					)}
 				</ul>
-
-				<Link
-					className='my-link'
-					href={getCatalogUrl(`categoryId=${category.id}`)}
-				>
-					Перейти в каталог к покупкам
-				</Link>
 			</div>
 		</Meta>
 	);

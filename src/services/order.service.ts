@@ -44,3 +44,23 @@ export const changeOrderStatus = async (dto: changeOrderStatusDto) => {
 	);
 	return response.data;
 };
+
+export const cancleOrder = async (orderId: number) => {
+	const response = await instance.patch(getOrderApi(`cancle/${orderId}`));
+	return response.data;
+};
+
+export interface CreateOrderItem {
+	productId: number;
+	quantity: number;
+}
+
+export interface CreateOrderDto {
+	orderProducts: CreateOrderItem[];
+}
+
+export const createOrder = async (dto: CreateOrderDto) => {
+	if (dto.orderProducts.length == 0) return;
+	const response = await instance.post(getOrderApi(''), dto);
+	return response;
+};

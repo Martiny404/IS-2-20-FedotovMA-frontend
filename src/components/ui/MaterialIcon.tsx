@@ -19,6 +19,7 @@ import {
 	FaUsers,
 	FaVk,
 	FaTrash,
+	FaChevronUp,
 } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdPricetags } from 'react-icons/io';
@@ -61,6 +62,7 @@ const icons = {
 	CgSmileSad: CgSmileSad,
 	BsCheckLg: BsCheckLg,
 	AiFillEye: AiFillEye,
+	FaChevronUp: FaChevronUp,
 };
 
 export type MaterialIconType = keyof typeof icons;
