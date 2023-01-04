@@ -18,6 +18,8 @@ export const REMOVE_ORDER = 'remove-order';
 export const TOGGLE_ORDER_ACTIVE = 'toggle-order-active';
 export const CANCLE_ORDER = 'cancle-order';
 export const CREATE_ORDER = 'create-order';
+export const ACTIVATE_ORDER = 'activate-order';
+export const SEND_ACTIVATION_CODE = 'send-activation-code';
 
 export const GET_ALL_USERS = 'get-all-users';
 export const GET_USER_WISHLIST = 'get-user-wishlist';

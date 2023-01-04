@@ -15,7 +15,6 @@ export const Wishlist: FC = () => {
 			<Heading headingLevel='h1'>Избранное</Heading>
 			<ul style={{ marginTop: 30 }}>
 				{data.map(item => {
-					console.log(item);
 					return (
 						<HorizontalProductCard
 							key={item.id}

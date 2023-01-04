@@ -81,15 +81,46 @@
 	padding: 10px;
 	border-radius: var(--main-radius);
 
+	.orderTitle {
+		display: block;
+		margin-bottom: 20px;
+	}
+
 	&:not(:last-child) {
 		margin-bottom: 20px;
 	}
 }
 
-.cancleOrder {
-	min-width: 160px;
-	min-height: 30px;
+.actionsBtns {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	margin-top: 30px;
+
+	> button {
+		&:not(:last-child) {
+			margin-bottom: 15px;
+		}
+		&:last-child {
+			background: rgb(21, 125, 21);
+			min-width: 180px;
+			transition: all 0.25s ease-in-out;
+
+			&:disabled {
+				background: rgba(21, 125, 21, 0.8);
+			}
+			border: none;
+		}
+		min-width: 160px;
+		min-height: 30px;
+	}
+}
+
+.modalWrapper {
+	margin-top: 20px;
+	> button {
+		min-height: 30px;
+	}
 }
 
 .header {
@@ -132,8 +163,21 @@
 	box-shadow: var(--shadow-dns);
 	border-radius: var(--main-radius);
 
-	> li:not(:last-child) {
+	> div:not(:last-child) {
 		margin-bottom: 15px;
+	}
+}
+
+.activateForm {
+	padding: 20px;
+
+	> h3 {
+		margin-bottom: 15px;
+	}
+	> form {
+		> div {
+			margin-bottom: 40px;
+		}
 	}
 }
 

@@ -62,5 +62,25 @@ export interface CreateOrderDto {
 export const createOrder = async (dto: CreateOrderDto) => {
 	if (dto.orderProducts.length == 0) return;
 	const response = await instance.post(getOrderApi(''), dto);
-	return response;
+	return response.data;
+};
+
+export const sendCode = async (orderId: number) => {
+	const response = await instance.patch(getOrderApi(`send-code/${orderId}`));
+	return response.data;
+};
+
+export interface ActivateOrderDto {
+	code: string;
+	orderId: number;
+}
+
+export const activateOrder = async (dto: ActivateOrderDto) => {
+	const response = await instance.patch(
+		getOrderApi(`activate/${dto.orderId}`),
+		{
+			code: dto.code,
+		}
+	);
+	return response.data;
 };

@@ -12,13 +12,8 @@ export const ProfileOrderProduct: FC<{
 
 	const rating = total ? total / orderProduct.product.rating.length : 0;
 
-	console.log({
-		...orderProduct.product,
-		rating,
-	});
-
 	return (
-		<li>
+		<div>
 			<span>Количество: {orderProduct.quantity}</span>
 			<div>
 				<HorizontalProductCard
@@ -28,6 +23,6 @@ export const ProfileOrderProduct: FC<{
 					}}
 				/>
 			</div>
-		</li>
+		</div>
 	);
 };

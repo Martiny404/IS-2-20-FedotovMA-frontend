@@ -1,10 +1,17 @@
 import {
+	ACTIVATE_ORDER,
 	ADD_VALIDATION_CODE,
 	CANCLE_ORDER,
 	GET_USER_ME,
+	SEND_ACTIVATION_CODE,
 	UPDATE_USER_INFO,
 } from '@/constants/queries';
-import { cancleOrder } from '@/services/order.service';
+import {
+	activateOrder,
+	ActivateOrderDto,
+	cancleOrder,
+	sendCode,
+} from '@/services/order.service';
 import {
 	addValidationCode,
 	getUserMe,
@@ -71,6 +78,35 @@ export const useGetMe = () => {
 		}
 	);
 
+	const [codeSended, setCodeSended] = useState(false);
+
+	const { mutateAsync: sendOrderCodeMutation } = useMutation(
+		SEND_ACTIVATION_CODE,
+		(orderId: number) => sendCode(orderId),
+		{
+			onError(e) {
+				errorHandler(e);
+			},
+			onSuccess() {
+				setCodeSended(true);
+			},
+		}
+	);
+
+	const { mutateAsync: activateOrderMutation } = useMutation(
+		ACTIVATE_ORDER,
+		(dto: ActivateOrderDto) => activateOrder(dto),
+		{
+			onError(e) {
+				errorHandler(e);
+			},
+			onSuccess() {
+				refetch();
+				setCodeSended(false);
+			},
+		}
+	);
+
 	return {
 		data,
 		isLoading,
@@ -80,5 +116,9 @@ export const useGetMe = () => {
 		updateUserMutation,
 		codeLoading,
 		cancleOrderMutation,
+		sendOrderCodeMutation,
+		codeSended,
+		setCodeSended,
+		activateOrderMutation,
 	};
 };
