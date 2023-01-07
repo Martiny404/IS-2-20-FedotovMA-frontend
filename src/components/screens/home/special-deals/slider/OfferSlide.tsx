@@ -8,7 +8,7 @@ export const OfferSlide: FC<{ offer: IOffer }> = ({ offer }) => {
 	return (
 		<Link
 			href={getCatalogUrl(
-				`categoryId=${offer.category.id}&brandId=${offer.brand.id}&discount=true`
+				`id=${offer.category.id}&brandId=${offer.brand.id}&discount=true`
 			)}
 			style={{
 				position: 'relative',

@@ -2,6 +2,7 @@ import { axiosClassic, instance } from '@/api/interceptors.api';
 import { ICreateProduct } from '@/components/screens/admin/products/create/CreateProduct.interface';
 import { getProductApi } from '@/config/api.config';
 import { ProductTypes } from '@/types/product.types';
+import axios from 'axios';
 
 export const getBySearchTerm = async (searchTerm: string) => {
 	const data = await axiosClassic.get<ProductTypes.ISearchProduct[]>(
@@ -16,7 +17,7 @@ export const getBySearchTerm = async (searchTerm: string) => {
 };
 
 export const getOne = async (id: string) => {
-	const response = await axiosClassic.get<ProductTypes.IProduct>(
+	const response = await axios.get<ProductTypes.IProduct>(
 		getProductApi(`info/${id}`)
 	);
 	return response.data;
@@ -56,7 +57,7 @@ export const getAllProducts = async (dto: GetAllProductsDto) => {
 };
 
 export const getProducts = async () => {
-	const response = await axiosClassic.get<ProductTypes.IProduct[]>(
+	const response = await axios.get<ProductTypes.IProduct[]>(
 		getProductApi('all')
 	);
 	return response.data;

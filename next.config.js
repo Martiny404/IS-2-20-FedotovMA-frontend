@@ -5,8 +5,6 @@ const nextConfig = {
 	reactStrictMode: false,
 	optimizeFonts: true,
 	env: {
-		APP_URL: process.env.REACT_APP_URL,
-		APP_ENV: process.env.REACT_APP_ENV,
 		APP_SERVER_URL: process.env.REACT_APP_SERVER_URL,
 	},
 	images: {
@@ -14,7 +12,7 @@ const nextConfig = {
 			{
 				protocol: 'http',
 				hostname: 'localhost',
-				port: '3000',
+				port: '5000',
 				pathname: '/static/**',
 			},
 		],
@@ -22,10 +20,10 @@ const nextConfig = {
 
 	async rewrites() {
 		return [
-			{
-				source: '/api/:path*',
-				destination: `http://localhost:5000/api/:path*`,
-			},
+			// {
+			// 	source: '/api/:path*',
+			// 	destination: `http://localhost:5000/api/:path*`,
+			// },
 			{
 				source: '/static/:path*',
 				destination: `http://localhost:5000/static/:path*`,

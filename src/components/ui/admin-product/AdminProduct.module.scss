@@ -22,7 +22,6 @@
 		flex-direction: column;
 		> span {
 			display: block;
-			word-break: break-all;
 			font-weight: 700;
 			&:not(:last-child) {
 				margin-bottom: 7px;

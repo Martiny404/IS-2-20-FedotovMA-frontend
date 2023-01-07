@@ -55,7 +55,6 @@ export const ProductDescription: FC<{ product: ProductTypes.IProduct }> = ({
 						height={45}
 					/>
 				</div>
-				<div></div>
 			</div>
 			<div className={styles.views}>
 				<span>{product.views}</span>

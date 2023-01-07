@@ -11,8 +11,6 @@ import { AdminCategoryOptionsList } from './AdminCategoryOptionsList';
 export const AdminCategoryOptions: FC = () => {
 	const { category } = useCategoryOptions();
 
-	const {} = useForm();
-
 	return (
 		<Meta title='Страница характеристик у категории'>
 			<Link

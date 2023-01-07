@@ -16,22 +16,10 @@ export const SpecialDealsPaper: FC = () => {
 				<Heading className={styles.title} headingLevel='h4'>
 					Акции
 				</Heading>
-				<ul className='simple-list '>
-					<li>
-						<Link href='/offers/brands'>
-							<span className='my-link'>По брендам</span>
-						</Link>
-					</li>
-					<li>
-						<Link href='/offers/categories'>
-							<span className='my-link'>По категориям</span>
-						</Link>
-					</li>
-				</ul>
 				<div className={styles.buttonsWrapper}>
-					<Button onClick={() => router.push('/offers')} className={styles.btn}>
+					<Link href='/offers' className='my-link'>
 						Все акции
-					</Button>
+					</Link>
 				</div>
 				<div className='my-icon'>
 					<MaterialIcon muiName='DiscountIcon' />

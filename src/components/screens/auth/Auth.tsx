@@ -54,7 +54,7 @@ export const Auth: FC = () => {
 	};
 
 	return (
-		<Meta title='Страница авторизации'>
+		<Meta title='Вход | Регистрация'>
 			<section className={styles.auth}>
 				<Heading headingLevel='h1' className={styles.title}>
 					Форма входа | регистрации

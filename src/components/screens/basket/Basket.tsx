@@ -29,10 +29,11 @@ export const Basket: FC = () => {
 	const dto: CreateOrderDto = {
 		orderProducts: orderProducts,
 	};
+	console.log(dto);
 
 	return (
 		<Meta
-			title='Страница продуктами в корзине'
+			title='Корзина товаров'
 			description='Страница корзины с продуктами, которые пойдут в заказ'
 		>
 			<Heading headingLevel='h1'>Корзина</Heading>
@@ -49,7 +50,13 @@ export const Basket: FC = () => {
 			</ul>
 			<div className={styles.block}>
 				<strong>Общая сумма: {parsePrice(total)} ₽</strong>
-				<Button onClick={() => createOrderMutation(dto)}>оформить заказ</Button>
+				<Button
+					className={styles.btn}
+					disabled={dto.orderProducts.length == 0}
+					onClick={() => createOrderMutation(dto)}
+				>
+					оформить заказ
+				</Button>
 			</div>
 		</Meta>
 	);

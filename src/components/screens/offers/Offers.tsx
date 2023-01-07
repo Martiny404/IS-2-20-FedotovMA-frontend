@@ -10,21 +10,11 @@ import Link from 'next/link';
 
 export interface OfferProps {
 	offers: IOffer[];
-	type: 'all' | 'category' | 'brand';
 }
 
-export const Offers: FC<OfferProps> = ({ offers, type = 'all' }) => {
+export const Offers: FC<OfferProps> = ({ offers }) => {
 	const createLink = (categoryId: number, brandId: number) => {
-		switch (type) {
-			case 'brand':
-				return getCatalogUrl(`brandId=${brandId}&discount=true`);
-			case 'category':
-				return getCatalogUrl(`categoryId=${categoryId}&discount=true`);
-			default:
-				return getCatalogUrl(
-					`categoryId=${categoryId}&brandId=${brandId}&discount=true`
-				);
-		}
+		return `id=${categoryId}&brandId=${brandId}&discount=true`;
 	};
 
 	return (
@@ -39,7 +29,11 @@ export const Offers: FC<OfferProps> = ({ offers, type = 'all' }) => {
 			<ul className={styles.list}>
 				{offers.map(offer => (
 					<li className={styles.item} key={offer.id}>
-						<Link href={createLink(offer.category.id, offer.brand.id)}>
+						<Link
+							href={getCatalogUrl(
+								createLink(offer.category.id, offer.brand.id)
+							)}
+						>
 							<div className={styles.img}>
 								<Image
 									width={200}
@@ -51,16 +45,8 @@ export const Offers: FC<OfferProps> = ({ offers, type = 'all' }) => {
 						</Link>
 						<div className={styles.text}>
 							<strong>Заголовок: {offer.description}</strong>
-							{type == 'all' && (
-								<>
-									<strong>{offer.category.name}</strong>
-									<strong>{offer.brand.name}</strong>
-								</>
-							)}
-							{type == 'brand' && <strong>Бренд: {offer.brand.name}</strong>}
-							{type == 'category' && (
-								<strong>Категория: {offer.category.name}</strong>
-							)}
+							<strong>{offer.category.name}</strong>
+							<strong>{offer.brand.name}</strong>
 						</div>
 					</li>
 				))}

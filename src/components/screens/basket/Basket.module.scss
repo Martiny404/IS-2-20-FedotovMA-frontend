@@ -8,3 +8,9 @@
 		min-width: 120px;
 	}
 }
+.btn {
+	&:disabled {
+		background: crimson;
+		border: none;
+	}
+}

@@ -39,7 +39,7 @@ export const Profile: FC = () => {
 	if (isLoading) {
 		return (
 			<Meta
-				title='Страница профиля пользователя'
+				title='Мой профиль'
 				description='Страница с информацией пользователя'
 			>
 				<Heading headingLevel='h1'>Загрузка...</Heading>
@@ -49,7 +49,7 @@ export const Profile: FC = () => {
 	if (!me) {
 		return (
 			<Meta
-				title='Страница профиля пользователя'
+				title='Мой профиль'
 				description='Страница с информацией пользователя'
 			>
 				<Heading headingLevel='h1'>Что-то пошло не так...</Heading>
@@ -60,10 +60,7 @@ export const Profile: FC = () => {
 	const [userStatus, color] = parseUserStatus(me.isActivated);
 
 	return (
-		<Meta
-			title='Страница профиля пользователя'
-			description='Страница с информацией пользователя'
-		>
+		<Meta title='Мой профиль' description='Страница с информацией пользователя'>
 			<div className={styles.wrapper}>
 				<ProfileNavigation />
 				<div className={styles.top}>

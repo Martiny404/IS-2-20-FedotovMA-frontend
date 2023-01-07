@@ -60,7 +60,6 @@ export interface CreateOrderDto {
 }
 
 export const createOrder = async (dto: CreateOrderDto) => {
-	if (dto.orderProducts.length == 0) return;
 	const response = await instance.post(getOrderApi(''), dto);
 	return response.data;
 };

@@ -1,4 +1,5 @@
-export const API_URL = `${process.env.APP_URL}/api`;
+export const API_URL = `${process.env.APP_SERVER_URL}/api`;
+
 export const getUserApi = (endpoint: string) => `${API_URL}/user/${endpoint}`;
 export const getProductApi = (endpoint: string) =>
 	`${API_URL}/product/${endpoint}`;

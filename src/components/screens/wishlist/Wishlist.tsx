@@ -9,7 +9,7 @@ export const Wishlist: FC = () => {
 
 	return (
 		<Meta
-			title='Страница с избранными продуктами'
+			title='Избранные товары'
 			description='Страница с любимыми или избранными продуктами пользователя'
 		>
 			<Heading headingLevel='h1'>Избранное</Heading>
