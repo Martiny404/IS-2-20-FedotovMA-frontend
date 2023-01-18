@@ -1,4 +1,4 @@
-import { getAdminUrl } from '@/config/url.config';
+import { getAdminUrl, getBrandsUrl } from '@/config/url.config';
 import { ProductStatus, ProductTypes } from '@/types/product.types';
 import { parsePrice } from '@/utils/parsePrice';
 import { parseProductStatus } from '@/utils/parseProductStatus';
@@ -27,8 +27,14 @@ export const AdminProduct: FC<{ item: ProductTypes.IProduct }> = ({ item }) => {
 			</Link>
 			<div className={styles.info}>
 				<span>Название: {item.name}</span>
-				<span>Бренд: {item.brand.name}</span>
-				<span>Категория: {item.category.name}</span>
+				<div className={styles.links}>
+					<Link href={getBrandsUrl(item.brand.id)} className='my-link'>
+						Бренд: {item.brand.name}
+					</Link>
+					<Link href={getBrandsUrl(item.category.id)} className='my-link'>
+						Категория: {item.category.name}
+					</Link>
+				</div>
 				{typeof item.productOrders !== 'undefined' && (
 					<span>Кол-во продаж: {item.productOrders}</span>
 				)}

@@ -4,6 +4,7 @@ import { Heading } from '@/components/ui/heading/Heading';
 import { MaterialIcon } from '@/components/ui/MaterialIcon';
 import { Modal } from '@/components/ui/modal';
 import { useGetMe } from '@/hooks/data/users/useGetMe';
+import { OrderTypes } from '@/types/order/order.types';
 import { UserTypes } from '@/types/user.types';
 import { parseDate } from '@/utils/parseDate';
 import { parseOrderActivated } from '@/utils/parseOrderActivated';
@@ -71,13 +72,16 @@ export const ProfileOrder: FC<{
 					>
 						Отменить заказ
 					</Button>
-					<Button
-						disabled={codeSended}
-						onClick={onSendCode}
-						className={styles.activateBtn}
-					>
-						{codeSended ? 'Код отправлен' : '						Отправить код активации'}
-					</Button>
+
+					{order.orderStatus == OrderTypes.OrderStatus.IN_WAITING && (
+						<Button
+							disabled={codeSended}
+							onClick={onSendCode}
+							className={styles.activateBtn}
+						>
+							{codeSended ? 'Код отправлен' : '						Отправить код активации'}
+						</Button>
+					)}
 				</div>
 
 				<CSSTransition

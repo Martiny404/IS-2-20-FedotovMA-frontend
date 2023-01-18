@@ -1,9 +1,9 @@
-import { SkeletonLoader } from '@/components/ui/skeleton/SkeletonLoader';
 import { FC, useMemo } from 'react';
 
 import styles from '../Admin.module.scss';
 import { useMostOrderedProducts } from '@/hooks/data/statistic/useMostOrderedProducts';
 import { AdminProduct } from '@/components/ui/admin-product/AdminProduct';
+import { Heading } from '@/components/ui/heading/Heading';
 
 export const TopThreeProducts: FC = () => {
 	const { data, isLoading } = useMostOrderedProducts();
@@ -13,14 +13,7 @@ export const TopThreeProducts: FC = () => {
 	}, [data]);
 
 	if (isLoading) {
-		<ul className={styles.block}>
-			<SkeletonLoader
-				width='100%'
-				className={styles.loader}
-				height={100}
-				count={3}
-			/>
-		</ul>;
+		<Heading headingLevel='h2'>Загрузка...</Heading>;
 	}
 
 	return (

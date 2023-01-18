@@ -84,7 +84,7 @@ export const CatalogSort: FC = () => {
 			<div>
 				<label>
 					<input value='asc' type='radio' {...register('type')} />
-					<span>По возврастанию</span>
+					<span>По возрастанию</span>
 				</label>
 				<label>
 					<input value='desc' type='radio' {...register('type')} />

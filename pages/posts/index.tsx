@@ -9,11 +9,11 @@ const PostsPage: NextPage<{ posts: IPost[] }> = ({ posts }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 	try {
-		const posts = await getAllPosts();
+		const data = await getAllPosts();
 
 		return {
 			props: {
-				posts,
+				posts: data,
 			},
 		};
 	} catch (e) {

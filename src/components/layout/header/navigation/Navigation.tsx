@@ -52,6 +52,7 @@ export const Navigation: FC<INavigationProps> = ({
 							title='Корзина'
 							notifications={basketLength}
 						/>
+						<NavigationItem icon='FaHome' link='/' title='Главная' />
 					</ul>
 					<div className='hr'></div>
 					<AuthItems />

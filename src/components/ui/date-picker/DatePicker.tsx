@@ -1,5 +1,4 @@
-import clsx from 'clsx';
-import { forwardRef, InputHTMLAttributes, memo } from 'react';
+import { forwardRef } from 'react';
 import { IDatePicker } from '../form-elements/form.interface';
 import styles from '../form-elements/form-elements.module.scss';
 
@@ -13,7 +12,7 @@ export const DatePicker = forwardRef<HTMLInputElement, IDatePicker>(
 						type='date'
 						value={value}
 						onChange={onChange}
-						className={clsx('my-datepicker', className)}
+						className={className}
 						{...rest}
 					/>
 				</label>

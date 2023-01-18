@@ -1,6 +1,5 @@
 import { DatePicker } from '@/components/ui/date-picker/DatePicker';
 import { useGetOrdersByTime } from '@/hooks/data/statistic/useGetOrdersByTime';
-import { useRouter } from 'next/router';
 import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 

@@ -43,37 +43,37 @@
 	color: var(--color-primary);
 }
 
-.my-datepicker {
-	font-family: 'Roboto', monospace;
-	background-color: var(--color-primary);
+input[type='date'] {
 	padding: 15px;
-	color: #ffffff;
-	font-size: 18px;
-	border: none;
-	outline: none;
-	border-radius: 5px;
-}
-::-webkit-calendar-picker-indicator {
-	background-color: #ffffff;
-	padding: 5px;
-	cursor: pointer;
-	border-radius: 3px;
-	-webkit-appearance: none;
+	background-color: var(--color-white);
+	box-shadow: var(--shadow-dns);
+	font-size: 14px;
+	border-radius: var(--main-radius);
 }
 
-@media (max-width: 500px) {
-	.my-datepicker {
-		width: 140px;
-		padding: 6px;
-	}
+::-webkit-datetime-edit {
+}
 
-	::-webkit-calendar-picker-indicator {
-		background-color: #ffffff;
-		padding: 3px;
-		cursor: pointer;
-		border-radius: 3px;
-		-webkit-appearance: none;
-	}
+::-webkit-datetime-edit-text {
+	color: var(--color-blue);
+}
+
+::-webkit-datetime-edit-fields-wrapper {
+	background: var(--color-white);
+}
+
+::-webkit-datetime-edit-month-field {
+	color: var(--color-blue);
+	font-weight: 700;
+}
+
+::-webkit-datetime-edit-day-field {
+	color: var(--color-blue);
+	font-weight: 700;
+}
+::-webkit-datetime-edit-year-field {
+	color: var(--color-blue);
+	font-weight: 700;
 }
 
 .red {

@@ -20,6 +20,7 @@ import {
 	FaVk,
 	FaTrash,
 	FaChevronUp,
+	FaHome,
 } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdPricetags } from 'react-icons/io';
@@ -63,6 +64,7 @@ const icons = {
 	BsCheckLg: BsCheckLg,
 	AiFillEye: AiFillEye,
 	FaChevronUp: FaChevronUp,
+	FaHome: FaHome,
 };
 
 export type MaterialIconType = keyof typeof icons;
