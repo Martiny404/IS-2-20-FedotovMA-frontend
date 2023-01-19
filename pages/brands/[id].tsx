@@ -38,6 +38,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			props: {
 				brand,
 			},
+			revalidate: 10,
 		};
 	} catch (e) {
 		return {

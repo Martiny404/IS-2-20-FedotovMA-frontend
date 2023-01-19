@@ -15,6 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
 			props: {
 				posts: data,
 			},
+			revalidate: 10,
 		};
 	} catch (e) {
 		return {

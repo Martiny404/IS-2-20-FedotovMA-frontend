@@ -48,6 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 				post,
 				similarPosts,
 			},
+			revalidate: 10,
 		};
 	} catch (e) {
 		return {
