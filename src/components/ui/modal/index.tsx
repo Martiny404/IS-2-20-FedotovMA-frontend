@@ -7,18 +7,15 @@ export interface IModal {
 	onClose: () => void;
 	opened: boolean;
 }
-
 export const Modal: FC<PropsWithChildren<IModal>> = ({
 	opened,
 	onClose,
 	children,
 }) => {
 	const { mounted } = useMount(opened);
-
 	if (!mounted) {
 		return null;
 	}
-
 	return (
 		<Portal>
 			<ModalLayout onClose={onClose} opened={opened}>

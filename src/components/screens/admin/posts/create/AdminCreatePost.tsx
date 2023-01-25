@@ -3,15 +3,14 @@ import { Field } from '@/components/ui/form-elements/Field';
 import { TextField } from '@/components/ui/form-elements/text-field/TextField';
 import UploadField from '@/components/ui/form-elements/upload-field/UploadField';
 import { getAdminUrl } from '@/config/url.config';
-import { useCreateBrand } from '@/hooks/data/brand/useCreateBrand';
 import { useCreatePost } from '@/hooks/data/posts/useCreatePost';
-import { CreateBrandDto } from '@/services/brand.service';
 import { CreatePostDto } from '@/services/posts.service';
 import { Meta } from '@/utils/meta/Meta';
 import Link from 'next/link';
 import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import styles from '../../AdminPublic.module.scss';
+
 export const AdminCreatePost: FC = () => {
 	const {
 		handleSubmit,
@@ -22,14 +21,11 @@ export const AdminCreatePost: FC = () => {
 	} = useForm<CreatePostDto>({
 		mode: 'onChange',
 	});
-
 	const { createPostMutation } = useCreatePost();
-
 	const onSubmit: SubmitHandler<CreatePostDto> = data => {
 		createPostMutation(data);
 		reset();
 	};
-
 	return (
 		<Meta title='Страница создания статьи'>
 			<Link className='my-link' href={getAdminUrl('posts')}>
